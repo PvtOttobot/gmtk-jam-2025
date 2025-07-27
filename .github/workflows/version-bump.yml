@@ -9,10 +9,11 @@ on:
       - closed
     branches:
       - release
+  workflow_dispatch:
 
 jobs:
   build:
-    if: github.event.pull_request.merged == true
+    # if: github.event.pull_request.merged == true
     runs-on: ubuntu-22.04
     permissions:
       contents: write
@@ -27,4 +28,3 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # if you don't want to set write permissions use a PAT token
         TAG_PREFIX: v
-        PRERELEASE: true

@@ -21,8 +21,8 @@ jobs:
         ref: ${{ github.event.pull_request.merge_commit_sha }}
         fetch-depth: '0'
 
-    - name: Bump version and push tag
-      uses: anothrNick/github-tag-action@latest
+    - name: Github Tag Bump
+      uses: anothrNick/github-tag-action@1.73.0 
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # if you don't want to set write permissions use a PAT token
         TAG_PREFIX: v

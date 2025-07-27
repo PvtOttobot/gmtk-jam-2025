@@ -2,7 +2,10 @@
 # See that project for other export platforms.
 
 name: "godot-ci export"
-on: push
+
+on:
+  workflow_dispatch:
+  push:
 
 env:
   GODOT_VERSION: 4.3

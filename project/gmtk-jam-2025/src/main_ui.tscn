@@ -21,4 +21,7 @@ offset_right = 45.0
 offset_bottom = 12.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "Hello world"
+text = "Hello world 2"
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(578, 324)

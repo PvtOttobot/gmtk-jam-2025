@@ -26,4 +26,4 @@ jobs:
       uses: anothrNick/github-tag-action@1.73.0
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # if you don't want to set write permissions use a PAT token
-        PRERELEASE: false
+        TAG_PREFIX: v

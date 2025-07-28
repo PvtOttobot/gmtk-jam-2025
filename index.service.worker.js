@@ -4,7 +4,7 @@
 // Incrementing CACHE_VERSION will kick off the install event and force
 // previously cached resources to be updated from the network.
 /** @type {string} */
-const CACHE_VERSION = '1753695981|4343735';
+const CACHE_VERSION = '1753696066|4322797';
 /** @type {string} */
 const CACHE_PREFIX = 'tutorial-brackey-sw-cache-';
 const CACHE_NAME = CACHE_PREFIX + CACHE_VERSION;

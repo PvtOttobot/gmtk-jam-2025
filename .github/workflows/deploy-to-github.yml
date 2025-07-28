@@ -8,8 +8,8 @@ on:
   push:
 
 env:
-  GODOT_VERSION: 4.3.1
-  EXPORT_NAME: gmtk-jam-2025
+  GODOT_VERSION: 4.3
+  # EXPORT_NAME: gmtk-jam-2025
   PROJECT_PATH: project/gmtk-jam-2025
 
 jobs:

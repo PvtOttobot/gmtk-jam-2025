@@ -9,7 +9,6 @@ on:
       - closed
     branches:
       - release
-  workflow_dispatch:
 
 jobs:
   build:

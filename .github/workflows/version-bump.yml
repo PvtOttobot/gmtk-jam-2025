@@ -9,11 +9,10 @@ on:
       - closed
     branches:
       - release
-  workflow_dispatch:
 
 jobs:
   build:
-    # if: github.event.pull_request.merged == true
+    if: github.event.pull_request.merged == true
     runs-on: ubuntu-22.04
     permissions:
       contents: write

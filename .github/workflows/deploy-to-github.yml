@@ -1,16 +1,22 @@
 # Copied from: https://github.com/abarichello/godot-ci/blob/master/.github/workflows/godot-ci.yml.
 # See that project for other export platforms.
+name: "godot-ci github"
 
-name: "godot-ci export"
-on: push
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - integration
 
 env:
   GODOT_VERSION: 4.3
-  EXPORT_NAME: gmtk-jam-2025
+  # EXPORT_NAME: gmtk-jam-2025
   PROJECT_PATH: project/gmtk-jam-2025
 
 jobs:
   export-web:
+    permissions:
+      contents: write
     name: Web Export
     runs-on: ubuntu-22.04
     container:

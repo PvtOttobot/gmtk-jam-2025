@@ -5,6 +5,8 @@ name: "godot-ci itch"
 on:
   workflow_dispatch:
   push:
+    branches:
+      - release
 
 env:
   GODOT_VERSION: 4.3

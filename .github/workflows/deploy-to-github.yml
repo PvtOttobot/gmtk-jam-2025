@@ -6,6 +6,8 @@ name: "godot-ci github"
 on:
   workflow_dispatch:
   push:
+    branches:
+      - integration
 
 env:
   GODOT_VERSION: 4.3

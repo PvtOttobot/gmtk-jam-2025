@@ -5,8 +5,14 @@
 [ext_resource type="PackedScene" uid="uid://boicxc6x4554n" path="res://scenes/menus/options_menu/master_options_menu_with_tabs.tscn" id="3_x31ro"]
 [ext_resource type="PackedScene" uid="uid://bg8qlntq37pp" path="res://scenes/credits/scrollable_credits.tscn" id="4_peecx"]
 
-[node name="MainMenu" instance=ExtResource("1_peecx")]
+[node name="MainMenu2" instance=ExtResource("1_peecx")]
 script = ExtResource("2_ub2bi")
 game_scene_path = "res://scenes/game_scene/game_ui.tscn"
 options_packed_scene = ExtResource("3_x31ro")
 credits_packed_scene = ExtResource("4_peecx")
+
+[node name="VersionLabel" parent="VersionMargin/VersionContainer" index="0"]
+text = "v0.1.0"
+
+[node name="TitleLabel" parent="MenuContainer/TitleMargin/TitleContainer" index="0"]
+text = "Working Title"

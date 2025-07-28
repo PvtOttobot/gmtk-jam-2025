@@ -4,7 +4,7 @@
 // Incrementing CACHE_VERSION will kick off the install event and force
 // previously cached resources to be updated from the network.
 /** @type {string} */
-const CACHE_VERSION = '1753662331|4346282';
+const CACHE_VERSION = '1753663788|4235587';
 /** @type {string} */
 const CACHE_PREFIX = 'gmtk-jam-2025-sw-cache-';
 const CACHE_NAME = CACHE_PREFIX + CACHE_VERSION;

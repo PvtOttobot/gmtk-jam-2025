@@ -32,6 +32,7 @@ jobs:
           mv /root/.local/share/godot/export_templates/${GODOT_VERSION}.stable ~/.local/share/godot/export_templates/${GODOT_VERSION}.stable
       - name: Overwrite Global Git Info
         run: |
+          git config --global --add safe.directory /__w/gmtk-jam-2025/gmtk-jam-2025
           BRANCH=$(git rev-parse --abbrev-ref HEAD)
           AUTHOR=$(git log -1 --pretty=format:"%an")
           MESSAGE=$(git log -1 --pretty=format:"%s")

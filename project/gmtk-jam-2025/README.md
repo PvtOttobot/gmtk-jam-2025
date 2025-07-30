@@ -65,12 +65,12 @@ The `examples/` folder contains an example project using inherited scenes from t
 -   Example Levels
 -   End Credits
 -   Additional Inherited Scenes:
-    -   Game Options Menu w/ Reset button
-    -   Master Options Menu w/ Game Options tab 
-    -   Main Menu w/ Animations
-    -   Opening w/ Godot Logo
-    -   Level Loading Screen
-    -   Loading Screen w/ Shader Pre-caching 
+	-   Game Options Menu w/ Reset button
+	-   Master Options Menu w/ Game Options tab 
+	-   Main Menu w/ Animations
+	-   Opening w/ Godot Logo
+	-   Level Loading Screen
+	-   Loading Screen w/ Shader Pre-caching 
 
 ### Minimal
 
@@ -104,9 +104,9 @@ When editing an existing project:
 6.  Click to Install.
 7.  Reload the project (you may see errors before you do this).
 8.  Enable the plugin from the Project Settings > Plugins tab.  
-    If it's enabled for the first time,
-    1.  A dialogue window will appear asking to copy the example scenes out of `addons/`.
-    2.  Another dialogue window will ask to update the project's main scene.
+	If it's enabled for the first time,
+	1.  A dialogue window will appear asking to copy the example scenes out of `addons/`.
+	2.  Another dialogue window will ask to update the project's main scene.
 9.  Continue with the [Existing Project Instructions](/addons/maaacks_game_template/docs/ExistingProject.md)  
 
 
@@ -118,9 +118,9 @@ When editing an existing project:
 3.  Move the `addons/maaacks_game_template` folder into your project's `addons/` folder.  
 4.  Open/Reload the project.  
 5.  Enable the plugin from the Project Settings > Plugins tab.  
-    If it's enabled for the first time,
-    1.  A dialogue window will appear asking to copy the example scenes out of `addons/`.
-    2.  Another dialogue window will ask to update the project's main scene.
+	If it's enabled for the first time,
+	1.  A dialogue window will appear asking to copy the example scenes out of `addons/`.
+	2.  Another dialogue window will ask to update the project's main scene.
 6.  Continue with the [Existing Project Instructions](/addons/maaacks_game_template/docs/ExistingProject.md) 
 
 

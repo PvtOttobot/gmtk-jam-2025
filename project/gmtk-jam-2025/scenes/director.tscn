@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://rxrsdqldj41j"]
 
-[ext_resource type="Texture2D" uid="uid://do0yw7sgktu5s" path="res://assets/Talk show host.PNG" id="1_goslu"]
+[ext_resource type="Texture2D" uid="uid://ob5becee6gw0" path="res://assets/Talk show host.PNG" id="1_goslu"]
 [ext_resource type="Script" uid="uid://4ggem0rf8ksq" path="res://scenes/director.gd" id="2_58xbc"]
 
 [node name="Director" type="Control"]

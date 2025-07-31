@@ -88,9 +88,6 @@ tutorial_scenes = Array[PackedScene]([ExtResource("5_fmabn")])
 unique_name_in_owner = true
 script = ExtResource("4_w6i3l")
 
-[node name="Timer" type="Timer" parent="GameManager"]
-one_shot = true
-
 [node name="LogoVerticalColorDark" type="Sprite2D" parent="."]
 position = Vector2(282, 414)
 scale = Vector2(0.323242, 0.293339)
@@ -103,4 +100,4 @@ libraries = {
 }
 autoplay = "game"
 
-[connection signal="timeout" from="GameManager/Timer" to="GameManager" method="_on_timer_timeout"]
+[node name="cast" type="Node2D" parent="."]

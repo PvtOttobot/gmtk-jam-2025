@@ -1,0 +1,43 @@
+[gd_scene load_steps=3 format=3 uid="uid://cqxqm55lktimv"]
+
+[ext_resource type="PackedScene" uid="uid://cnpss81rdulih" path="res://scenes/game_scene/levels/level_1.tscn" id="1_u55s7"]
+[ext_resource type="PackedScene" path="res://scenes/director.tscn" id="2_ghb4r"]
+
+[node name="Main" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="BackgroundColor" type="ColorRect" parent="."]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 0
+offset_right = 1274.0
+offset_bottom = 720.0
+alignment = 1
+
+[node name="Level1" parent="HBoxContainer" instance=ExtResource("1_u55s7")]
+custom_minimum_size = Vector2(720, 720)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer"]
+custom_minimum_size = Vector2(550, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Director" parent="HBoxContainer/VBoxContainer" node_paths=PackedStringArray("GameManager") instance=ExtResource("2_ghb4r")]
+layout_mode = 2
+size_flags_vertical = 3
+GameManager = NodePath("../../Level1/GameManager")

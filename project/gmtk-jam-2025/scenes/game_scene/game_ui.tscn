@@ -35,7 +35,7 @@ level_loading_screen = NodePath("../LevelLoadingScreen")
 [node name="LevelManager" type="Node" parent="." node_paths=PackedStringArray("level_loader", "scene_lister")]
 script = ExtResource("5_ascoc")
 level_loader = NodePath("../LevelLoader")
-starting_level_path = "res://scenes/game_scene/levels/level_1.tscn"
+starting_level_path = "uid://cqxqm55lktimv"
 scene_lister = NodePath("SceneLister")
 main_menu_scene = "res://scenes/menus/main_menu/main_menu_with_animations.tscn"
 ending_scene = "res://scenes/end_credits/end_credits.tscn"
@@ -45,7 +45,7 @@ level_won_scene = ExtResource("8_i7m4m")
 
 [node name="SceneLister" type="Node" parent="LevelManager"]
 script = ExtResource("9_rkfhe")
-files = Array[String](["res://scenes/game_scene/levels/level_1.tscn", "res://scenes/game_scene/levels/level_2.tscn", "res://scenes/game_scene/levels/level_3.tscn"])
+files = Array[String](["res://scenes/game_scene/levels/main.tscn", "res://scenes/game_scene/levels/level_2.tscn", "res://scenes/game_scene/levels/level_3.tscn"])
 directory = "res://scenes/game_scene/levels"
 
 [node name="LevelLoadingScreen" parent="." instance=ExtResource("10_g2ndc")]

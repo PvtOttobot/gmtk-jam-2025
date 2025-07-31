@@ -20,12 +20,16 @@ func _process(delta: float) -> void:
 	if (GameManager.isCensoring == true) && (GameManager.isSwearing == true):
 		progressBar.value += goodReward * delta
 		
+	# if we're not censoring and the host is not swearing - IS GOOD! 
+	elif (GameManager.isCensoring == false) && (GameManager.isSwearing == false):
+		progressBar.value += goodReward * delta
+		
 	# if we're censoring and the host is not swearing - IS BAD! 
-	if (GameManager.isCensoring == true) && (GameManager.isSwearing == false):
+	elif (GameManager.isCensoring == true) && (GameManager.isSwearing == false):
 		progressBar.value += badPunishment * delta
 		
 	# if we're not censoring and the host is swearing - IS VERY BAD! 
-	if (GameManager.isCensoring == true) && (GameManager.isSwearing == false):
+	elif (GameManager.isCensoring == false) && (GameManager.isSwearing == true):
 		progressBar.value += veryBadPunishment * delta
 		
 	if (progressBar.value == 0):

@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://cqxqm55lktimv"]
 
 [ext_resource type="PackedScene" uid="uid://cnpss81rdulih" path="res://scenes/game_scene/levels/level_1.tscn" id="1_u55s7"]
-[ext_resource type="PackedScene" path="res://scenes/director.tscn" id="2_ghb4r"]
+[ext_resource type="PackedScene" uid="uid://rxrsdqldj41j" path="res://scenes/director.tscn" id="2_ghb4r"]
 
 [node name="Main" type="Control"]
 layout_mode = 3
@@ -41,3 +41,6 @@ size_flags_horizontal = 3
 layout_mode = 2
 size_flags_vertical = 3
 GameManager = NodePath("../../Level1/GameManager")
+goodReward = 5.0
+badPunishment = -5.0
+veryBadPunishment = -25.0

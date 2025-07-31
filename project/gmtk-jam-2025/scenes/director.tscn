@@ -1,0 +1,24 @@
+[gd_scene load_steps=3 format=3 uid="uid://rxrsdqldj41j"]
+
+[ext_resource type="Texture2D" uid="uid://ob5becee6gw0" path="res://assets/Talk show host.PNG" id="1_goslu"]
+[ext_resource type="Script" uid="uid://4ggem0rf8ksq" path="res://scenes/director.gd" id="2_58xbc"]
+
+[node name="Director" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("2_58xbc")
+
+[node name="Director" type="Sprite2D" parent="."]
+position = Vector2(250, 345)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("1_goslu")
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+layout_mode = 0
+offset_left = 55.0
+offset_top = 86.0
+offset_right = 455.0
+offset_bottom = 113.0
+value = 100.0

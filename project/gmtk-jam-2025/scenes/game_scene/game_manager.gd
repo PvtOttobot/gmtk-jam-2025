@@ -1,9 +1,9 @@
 extends Node
 
 var isCensoring : bool = false
+var isSwearing : bool = false
 var isRewinding : bool = false
 
-@onready var timer: Timer = $Timer
 @onready var animation_player: AnimationPlayer = %AnimationManager
 
 @export var lifeTime : float = 1
@@ -12,9 +12,8 @@ func _unhandled_input(event: InputEvent) -> void:
 	# hitting censor notes
 	if event.is_action_pressed("interact"):
 		isCensoring = true
-		timer.start() # for checking the after half of hitting notes
-		check_censor_before()
-	
+		check_censor()
+
 	# rewind the timeline
 	if Input.is_action_just_pressed("rewind"):
 		isRewinding = true
@@ -22,9 +21,6 @@ func _unhandled_input(event: InputEvent) -> void:
 	elif Input.is_action_just_released("rewind"):
 		isRewinding = false
 		animation_player.play("game")
-	
-func _ready() -> void:
-	timer.wait_time = lifeTime / 2.0
 
 func _on_timer_timeout() -> void:
 	isCensoring = false
@@ -35,7 +31,7 @@ func censor_note(duration: float) -> void:
 	print(isCensoring)
 
 # for checking the before half of hitting notes
-func check_censor_before():
+func check_censor():
 	var lookback = lifeTime / 2.0
 	var current_time = animation_player.current_animation_position
 	var start_time = max(0.0, current_time - lookback)
@@ -52,6 +48,6 @@ func check_censor_before():
 		var key_time = animation.track_get_key_time(track_index, key_idx)
 		var method_name = animation.track_get_key_value(track_index, key_idx)
 
-		if key_time >= start_time and key_time <= current_time:
+		if key_time >= start_time and key_time <= current_time + (lifeTime / 2):
 			print("hit")
 			isCensoring = false

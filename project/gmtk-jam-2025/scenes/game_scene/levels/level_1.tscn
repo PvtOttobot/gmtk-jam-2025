@@ -81,8 +81,10 @@ color = Color(0, 0, 0, 1)
 
 [node name="TutorialManager" type="Node" parent="."]
 unique_name_in_owner = true
-script = ExtResource("4_bsimd")
-tutorial_scenes = Array[PackedScene]([ExtResource("5_fmabn")])
+libraries = {
+&"": SubResource("AnimationLibrary_623lg")
+}
+autoplay = "game"
 
 [node name="GameManager" type="Node" parent="."]
 unique_name_in_owner = true

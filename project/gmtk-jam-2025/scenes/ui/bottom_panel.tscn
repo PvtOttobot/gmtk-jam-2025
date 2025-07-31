@@ -1,0 +1,32 @@
+[gd_scene load_steps=2 format=3 uid="uid://ddcle4gpv18rm"]
+
+[ext_resource type="PackedScene" uid="uid://cpciydupld3c3" path="res://scenes/ui/bottom_panel_button.tscn" id="1_ea6f5"]
+
+[node name="BottomPanel" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="Loop_BottomPanelButton" parent="HBoxContainer" instance=ExtResource("1_ea6f5")]
+layout_mode = 2
+text = "Loop"
+
+[node name="Censor_BottomPanelButton" parent="HBoxContainer" instance=ExtResource("1_ea6f5")]
+layout_mode = 2
+text = "Censor"
+
+[node name="Forward_BottomPanelButton" parent="HBoxContainer" instance=ExtResource("1_ea6f5")]
+layout_mode = 2
+text = "Fast Forward"

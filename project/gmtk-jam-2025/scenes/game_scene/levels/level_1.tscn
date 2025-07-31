@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://cjbqlir3qtkwv" path="res://scenes/game_scene/levels/level.gd" id="1_623lg"]
 [ext_resource type="Script" uid="uid://ck7cdjnnkm4aq" path="res://scenes/game_scene/tutorial_manager.gd" id="4_bsimd"]
 [ext_resource type="Script" uid="uid://n3xoftgesrkm" path="res://scenes/game_scene/game_manager.gd" id="4_w6i3l"]
-[ext_resource type="Texture2D" uid="uid://ueskvtw0tymr" path="res://assets/godot_engine_logo/logo_vertical_color_dark.png" id="5_623lg"]
+[ext_resource type="Texture2D" uid="uid://0o3t7ltaf2dc" path="res://assets/characters/Talk show host.PNG" id="5_623lg"]
 [ext_resource type="PackedScene" uid="uid://b8vsxuuyong8g" path="res://scenes/game_scene/tutorials/tutorial_1.tscn" id="5_fmabn"]
 [ext_resource type="PackedScene" uid="uid://rxrsdqldj41j" path="res://scenes/director.tscn" id="6_sycfm"]
 
@@ -25,35 +25,39 @@ tracks/0/keys = {
 [sub_resource type="Animation" id="Animation_w6i3l"]
 resource_name = "game"
 length = 10.0
-tracks/0/type = "method"
+tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("notes")
+tracks/0/path = NodePath("cast/TalkShowHost:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(2.43333, 7.7),
-"transitions": PackedFloat32Array(1, 1),
-"values": [{
-"args": [0.0],
-"method": &"censor_note"
-}, {
-"args": [0.0],
-"method": &"censor_note"
-}]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("LogoVerticalColorDark:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
 "times": PackedFloat32Array(0, 2.25, 2.58, 3.48, 6.6, 7.38, 7.73, 8.92),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
 "update": 0,
 "values": [Vector2(282, 414), Vector2(603, 401), Vector2(598, 268), Vector2(608, 436), Vector2(872, 435), Vector2(872, 435), Vector2(898, 270), Vector2(907, 441)]
 }
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("GameManager")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(2.63333, 4.8, 7.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"values": [{
+"args": [],
+"method": &"swear_note_single"
+}, {
+"args": [2.0],
+"method": &"swear_note_long"
+}, {
+"args": [],
+"method": &"swear_note_single"
+}]
+}
+
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_623lg"]
 _data = {
@@ -89,11 +93,6 @@ tutorial_scenes = Array[PackedScene]([ExtResource("5_fmabn")])
 unique_name_in_owner = true
 script = ExtResource("4_w6i3l")
 
-[node name="LogoVerticalColorDark" type="Sprite2D" parent="."]
-position = Vector2(282, 414)
-scale = Vector2(0.323242, 0.293339)
-texture = ExtResource("5_623lg")
-
 [node name="AnimationManager" type="AnimationPlayer" parent="."]
 unique_name_in_owner = true
 libraries = {
@@ -103,7 +102,7 @@ autoplay = "game"
 
 [node name="cast" type="Node2D" parent="."]
 
-[node name="Director" parent="." instance=ExtResource("6_sycfm")]
-goodReward = 5.0
-badPunishment = -5.0
-veryBadPunishment = -25.0
+[node name="TalkShowHost" type="Sprite2D" parent="cast"]
+position = Vector2(282, 414)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("5_623lg")

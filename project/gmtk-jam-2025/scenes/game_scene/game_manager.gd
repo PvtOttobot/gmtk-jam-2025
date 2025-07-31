@@ -2,52 +2,58 @@ extends Node
 
 var isCensoring : bool = false
 var isSwearing : bool = false
+var isForwarding : bool = false
 var isRewinding : bool = false
+
+var currentNoteDuration : float = 0.0
+var notePressedTime : float = 0
 
 @onready var animation_player: AnimationPlayer = %AnimationManager
 
-@export var lifeTime : float = 1
+@export var lifeTime : float = 2
+@export var rewindSpeed : float = -20
+@export var forwardSpeed : float = 2
+
+func _process(delta: float) -> void:
+	if currentNoteDuration > 0.0:
+		if isCensoring:
+			print("hitting long")
+		else:
+			print("missing long")
+		currentNoteDuration -= delta
 
 func _unhandled_input(event: InputEvent) -> void:
 	# hitting censor notes
-	if event.is_action_pressed("interact"):
+	if Input.is_action_just_pressed("interact"):
+		notePressedTime = animation_player.current_animation_position
 		isCensoring = true
-		check_censor()
+	elif Input.is_action_just_released("interact"):
+		isCensoring = false
 
 	# rewind the timeline
 	if Input.is_action_just_pressed("rewind"):
 		isRewinding = true
-		animation_player.play_backwards("game")
+		animation_player.play("game",-1,rewindSpeed,true)
 	elif Input.is_action_just_released("rewind"):
 		isRewinding = false
 		animation_player.play("game")
+		
+	# fast-forward 
+	if Input.is_action_just_pressed("forward"):
+		isForwarding = true
+		animation_player.play("game",-1,forwardSpeed,false)
+	elif Input.is_action_just_released("forward"):
+		isForwarding = false
+		animation_player.play("game")
 
-func _on_timer_timeout() -> void:
-	isCensoring = false
-
-# the function used to place censor notes
-###### DONT PUT ANY FUNCTIONS THAT ARENT censor_note() ON TRACK notes ######
-func censor_note(duration: float) -> void:
-	print(isCensoring)
-
-# for checking the before half of hitting notes
-func check_censor():
-	var lookback = lifeTime / 2.0
-	var current_time = animation_player.current_animation_position
-	var start_time = max(0.0, current_time - lookback)
-	var animation = animation_player.get_animation(animation_player.current_animation)
-	if not animation:
-		return
-
-	var track_index = animation.find_track("notes", Animation.TYPE_METHOD)
-	if track_index == -1:
-		print("No 'notes' call method track found.")
-		return
-
-	for key_idx in animation.track_get_key_count(track_index):
-		var key_time = animation.track_get_key_time(track_index, key_idx)
-		var method_name = animation.track_get_key_value(track_index, key_idx)
-
-		if key_time >= start_time and key_time <= current_time + (lifeTime / 2):
-			print("hit")
-			isCensoring = false
+# the function used to place swear notes
+func swear_note_single() -> void:
+	var timeOffset = abs(notePressedTime - animation_player.current_animation_position)
+	print(timeOffset <= lifeTime)
+	if timeOffset <= lifeTime:
+		print("hit single")
+	else:
+		print("missed single")
+	
+func swear_note_long(duration: float) -> void:
+	currentNoteDuration = duration

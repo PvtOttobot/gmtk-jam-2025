@@ -1,9 +1,11 @@
-[gd_scene load_steps=2 format=3 uid="uid://cpciydupld3c3"]
+[gd_scene load_steps=3 format=3 uid="uid://cpciydupld3c3"]
 
 [ext_resource type="Script" uid="uid://7ox5k4is7t7n" path="res://scenes/ui/bottom_panel_button.gd" id="1_j8v3v"]
 
-[node name="BottomPanelButton" type="Control"]
-layout_mode = 3
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_j8v3v"]
+bg_color = Color(0.399936, 0.399936, 0.399936, 1)
+
+[node name="BottomPanelButton" type="Panel"]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -11,13 +13,22 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_j8v3v")
 script = ExtResource("1_j8v3v")
 
-[node name="Button" type="Button" parent="."]
+[node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "Shouldn't see this default"
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 12
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 12
+
+[node name="TextureButton" type="TextureButton" parent="MarginContainer"]
+layout_mode = 2
+ignore_texture_size = true
+stretch_mode = 5

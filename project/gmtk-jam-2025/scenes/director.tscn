@@ -9,6 +9,8 @@ anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 script = ExtResource("2_58xbc")
+amp = 1.0
+freq = 10.0
 
 [node name="Director" type="Sprite2D" parent="."]
 position = Vector2(250, 345)

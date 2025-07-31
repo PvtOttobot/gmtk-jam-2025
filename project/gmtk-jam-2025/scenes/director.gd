@@ -6,6 +6,11 @@ extends Node
 @export var badPunishment : float
 @export var veryBadPunishment : float
 
+@export var amp  := 0.2
+@export var freq := 8.0
+
+@onready var director: Sprite2D = $Director
+
 signal pullPlug
 
 func _process(delta: float) -> void:
@@ -24,3 +29,9 @@ func _process(delta: float) -> void:
 		
 	if (progressBar.value == 0):
 		pullPlug.emit()
+		
+	director.rotation = sin(Time.get_ticks_msec() * 0.001 * freq) * amp
+
+func wiggle():
+	director.rotation = sin(Time.get_ticks_msec() * 0.001 * freq) * amp
+	

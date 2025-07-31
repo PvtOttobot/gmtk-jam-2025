@@ -2,9 +2,9 @@ extends Node
 
 @onready var progressBar: ProgressBar = $ProgressBar
 
-@export var goodReward : float
-@export var badPunishment : float
-@export var veryBadPunishment : float
+@export var goodReward : float = 5
+@export var badPunishment : float = -5
+@export var veryBadPunishment : float = -25
 
 @export var amp  := 0.2
 @export var freq := 8.0
@@ -29,9 +29,9 @@ func _process(delta: float) -> void:
 		
 	if (progressBar.value == 0):
 		pullPlug.emit()
-		
-	director.rotation = sin(Time.get_ticks_msec() * 0.001 * freq) * amp
-
+	
+	wiggle()
+	
 func wiggle():
 	director.rotation = sin(Time.get_ticks_msec() * 0.001 * freq) * amp
 	

@@ -122,3 +122,9 @@ func animationEnd():
 
 func _on_director_pull_plug() -> void:
 	pass # Replace with function body.
+	
+func start_swear():
+	pass
+	
+func end_swear():
+	pass

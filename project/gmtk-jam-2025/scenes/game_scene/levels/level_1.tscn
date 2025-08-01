@@ -12,63 +12,46 @@
 
 [sub_resource type="Animation" id="Animation_sycfm"]
 length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("LogoVerticalColorDark:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(282, 414)]
-}
 
 [sub_resource type="Animation" id="Animation_w6i3l"]
 resource_name = "game"
 length = 10.0
+step = 0.25
 tracks/0/type = "method"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("GameManager")
+tracks/0/path = NodePath("cast/TalkShowHost")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(2, 6, 8.06667, 10),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
+"times": PackedFloat32Array(0, 1, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
 "values": [{
 "args": [],
-"method": &"swear_note_single"
-}, {
-"args": [2.0],
-"method": &"swear_note_long"
+"method": &"end_swear"
 }, {
 "args": [],
-"method": &"swear_note_single"
+"method": &"start_swear"
 }, {
 "args": [],
-"method": &"animationEnd"
+"method": &"end_swear"
 }]
 }
 tracks/1/type = "method"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("cast/TalkShowHost")
+tracks/1/path = NodePath("cast/TalkShowGuest")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 1.5, 2.5),
-"transitions": PackedFloat32Array(1, 1, 1),
+"times": PackedFloat32Array(5, 5.5),
+"transitions": PackedFloat32Array(1, 1),
 "values": [{
-"args": [0.1, 0.1],
-"method": &"wiggleStart"
-}, {
-"args": [0.5, 0.5],
-"method": &"wiggleStart"
+"args": [],
+"method": &"start_swear"
 }, {
 "args": [],
-"method": &"wiggleEnd"
+"method": &"end_swear"
 }]
 }
 
@@ -90,6 +73,14 @@ animations = [{
 }],
 "loop": true,
 "name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ua84b")
+}],
+"loop": true,
+"name": &"swearing",
 "speed": 5.0
 }]
 
@@ -162,13 +153,16 @@ autoplay = "game"
 [node name="cast" type="Node2D" parent="."]
 
 [node name="TalkShowGuest" type="AnimatedSprite2D" parent="cast"]
+unique_name_in_owner = true
 position = Vector2(208, 436)
 scale = Vector2(0.07, 0.07)
 sprite_frames = SubResource("SpriteFrames_hehv2")
+animation = &"swearing"
 script = ExtResource("6_pmyid")
 freq = 1.0
 
 [node name="TalkShowHost" type="AnimatedSprite2D" parent="cast"]
+unique_name_in_owner = true
 position = Vector2(500, 400)
 scale = Vector2(0.05, 0.05)
 sprite_frames = SubResource("SpriteFrames_m77gi")

@@ -117,11 +117,12 @@ func _on_censor_timeout_timer_timeout() -> void:
 	%censorTimeoutTimer.stop()
 
 func animationEnd():
+	print("GAME END")
 	showEnd.emit()
-
 
 func _on_director_pull_plug() -> void:
 	pass # Replace with function body.
+
 	
 func start_swear():
 	pass

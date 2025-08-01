@@ -16,11 +16,6 @@ var resumeAfterPlug : bool = true
 @export var badPunishment : float = -25
 @export var veryBadPunishment : float = -25
 
-@onready var talk_show_guest: AnimatedSprite2D = %HBoxContainer/Level1/cast/TalkShowGuest
-
-@onready var talk_show_host: AnimatedSprite2D = %HBoxContainer/Level1/cast/TalkShowHost
-
-
 @export var amp  := 0.2
 @export var freq := 8.0
 

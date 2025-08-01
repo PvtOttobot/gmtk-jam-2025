@@ -20,3 +20,4 @@ build
 
 # Imported translations (automatically generated from CSV files)
 *.translation.godot/
+project/gmtk-jam-2025/.DS_Store

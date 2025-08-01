@@ -16,6 +16,8 @@ var notePressedTime : float = 0
 @export var rewindSpeed : float = -20
 @export var forwardSpeed : float = 2
 
+signal showEnd
+
 func _process(delta: float) -> void:
 	if currentNoteDuration > 0.0:
 		if isCensoring:
@@ -41,7 +43,7 @@ func _unhandled_input(event: InputEvent) -> void:
 	elif Input.is_action_just_released("rewind"):
 		isRewinding = false
 		animation_player.play("game")
-		
+	
 	# fast-forward 
 	elif Input.is_action_just_pressed("forward"):
 		isForwarding = true
@@ -66,3 +68,6 @@ func swear_note_single() -> void:
 	
 func swear_note_long(duration: float) -> void:
 	currentNoteDuration = duration
+
+func animationEnd():
+	showEnd.emit()

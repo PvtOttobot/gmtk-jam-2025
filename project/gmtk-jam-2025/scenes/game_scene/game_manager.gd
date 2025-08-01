@@ -120,4 +120,3 @@ func _on_censor_timeout_timer_timeout() -> void:
 
 func animationEnd():
 	showEnd.emit()
-

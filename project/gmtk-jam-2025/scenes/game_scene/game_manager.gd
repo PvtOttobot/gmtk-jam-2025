@@ -7,8 +7,11 @@ var isRewinding : bool = false
 
 var currentNoteDuration : float = 0.0
 var notePressedTime : float = 0
-
 @onready var animation_player: AnimationPlayer = %AnimationManager
+
+@export var rewind_button: Button
+@export var censor_button: Button
+@export var fast_forward_button: Button
 
 @export var staticShader: ColorRect
 
@@ -16,7 +19,22 @@ var notePressedTime : float = 0
 @export var rewindSpeed : float = -20
 @export var forwardSpeed : float = 2
 
+func _ready() -> void:
+	%censorTimeoutTimer.wait_time = lifeTime / 4
+
 func _process(delta: float) -> void:
+	# rewinding logic
+	if(animation_player.current_animation_position <= 0 && isRewinding):
+		isRewinding = false
+		currentNoteDuration = 0.0 
+		animation_player.play("game")
+		rewind_button.button_pressed = false
+		
+	if isRewinding == true:
+		staticShader.visible = true
+	else:
+		staticShader.visible = false
+	
 	if currentNoteDuration > 0.0:
 		if isCensoring:
 			print("hitting long")
@@ -26,34 +44,38 @@ func _process(delta: float) -> void:
 
 func _unhandled_input(event: InputEvent) -> void:
 	# hitting censor notes
-	if Input.is_action_just_pressed("interact"):
-		notePressedTime = animation_player.current_animation_position
+	if Input.is_action_pressed("interact") && !Input.is_action_just_pressed("interact"):
+		%censorTimeoutTimer.stop()
+	elif Input.is_action_just_pressed("interact"):
 		isCensoring = true
-	elif Input.is_action_just_released("interact"):
+		censor_button.button_pressed = true
+		%censorTimeoutTimer.start()
+	elif(Input.is_action_just_released("interact") && %censorTimeoutTimer.is_stopped()):
 		isCensoring = false
+		censor_button.button_pressed = false
+	elif(Input.is_action_just_released("interact") && !%censorTimeoutTimer.is_stopped()):
+		notePressedTime = animation_player.current_animation_position
+		
+		
 
 	# rewind the timeline
 	if Input.is_action_just_pressed("rewind"):
 		isRewinding = true
 		currentNoteDuration = 0.0 
+		rewind_button.button_pressed = true
+		fast_forward_button.button_pressed = false
 		animation_player.play("game",-1,rewindSpeed,true)
-		
-	elif Input.is_action_just_released("rewind"):
-		isRewinding = false
-		animation_player.play("game")
 		
 	# fast-forward 
 	elif Input.is_action_just_pressed("forward"):
-		isForwarding = true
-		animation_player.play("game",-1,forwardSpeed,false)
-	elif Input.is_action_just_released("forward"):
-		isForwarding = false
-		animation_player.play("game")
-		
-	if isRewinding == true:
-		staticShader.visible = true
-	else:
-		staticShader.visible = false
+		if(!isForwarding):
+			isForwarding = true
+			fast_forward_button.button_pressed = true
+			animation_player.play("game",-1,forwardSpeed,false)
+		else:
+			isForwarding = false
+			fast_forward_button.button_pressed = false
+			animation_player.play("game")
 
 # the function used to place swear notes
 func swear_note_single() -> void:
@@ -66,3 +88,28 @@ func swear_note_single() -> void:
 	
 func swear_note_long(duration: float) -> void:
 	currentNoteDuration = duration
+
+
+func _on_rewind_button_toggled(toggled_on: bool) -> void:
+	if toggled_on:
+		isRewinding = true
+		currentNoteDuration = 0.0 
+		animation_player.play("game",-1,rewindSpeed,true)
+
+func _on_censor_button_toggled(toggled_on: bool) -> void:
+	if(toggled_on):
+		isCensoring = true
+		%censorTimeoutTimer.start()
+
+func _on_fast_forward_button_toggled(toggled_on: bool) -> void:
+	if(toggled_on):
+		isForwarding = true
+		animation_player.play("game",-1,forwardSpeed,false)
+	else:
+		isForwarding = false
+		animation_player.play("game")
+
+func _on_censor_timeout_timer_timeout() -> void:
+	isCensoring = false
+	censor_button.button_pressed = false
+	%censorTimeoutTimer.stop()

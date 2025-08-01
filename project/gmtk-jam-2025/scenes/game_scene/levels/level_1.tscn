@@ -110,27 +110,14 @@ animations = [{
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_bsimd"]
 shader = ExtResource("7_bsimd")
-shader_parameter/overlay = true
-shader_parameter/scanlines_opacity = 0.0
-shader_parameter/scanlines_width = 0.25
-shader_parameter/grille_opacity = 0.1
-shader_parameter/resolution = Vector2(640, 480)
-shader_parameter/pixelate = true
-shader_parameter/roll = true
-shader_parameter/roll_speed = 0.0
-shader_parameter/roll_size = 0.0
-shader_parameter/roll_variation = 0.1
-shader_parameter/distort_intensity = 0.0
-shader_parameter/noise_opacity = 0.4
-shader_parameter/noise_speed = 5.0
-shader_parameter/static_noise_intensity = 0.06
-shader_parameter/aberration = 0.00500005
-shader_parameter/brightness = 1.4
-shader_parameter/discolor = true
-shader_parameter/warp_amount = 0.0
-shader_parameter/clip_warp = true
-shader_parameter/vignette_intensity = 0.4
-shader_parameter/vignette_opacity = 0.5
+shader_parameter/scanline_color = Color(0, 0, 0, 1)
+shader_parameter/flicker_color = Color(0, 0, 0, 1)
+shader_parameter/scanlines_count = 10.0
+shader_parameter/scanlines_intensity = 0.05
+shader_parameter/flicker_speed = 30.0
+shader_parameter/flicker_intensity = 0.025
+shader_parameter/color_offset = 1.5
+shader_parameter/blur = 0.15
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_pmyid"]
 shader = ExtResource("6_sycfm")
@@ -218,7 +205,7 @@ metadata/_edit_use_anchors_ = true
 unique_name_in_owner = true
 one_shot = true
 
-[connection signal="timeout" from="censorTimeoutTimer" to="GameManager" method="_on_censor_timeout_timer_timeout"]
 [node name="Node2D" type="Node2D" parent="."]
 
 [connection signal="animation_finished" from="AnimationManager" to="GameManager" method="_on_animation_manager_animation_finished"]
+[connection signal="timeout" from="censorTimeoutTimer" to="GameManager" method="_on_censor_timeout_timer_timeout"]

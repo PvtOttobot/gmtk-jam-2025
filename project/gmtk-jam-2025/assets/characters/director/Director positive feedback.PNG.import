@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://fgcajnk2pwky"
-path="res://.godot/imported/Director no shadows.PNG-ff3695e7fad2c1fb0b372ceb7f0f5b3a.ctex"
+uid="uid://c7heam8e5g3e6"
+path="res://.godot/imported/Director positive feedback.PNG-08bd39651b6b61be20c7556e60aa71fa.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Director no shadows.PNG"
-dest_files=["res://.godot/imported/Director no shadows.PNG-ff3695e7fad2c1fb0b372ceb7f0f5b3a.ctex"]
+source_file="res://assets/characters/director/Director positive feedback.PNG"
+dest_files=["res://.godot/imported/Director positive feedback.PNG-08bd39651b6b61be20c7556e60aa71fa.ctex"]
 
 [params]
 

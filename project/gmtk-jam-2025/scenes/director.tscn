@@ -1,7 +1,11 @@
-[gd_scene load_steps=5 format=3 uid="uid://rxrsdqldj41j"]
+[gd_scene load_steps=9 format=3 uid="uid://rxrsdqldj41j"]
 
 [ext_resource type="Script" uid="uid://4ggem0rf8ksq" path="res://scenes/director.gd" id="2_58xbc"]
-[ext_resource type="Texture2D" uid="uid://fgcajnk2pwky" path="res://assets/Director no shadows.PNG" id="2_dlqyr"]
+[ext_resource type="Texture2D" uid="uid://fgcajnk2pwky" path="res://assets/characters/director/Director no shadows.PNG" id="2_dlqyr"]
+[ext_resource type="Texture2D" uid="uid://bafn3cmggwa" path="res://assets/characters/director/unplug director.PNG" id="3_2yy8l"]
+[ext_resource type="Texture2D" uid="uid://tsf311pp6r54" path="res://assets/characters/director/Director neutral.PNG" id="3_rhscl"]
+[ext_resource type="Texture2D" uid="uid://crrfoqjm0pqqv" path="res://assets/characters/director/Director negative feedback.PNG" id="4_2yy8l"]
+[ext_resource type="Texture2D" uid="uid://c7heam8e5g3e6" path="res://assets/characters/director/Director positive feedback.PNG" id="5_n4h3p"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5gj23"]
 atlas = ExtResource("2_dlqyr")
@@ -15,6 +19,14 @@ animations = [{
 }],
 "loop": true,
 "name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_2yy8l")
+}],
+"loop": true,
+"name": &"plug",
 "speed": 5.0
 }]
 
@@ -30,6 +42,29 @@ position = Vector2(250, 345)
 scale = Vector2(0.1, 0.1)
 sprite_frames = SubResource("SpriteFrames_dgrhn")
 
+[node name="emotions" type="Node2D" parent="Director"]
+
+[node name="neutral_face" type="Sprite2D" parent="Director/emotions"]
+visible = false
+position = Vector2(940, -1150)
+scale = Vector2(1.1775, 1.1775)
+texture = ExtResource("3_rhscl")
+
+[node name="negative_face" type="Sprite2D" parent="Director/emotions"]
+visible = false
+position = Vector2(-780, -1000)
+scale = Vector2(1.1925, 1.1925)
+texture = ExtResource("4_2yy8l")
+
+[node name="positive_face" type="Sprite2D" parent="Director/emotions"]
+visible = false
+position = Vector2(3.05176e-05, -2390)
+scale = Vector2(1.11875, 1.11875)
+texture = ExtResource("5_n4h3p")
+
+[node name="EmotionTimer" type="Timer" parent="Director/emotions"]
+unique_name_in_owner = true
+
 [node name="ProgressBar" type="ProgressBar" parent="."]
 layout_mode = 0
 offset_left = 55.0
@@ -37,3 +72,6 @@ offset_top = 86.0
 offset_right = 455.0
 offset_bottom = 113.0
 value = 100.0
+
+[connection signal="pullPlug" from="." to="." method="_on_pull_plug"]
+[connection signal="timeout" from="Director/emotions/EmotionTimer" to="." method="_on_emotion_timer_timeout"]

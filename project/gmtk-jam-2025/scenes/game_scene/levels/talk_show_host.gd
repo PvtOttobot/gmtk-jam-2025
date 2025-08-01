@@ -3,6 +3,9 @@ extends AnimatedSprite2D
 @export var amp  := 0.2
 @export var freq := 8.0
 
+signal signal_swear_start
+signal signal_swear_end
+
 var _phase_offset := 0.0
 var is_swearing = false
 
@@ -18,11 +21,11 @@ func wiggleEnd():
 	wiggling = false
 	
 func start_swear():
-	is_swearing = true
+	signal_swear_start.emit()
 	modulate = Color(1.0, 0.23, 0.23)
 	
 func end_swear():
-	is_swearing = false
+	signal_swear_end.emit()
 	modulate = Color(1, 1, 1)
 
 func _process(delta):

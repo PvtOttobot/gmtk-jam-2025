@@ -4,7 +4,7 @@ extends Control
 var _texture_normal: AtlasTexture
 var _texture_pressed: AtlasTexture
 
-@onready var texture_button: TextureButton = $MarginContainer/TextureButton
+@onready var texture_button: TextureButton = $TextureButton
 
 @export var texture_normal: AtlasTexture:
 	get:

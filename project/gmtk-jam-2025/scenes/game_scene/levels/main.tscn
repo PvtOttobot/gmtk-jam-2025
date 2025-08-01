@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://dwbv1a1x2w61d" path="res://scenes/game_scene/levels/main.gd" id="1_koifc"]
 [ext_resource type="PackedScene" uid="uid://cnpss81rdulih" path="res://scenes/game_scene/levels/level_1.tscn" id="1_u55s7"]
 [ext_resource type="PackedScene" uid="uid://rxrsdqldj41j" path="res://scenes/director.tscn" id="2_ghb4r"]
-[ext_resource type="PackedScene" uid="uid://ddcle4gpv18rm" path="res://scenes/ui/bottom_panel.tscn" id="3_ghb4r"]
+[ext_resource type="PackedScene" uid="uid://7b6ncevdvrfh" path="res://scenes/ui/bottom_panel_simple.tscn" id="3_ghb4r"]
 
 [node name="Main" type="Control"]
 layout_mode = 3
@@ -35,6 +35,14 @@ custom_minimum_size = Vector2(720, 720)
 layout_mode = 2
 size_flags_horizontal = 3
 
+[node name="GameManager" parent="HBoxContainer/Level1" index="2" node_paths=PackedStringArray("rewind_button", "censor_button", "fast_forward_button")]
+rewind_button = NodePath("../../VBoxContainer/CanvasLayer/BottomPanelSimple/Panel/MarginContainer/HBoxContainer/CheckButton")
+censor_button = NodePath("../../VBoxContainer/CanvasLayer/BottomPanelSimple/Panel/MarginContainer/HBoxContainer/CheckButton2")
+fast_forward_button = NodePath("../../VBoxContainer/CanvasLayer/BottomPanelSimple/Panel/MarginContainer/HBoxContainer/CheckButton3")
+lifeTime = 2.0
+rewindSpeed = -20.0
+forwardSpeed = 2.0
+
 [node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer"]
 custom_minimum_size = Vector2(550, 0)
 layout_mode = 2
@@ -44,20 +52,32 @@ size_flags_horizontal = 3
 
 [node name="Director" parent="HBoxContainer/VBoxContainer/CanvasLayer" node_paths=PackedStringArray("GameManager") instance=ExtResource("2_ghb4r")]
 z_index = 3
-offset_left = 724.0
-offset_right = 1274.0
-offset_bottom = 530.0
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -550.0
+offset_right = 0.0
+offset_bottom = 548.0
+grow_horizontal = 0
 size_flags_vertical = 3
 GameManager = NodePath("../../../Level1/GameManager")
 freq = 2.195
 
-[node name="BottomPanel" parent="HBoxContainer/VBoxContainer/CanvasLayer" instance=ExtResource("3_ghb4r")]
-anchors_preset = 0
-anchor_right = 0.0
-anchor_bottom = 0.0
-offset_left = 724.0
-offset_top = 534.0
-offset_right = 1274.0
-offset_bottom = 720.0
-size_flags_vertical = 3
-size_flags_stretch_ratio = 0.35
+[node name="BottomPanelSimple" parent="HBoxContainer/VBoxContainer/CanvasLayer" instance=ExtResource("3_ghb4r")]
+custom_minimum_size = Vector2(0, 168)
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+offset_left = -550.0
+offset_top = -168.0
+offset_right = 0.0
+offset_bottom = 0.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[connection signal="toggled" from="HBoxContainer/VBoxContainer/CanvasLayer/BottomPanelSimple/Panel/MarginContainer/HBoxContainer/CheckButton" to="HBoxContainer/Level1/GameManager" method="_on_rewind_button_toggled"]
+[connection signal="toggled" from="HBoxContainer/VBoxContainer/CanvasLayer/BottomPanelSimple/Panel/MarginContainer/HBoxContainer/CheckButton2" to="HBoxContainer/Level1/GameManager" method="_on_censor_button_toggled"]
+[connection signal="toggled" from="HBoxContainer/VBoxContainer/CanvasLayer/BottomPanelSimple/Panel/MarginContainer/HBoxContainer/CheckButton3" to="HBoxContainer/Level1/GameManager" method="_on_fast_forward_button_toggled"]
+
+[editable path="HBoxContainer/Level1"]
+[editable path="HBoxContainer/VBoxContainer/CanvasLayer/BottomPanelSimple"]

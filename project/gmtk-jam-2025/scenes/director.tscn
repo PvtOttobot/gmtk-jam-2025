@@ -1,7 +1,22 @@
-[gd_scene load_steps=3 format=3 uid="uid://rxrsdqldj41j"]
+[gd_scene load_steps=5 format=3 uid="uid://rxrsdqldj41j"]
 
-[ext_resource type="Texture2D" uid="uid://ob5becee6gw0" path="res://assets/Talk show host.PNG" id="1_goslu"]
 [ext_resource type="Script" uid="uid://4ggem0rf8ksq" path="res://scenes/director.gd" id="2_58xbc"]
+[ext_resource type="Texture2D" uid="uid://fgcajnk2pwky" path="res://assets/Director no shadows.PNG" id="2_dlqyr"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5gj23"]
+atlas = ExtResource("2_dlqyr")
+region = Rect2(0, 0, 4000, 4000)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_dgrhn"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5gj23")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [node name="Director" type="Control"]
 layout_mode = 3
@@ -10,10 +25,10 @@ offset_right = 40.0
 offset_bottom = 40.0
 script = ExtResource("2_58xbc")
 
-[node name="Director" type="Sprite2D" parent="."]
+[node name="Director" type="AnimatedSprite2D" parent="."]
 position = Vector2(250, 345)
 scale = Vector2(0.1, 0.1)
-texture = ExtResource("1_goslu")
+sprite_frames = SubResource("SpriteFrames_dgrhn")
 
 [node name="ProgressBar" type="ProgressBar" parent="."]
 layout_mode = 0

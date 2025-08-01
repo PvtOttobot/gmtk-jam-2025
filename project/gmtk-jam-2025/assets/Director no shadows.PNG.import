@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://6rg2cm3dfqso"
-path="res://.godot/imported/Talk show host.PNG-6f0f32578e78be9659cd09d297656d3f.ctex"
+uid="uid://fgcajnk2pwky"
+path="res://.godot/imported/Director no shadows.PNG-ff3695e7fad2c1fb0b372ceb7f0f5b3a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Talk show host.PNG"
-dest_files=["res://.godot/imported/Talk show host.PNG-6f0f32578e78be9659cd09d297656d3f.ctex"]
+source_file="res://assets/Director no shadows.PNG"
+dest_files=["res://.godot/imported/Director no shadows.PNG-ff3695e7fad2c1fb0b372ceb7f0f5b3a.ctex"]
 
 [params]
 

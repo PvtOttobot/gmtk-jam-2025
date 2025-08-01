@@ -57,8 +57,6 @@ func _unhandled_input(event: InputEvent) -> void:
 		censor_button.button_pressed = false
 	elif(Input.is_action_just_released("interact") && !%censorTimeoutTimer.is_stopped()):
 		notePressedTime = animation_player.current_animation_position
-		
-		
 
 	# rewind the timeline
 	if Input.is_action_just_pressed("rewind"):
@@ -120,3 +118,7 @@ func _on_censor_timeout_timer_timeout() -> void:
 
 func animationEnd():
 	showEnd.emit()
+
+
+func _on_director_pull_plug() -> void:
+	pass # Replace with function body.

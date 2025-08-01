@@ -19,6 +19,8 @@ var notePressedTime : float = 0
 @export var rewindSpeed : float = -20
 @export var forwardSpeed : float = 2
 
+signal showEnd
+
 func _ready() -> void:
 	%censorTimeoutTimer.wait_time = lifeTime / 4
 
@@ -66,6 +68,9 @@ func _unhandled_input(event: InputEvent) -> void:
 		fast_forward_button.button_pressed = false
 		animation_player.play("game",-1,rewindSpeed,true)
 		
+	elif Input.is_action_just_released("rewind"):
+		isRewinding = false
+		animation_player.play("game")
 	# fast-forward 
 	elif Input.is_action_just_pressed("forward"):
 		if(!isForwarding):
@@ -88,7 +93,6 @@ func swear_note_single() -> void:
 	
 func swear_note_long(duration: float) -> void:
 	currentNoteDuration = duration
-
 
 func _on_rewind_button_toggled(toggled_on: bool) -> void:
 	if toggled_on:
@@ -113,3 +117,7 @@ func _on_censor_timeout_timer_timeout() -> void:
 	isCensoring = false
 	censor_button.button_pressed = false
 	%censorTimeoutTimer.stop()
+
+func animationEnd():
+	showEnd.emit()
+

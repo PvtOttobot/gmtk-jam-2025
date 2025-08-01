@@ -1,0 +1,88 @@
+[gd_resource type="Theme" load_steps=9 format=3 uid="uid://b8r543lgkikb6"]
+
+[ext_resource type="Texture2D" uid="uid://bt4ccmeyb7yc7" path="res://assets/ui/panel_icons_sheet.png" id="1_l3c38"]
+[ext_resource type="Texture2D" uid="uid://ct6ekbegcn0ir" path="res://assets/ui/panel_icons_sheet_red.png" id="1_nqq8e"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l3c38"]
+atlas = ExtResource("1_nqq8e")
+region = Rect2(0, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nqq8e"]
+atlas = ExtResource("1_l3c38")
+region = Rect2(0, 0, 100, 100)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_hcsit"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_l3c38"]
+content_margin_left = 0.0
+content_margin_top = 0.0
+content_margin_right = 0.0
+content_margin_bottom = 0.0
+bg_color = Color(0.1365, 0.147975, 0.15, 1)
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+border_color = Color(0.05, 0.05, 0.05, 1)
+border_blend = true
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+shadow_color = Color(0.130367, 0.368276, 0.266715, 0.6)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nqq8e"]
+content_margin_left = 0.0
+content_margin_top = 0.0
+content_margin_right = 0.0
+content_margin_bottom = 0.0
+bg_color = Color(0.1012, 0.11, 0.11, 1)
+border_width_left = 15
+border_width_top = 15
+border_width_right = 15
+border_width_bottom = 15
+border_color = Color(0, 0, 0, 1)
+border_blend = true
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hcsit"]
+content_margin_left = 0.0
+content_margin_top = 0.0
+content_margin_right = 0.0
+content_margin_bottom = 0.0
+bg_color = Color(0.30305, 0.33, 0.2838, 1)
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+border_color = Color(0, 0, 0, 1)
+border_blend = true
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_detail = 12
+shadow_color = Color(0.3, 0.26, 0.5, 0.647059)
+shadow_size = 8
+
+[resource]
+CheckButton/icons/checked = SubResource("AtlasTexture_l3c38")
+CheckButton/icons/checked_disabled = null
+CheckButton/icons/checked_disabled_mirrored = null
+CheckButton/icons/checked_mirrored = null
+CheckButton/icons/unchecked = SubResource("AtlasTexture_nqq8e")
+CheckButton/icons/unchecked_disabled = SubResource("AtlasTexture_nqq8e")
+CheckButton/icons/unchecked_disabled_mirrored = SubResource("AtlasTexture_nqq8e")
+CheckButton/icons/unchecked_mirrored = SubResource("AtlasTexture_nqq8e")
+CheckButton/styles/focus = SubResource("StyleBoxEmpty_hcsit")
+CheckButton/styles/hover = SubResource("StyleBoxFlat_l3c38")
+CheckButton/styles/hover_pressed = SubResource("StyleBoxFlat_nqq8e")
+CheckButton/styles/normal = SubResource("StyleBoxFlat_l3c38")
+CheckButton/styles/pressed = SubResource("StyleBoxFlat_nqq8e")
+HBoxContainer/constants/separation = 2
+MarginContainer/constants/margin_bottom = 20
+MarginContainer/constants/margin_left = 20
+MarginContainer/constants/margin_right = 20
+MarginContainer/constants/margin_top = 20
+Panel/styles/panel = SubResource("StyleBoxFlat_hcsit")

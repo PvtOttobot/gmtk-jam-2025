@@ -128,3 +128,21 @@ func start_swear():
 	
 func end_swear():
 	pass
+	
+func swear_start_signal_recieved() -> void:
+	isSwearing = true
+
+func swear_end_signal_recieved() -> void:
+	isSwearing = false
+
+func _on_talk_show_host_signal_swear_start() -> void:
+	swear_start_signal_recieved()
+
+func _on_talk_show_host_signal_swear_end() -> void:
+	swear_end_signal_recieved()
+
+func _on_talk_show_guest_signal_swear_end() -> void:
+	swear_end_signal_recieved()
+
+func _on_talk_show_guest_signal_swear_start() -> void:
+	swear_start_signal_recieved()

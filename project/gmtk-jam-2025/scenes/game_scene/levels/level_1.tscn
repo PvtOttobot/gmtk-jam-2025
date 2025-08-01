@@ -44,9 +44,12 @@ tracks/1/path = NodePath("cast/TalkShowGuest")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(5, 5.5),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0, 5, 5.5),
+"transitions": PackedFloat32Array(1, 1, 1),
 "values": [{
+"args": [],
+"method": &"end_swear"
+}, {
 "args": [],
 "method": &"start_swear"
 }, {
@@ -202,4 +205,8 @@ one_shot = true
 [node name="Node2D" type="Node2D" parent="."]
 
 [connection signal="animation_finished" from="AnimationManager" to="GameManager" method="_on_animation_manager_animation_finished"]
+[connection signal="signal_swear_end" from="cast/TalkShowGuest" to="GameManager" method="_on_talk_show_guest_signal_swear_end"]
+[connection signal="signal_swear_start" from="cast/TalkShowGuest" to="GameManager" method="_on_talk_show_guest_signal_swear_start"]
+[connection signal="signal_swear_end" from="cast/TalkShowHost" to="GameManager" method="_on_talk_show_host_signal_swear_end"]
+[connection signal="signal_swear_start" from="cast/TalkShowHost" to="GameManager" method="_on_talk_show_host_signal_swear_start"]
 [connection signal="timeout" from="censorTimeoutTimer" to="GameManager" method="_on_censor_timeout_timer_timeout"]

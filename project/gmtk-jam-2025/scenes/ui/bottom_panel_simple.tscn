@@ -1,14 +1,18 @@
-[gd_scene load_steps=2 format=3 uid="uid://7b6ncevdvrfh"]
+[gd_scene load_steps=6 format=3 uid="uid://7b6ncevdvrfh"]
 
 [ext_resource type="Theme" uid="uid://b8r543lgkikb6" path="res://resources/themes/cassette.tres" id="1_4vej7"]
+[ext_resource type="PackedScene" uid="uid://qqq6gdrfwb84" path="res://scenes/ui/bottom_panel_simple_button.tscn" id="2_ppqp2"]
+[ext_resource type="Texture2D" uid="uid://d3y5lj5xkiv7n" path="res://assets/ui/kenney_board-game-icons/PNG/Double (128px)/arrow_counterclockwise.png" id="3_1kxma"]
+[ext_resource type="Texture2D" uid="uid://bkhti6x5cd2yg" path="res://assets/ui/kenney_board-game-icons/PNG/Double (128px)/flip_tails.png" id="4_f3vxg"]
+[ext_resource type="Texture2D" uid="uid://cr02hjmsr77el" path="res://assets/ui/kenney_board-game-icons/PNG/Double (128px)/hourglass.png" id="5_3xewp"]
 
 [node name="BottomPanelSimple" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_right = -855.0
-offset_bottom = -560.0
+offset_right = -884.0
+offset_bottom = -558.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_4vej7")
@@ -32,19 +36,16 @@ grow_vertical = 2
 [node name="HBoxContainer" type="HBoxContainer" parent="Panel/MarginContainer"]
 layout_mode = 2
 
-[node name="CheckButton" type="CheckButton" parent="Panel/MarginContainer/HBoxContainer"]
-unique_name_in_owner = true
+[node name="Reverse_BottomPanelSimpleButton" parent="Panel/MarginContainer/HBoxContainer" instance=ExtResource("2_ppqp2")]
 layout_mode = 2
+icon = ExtResource("3_1kxma")
 
-[node name="CheckButton2" type="CheckButton" parent="Panel/MarginContainer/HBoxContainer"]
-unique_name_in_owner = true
+[node name="Censor_BottomPanelSimpleButton" parent="Panel/MarginContainer/HBoxContainer" instance=ExtResource("2_ppqp2")]
 layout_mode = 2
-size_flags_horizontal = 3
 size_flags_stretch_ratio = 2.0
-alignment = 1
-icon_alignment = 1
-expand_icon = true
+theme_type_variation = &"PrimaryButton"
+icon = ExtResource("4_f3vxg")
 
-[node name="CheckButton3" type="CheckButton" parent="Panel/MarginContainer/HBoxContainer"]
-unique_name_in_owner = true
+[node name="FastForward_BottomPanelSimpleButton" parent="Panel/MarginContainer/HBoxContainer" instance=ExtResource("2_ppqp2")]
 layout_mode = 2
+icon = ExtResource("5_3xewp")

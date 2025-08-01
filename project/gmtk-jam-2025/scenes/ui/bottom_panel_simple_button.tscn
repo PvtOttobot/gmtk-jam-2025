@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=3 uid="uid://qqq6gdrfwb84"]
+
+[ext_resource type="Theme" uid="uid://b8r543lgkikb6" path="res://resources/themes/cassette.tres" id="1_yil70"]
+[ext_resource type="Texture2D" uid="uid://dvhn8aqi3weft" path="res://assets/ui/panel_icons_sheet_white.png" id="2_yil70"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pxe0x"]
+atlas = ExtResource("2_yil70")
+region = Rect2(100, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8hj2u"]
+atlas = SubResource("AtlasTexture_pxe0x")
+region = Rect2(0, 0, 100, 100)
+
+[node name="BottomPanelSimpleButton" type="Button"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -1031.0
+offset_bottom = -477.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource("1_yil70")
+toggle_mode = true
+icon = SubResource("AtlasTexture_8hj2u")
+icon_alignment = 1
+expand_icon = true

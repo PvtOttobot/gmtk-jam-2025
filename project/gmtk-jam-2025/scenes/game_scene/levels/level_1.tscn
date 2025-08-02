@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://cnpss81rdulih"]
+[gd_scene load_steps=27 format=3 uid="uid://cnpss81rdulih"]
 
 [ext_resource type="Script" uid="uid://cjbqlir3qtkwv" path="res://scenes/game_scene/levels/level.gd" id="1_623lg"]
 [ext_resource type="Script" uid="uid://ck7cdjnnkm4aq" path="res://scenes/game_scene/tutorial_manager.gd" id="4_bsimd"]
@@ -12,7 +12,11 @@
 [ext_resource type="Texture2D" uid="uid://6rg2cm3dfqso" path="res://assets/Talk show host.PNG" id="7_8avtb"]
 [ext_resource type="Shader" uid="uid://t4bhspf8eskh" path="res://scenes/game_scene/levels/CRT.gdshader" id="7_bsimd"]
 [ext_resource type="AudioStream" uid="uid://dwqebdpa5af4s" path="res://assets/MUSIC_02_1minloop_NODRUMS_48kH_24bit_Stereo.wav" id="7_ua84b"]
-[ext_resource type="Script" uid="uid://bddvne1wiepg1" path="res://scenes/game_scene/levels/recorder.gd" id="13_hehv2"]
+[ext_resource type="Texture2D" uid="uid://bdpx1g8wjyx3x" path="res://assets/characters/director/Chair piece back.PNG" id="9_8a31v"]
+[ext_resource type="Texture2D" uid="uid://v653yvu2fe4x" path="res://assets/characters/director/Chair piece front.PNG" id="12_5hj03"]
+[ext_resource type="Texture2D" uid="uid://bpf0rl8fcmvn8" path="res://Talk show background.PNG" id="13_hehv2"]
+[ext_resource type="Texture2D" uid="uid://dj8vtvap21uv" path="res://assets/characters/director/Desk.PNG" id="14_1wmy8"]
+[ext_resource type="Texture2D" uid="uid://chjgl4x57nstx" path="res://assets/Tv frame.PNG" id="14_27a66"]
 
 [sub_resource type="Animation" id="Animation_sycfm"]
 length = 0.001
@@ -279,6 +283,16 @@ bus = &"SFX"
 
 [node name="cast" type="Node2D" parent="."]
 
+[node name="TalkShowBackground" type="Sprite2D" parent="cast"]
+position = Vector2(370, 342)
+scale = Vector2(0.249563, 0.249563)
+texture = ExtResource("13_hehv2")
+
+[node name="ChairPieceBack" type="Sprite2D" parent="cast"]
+position = Vector2(237, 551)
+scale = Vector2(0.14225, 0.14225)
+texture = ExtResource("9_8a31v")
+
 [node name="TalkShowGuest" type="AnimatedSprite2D" parent="cast"]
 unique_name_in_owner = true
 position = Vector2(208, 436)
@@ -288,20 +302,29 @@ animation = &"swearing"
 script = ExtResource("6_pmyid")
 freq = 1.0
 
+[node name="ChairPieceFront" type="Sprite2D" parent="cast"]
+position = Vector2(251, 550)
+scale = Vector2(0.142, 0.142)
+texture = ExtResource("12_5hj03")
+
 [node name="TalkShowHost" type="AnimatedSprite2D" parent="cast"]
 unique_name_in_owner = true
-position = Vector2(500, 400)
+position = Vector2(501, 381)
 scale = Vector2(0.05, 0.05)
 sprite_frames = SubResource("SpriteFrames_m77gi")
 script = ExtResource("6_pmyid")
 freq = 1.0
 
-[node name="ColorRect" type="ColorRect" parent="cast"]
-offset_left = 327.0
-offset_top = 473.0
-offset_right = 659.0
-offset_bottom = 584.0
-color = Color(0.219146, 0.11311, 3.60981e-08, 1)
+[node name="ColorRect2" type="ColorRect" parent="cast"]
+offset_left = 663.0
+offset_right = 1331.0
+offset_bottom = 733.0
+color = Color(0, 0, 0, 1)
+
+[node name="Desk" type="Sprite2D" parent="cast"]
+position = Vector2(481.625, 477.625)
+scale = Vector2(0.0971875, 0.0971875)
+texture = ExtResource("14_1wmy8")
 
 [node name="CRTLayer" type="CanvasLayer" parent="."]
 layer = 0
@@ -326,6 +349,13 @@ metadata/_edit_use_anchors_ = true
 unique_name_in_owner = true
 one_shot = true
 
+[node name="FrameLayer" type="CanvasLayer" parent="."]
+layer = 2
+
+[node name="TvFrame" type="Sprite2D" parent="FrameLayer"]
+position = Vector2(361.5, 357.5)
+scale = Vector2(0.19125, 0.19125)
+texture = ExtResource("14_27a66")
 
 [connection signal="animation_finished" from="AnimationManager" to="GameManager" method="_on_animation_manager_animation_finished"]
 [connection signal="signal_swear_end" from="cast/TalkShowGuest" to="GameManager" method="_on_talk_show_guest_signal_swear_end"]

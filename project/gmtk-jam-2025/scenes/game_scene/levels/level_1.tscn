@@ -3,10 +3,10 @@
 [ext_resource type="Script" uid="uid://cjbqlir3qtkwv" path="res://scenes/game_scene/levels/level.gd" id="1_623lg"]
 [ext_resource type="Script" uid="uid://ck7cdjnnkm4aq" path="res://scenes/game_scene/tutorial_manager.gd" id="4_bsimd"]
 [ext_resource type="Script" uid="uid://n3xoftgesrkm" path="res://scenes/game_scene/game_manager.gd" id="4_w6i3l"]
-[ext_resource type="AudioStream" uid="uid://231q1d8feln5" path="res://assets/Build_UP_1_44.1Khz_16Bit_MONO.wav" id="5_8avtb"]
+[ext_resource type="AudioStream" uid="uid://m45yly7j15ui" path="res://assets/characters/director/audio/EXAMPLE_OF_ALL_48kH_24bit_Stereo.wav" id="5_8a31v"]
 [ext_resource type="Texture2D" uid="uid://dr8wjljwtcpjm" path="res://assets/Celebrity guest with hands.PNG" id="5_85t3v"]
 [ext_resource type="PackedScene" uid="uid://b8vsxuuyong8g" path="res://scenes/game_scene/tutorials/tutorial_1.tscn" id="5_fmabn"]
-[ext_resource type="AudioStream" uid="uid://crwyg26qp00dh" path="res://assets/Human_Grumble_Happy_But_Not_Too_Loud_Or_Long_44.1khz_16Bit_MONO.wav" id="5_ua84b"]
+[ext_resource type="AudioStream" uid="uid://dk7ql8vx4aku2" path="res://assets/Audiance_Murmur_48Khz_24Bit_MONO.wav" id="6_5hj03"]
 [ext_resource type="Script" uid="uid://gyvaras2xwbj" path="res://scenes/game_scene/levels/talk_show_host.gd" id="6_pmyid"]
 [ext_resource type="Shader" uid="uid://cd7c7svil7nm5" path="res://scenes/game_scene/levels/Rewind.gdshader" id="6_sycfm"]
 [ext_resource type="Texture2D" uid="uid://6rg2cm3dfqso" path="res://assets/Talk show host.PNG" id="7_8avtb"]
@@ -23,160 +23,76 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("cast/TalkShowHost:position")
+tracks/0/path = NodePath("AnimationManager/AmbienceManager:volume_db")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(501, 381)]
-}
-tracks/1/type = "bezier"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("cast/TalkShowHost:rotation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0)
+"values": [-80.0]
 }
 
 [sub_resource type="Animation" id="Animation_w6i3l"]
 resource_name = "game"
-length = 10.0
+length = 65.0
 step = 0.25
-tracks/0/type = "method"
+tracks/0/type = "audio"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("cast/TalkShowHost")
+tracks/0/path = NodePath("AnimationManager/DialogueManager")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 1, 2),
-"transitions": PackedFloat32Array(1, 1, 1),
-"values": [{
-"args": [],
-"method": &"end_swear"
-}, {
-"args": [],
-"method": &"start_swear"
-}, {
-"args": [],
-"method": &"end_swear"
-}]
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("5_8a31v")
+}],
+"times": PackedFloat32Array(5)
 }
-tracks/1/type = "method"
+tracks/0/use_blend = true
+tracks/1/type = "audio"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("cast/TalkShowGuest")
+tracks/1/path = NodePath("AnimationManager/AmbienceManager")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 5, 5.5),
-"transitions": PackedFloat32Array(1, 1, 1),
-"values": [{
-"args": [],
-"method": &"end_swear"
-}, {
-"args": [],
-"method": &"start_swear"
-}, {
-"args": [],
-"method": &"end_swear"
-}]
+"clips": [{
+"end_offset": 113.42,
+"start_offset": 0.0,
+"stream": ExtResource("6_5hj03")
+}],
+"times": PackedFloat32Array(0)
 }
-tracks/2/type = "method"
+tracks/1/use_blend = true
+tracks/2/type = "audio"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("GameManager")
+tracks/2/path = NodePath("AnimationManager/MusicManager")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(10),
-"transitions": PackedFloat32Array(1),
-"values": [{
-"args": [],
-"method": &"animationEnd"
-}]
-}
-tracks/3/type = "audio"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("AnimationManager/SFXManager")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"clips": [{
-"end_offset": 0.92,
-"start_offset": 0.4,
-"stream": ExtResource("5_8avtb")
-}, {
-"end_offset": 0.275,
-"start_offset": 0.0994,
-"stream": ExtResource("5_ua84b")
-}, {
-"end_offset": 0.92,
-"start_offset": 0.4,
-"stream": ExtResource("5_8avtb")
-}, {
-"end_offset": 0.275,
-"start_offset": 0.0994,
-"stream": ExtResource("5_ua84b")
-}],
-"times": PackedFloat32Array(0.5, 1, 4.5, 5)
-}
-tracks/3/use_blend = true
-tracks/4/type = "audio"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("AnimationManager/MusicManager")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
 "clips": [{
 "end_offset": 0.0,
 "start_offset": 0.0,
 "stream": ExtResource("7_ua84b")
 }],
-"times": PackedFloat32Array(0)
+"times": PackedFloat32Array(5)
 }
-tracks/4/use_blend = true
-tracks/5/type = "audio"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("AnimationManager/AmbienceManagerLayer1")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"clips": [],
-"times": PackedFloat32Array()
-}
-tracks/5/use_blend = true
-tracks/6/type = "value"
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/path = NodePath("cast/TalkShowHost:position")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/keys = {
-"times": PackedFloat32Array(0, 1.43012, 6.29787),
-"transitions": PackedFloat32Array(1, 1, 1),
+tracks/2/use_blend = true
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("AnimationManager/AmbienceManager:volume_db")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(2.5, 5),
+"transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(501, 381), Vector2(501, 381), Vector2(501, 381)]
-}
-tracks/7/type = "bezier"
-tracks/7/imported = false
-tracks/7/enabled = true
-tracks/7/path = NodePath("cast/TalkShowHost:rotation")
-tracks/7/interp = 1
-tracks/7/loop_wrap = true
-tracks/7/keys = {
-"handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0)
+"values": [0.0, -80.0]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_623lg"]
@@ -279,7 +195,10 @@ bus = &"SFX"
 
 [node name="MusicManager" type="AudioStreamPlayer" parent="AnimationManager"]
 
-[node name="AmbienceManagerLayer1" type="AudioStreamPlayer" parent="AnimationManager"]
+[node name="AmbienceManager" type="AudioStreamPlayer" parent="AnimationManager"]
+volume_db = -80.0
+
+[node name="DialogueManager" type="AudioStreamPlayer" parent="AnimationManager"]
 
 [node name="cast" type="Node2D" parent="."]
 
@@ -353,8 +272,8 @@ one_shot = true
 layer = 2
 
 [node name="TvFrame" type="Sprite2D" parent="FrameLayer"]
-position = Vector2(361.5, 357.5)
-scale = Vector2(0.19125, 0.19125)
+position = Vector2(353, 362)
+scale = Vector2(0.197, 0.197)
 texture = ExtResource("14_27a66")
 
 [connection signal="animation_finished" from="AnimationManager" to="GameManager" method="_on_animation_manager_animation_finished"]

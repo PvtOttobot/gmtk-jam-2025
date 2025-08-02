@@ -1,17 +1,22 @@
 [gd_scene load_steps=27 format=3 uid="uid://cnpss81rdulih"]
 
+
 [ext_resource type="Script" uid="uid://cjbqlir3qtkwv" path="res://scenes/game_scene/levels/level.gd" id="1_623lg"]
 [ext_resource type="Script" uid="uid://ck7cdjnnkm4aq" path="res://scenes/game_scene/tutorial_manager.gd" id="4_bsimd"]
 [ext_resource type="Script" uid="uid://n3xoftgesrkm" path="res://scenes/game_scene/game_manager.gd" id="4_w6i3l"]
 [ext_resource type="AudioStream" uid="uid://m45yly7j15ui" path="res://assets/characters/director/audio/EXAMPLE_OF_ALL_48kH_24bit_Stereo.wav" id="5_8a31v"]
 [ext_resource type="Texture2D" uid="uid://dr8wjljwtcpjm" path="res://assets/Celebrity guest with hands.PNG" id="5_85t3v"]
 [ext_resource type="PackedScene" uid="uid://b8vsxuuyong8g" path="res://scenes/game_scene/tutorials/tutorial_1.tscn" id="5_fmabn"]
+[ext_resource type="AudioStream" uid="uid://crwyg26qp00dh" path="res://assets/Human_Grumble_Happy_But_Not_Too_Loud_Or_Long_44.1khz_16Bit_MONO.wav" id="5_ua84b"]
 [ext_resource type="AudioStream" uid="uid://dk7ql8vx4aku2" path="res://assets/Audiance_Murmur_48Khz_24Bit_MONO.wav" id="6_5hj03"]
 [ext_resource type="Script" uid="uid://gyvaras2xwbj" path="res://scenes/game_scene/levels/talk_show_host.gd" id="6_pmyid"]
 [ext_resource type="Shader" uid="uid://cd7c7svil7nm5" path="res://scenes/game_scene/levels/Rewind.gdshader" id="6_sycfm"]
 [ext_resource type="Texture2D" uid="uid://6rg2cm3dfqso" path="res://assets/Talk show host.PNG" id="7_8avtb"]
 [ext_resource type="Shader" uid="uid://t4bhspf8eskh" path="res://scenes/game_scene/levels/CRT.gdshader" id="7_bsimd"]
 [ext_resource type="AudioStream" uid="uid://dwqebdpa5af4s" path="res://assets/MUSIC_02_1minloop_NODRUMS_48kH_24bit_Stereo.wav" id="7_ua84b"]
+[ext_resource type="AudioStream" uid="uid://drjd7d35dj3gs" path="res://assets/buttons/Button_Push_In_96_Khz_24Bit_MONO.wav" id="12_hehv2"]
+[ext_resource type="AudioStream" uid="uid://c8uxfh2ffhcxt" path="res://assets/buttons/Button_Push_Out_96Khz_24Bit_MONO.wav" id="13_27a66"]
+[ext_resource type="AudioStream" uid="uid://qseksiv1s1w7" path="res://assets/gameplay/Censor_Beep_44.1Khz_16Bit_MONO.wav" id="14_27a66"]
 [ext_resource type="Texture2D" uid="uid://bdpx1g8wjyx3x" path="res://assets/characters/director/Chair piece back.PNG" id="9_8a31v"]
 [ext_resource type="Texture2D" uid="uid://v653yvu2fe4x" path="res://assets/characters/director/Chair piece front.PNG" id="12_5hj03"]
 [ext_resource type="Texture2D" uid="uid://bpf0rl8fcmvn8" path="res://Talk show background.PNG" id="13_hehv2"]
@@ -44,6 +49,9 @@ tracks/0/path = NodePath("AnimationManager/DialogueManager")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"values": []
 "clips": [{
 "end_offset": 0.0,
 "start_offset": 0.0,
@@ -218,8 +226,6 @@ position = Vector2(208, 436)
 scale = Vector2(0.07, 0.07)
 sprite_frames = SubResource("SpriteFrames_hehv2")
 animation = &"swearing"
-script = ExtResource("6_pmyid")
-freq = 1.0
 
 [node name="ChairPieceFront" type="Sprite2D" parent="cast"]
 position = Vector2(251, 550)
@@ -231,8 +237,6 @@ unique_name_in_owner = true
 position = Vector2(501, 381)
 scale = Vector2(0.05, 0.05)
 sprite_frames = SubResource("SpriteFrames_m77gi")
-script = ExtResource("6_pmyid")
-freq = 1.0
 
 [node name="ColorRect2" type="ColorRect" parent="cast"]
 offset_left = 663.0
@@ -264,10 +268,26 @@ offset_right = 720.0
 offset_bottom = 720.0
 metadata/_edit_use_anchors_ = true
 
-[node name="censorTimeoutTimer" type="Timer" parent="."]
-unique_name_in_owner = true
-one_shot = true
+[node name="Audio" type="Node2D" parent="."]
 
+[node name="button_in_audio" type="AudioStreamPlayer2D" parent="Audio"]
+unique_name_in_owner = true
+stream = ExtResource("12_hehv2")
+bus = &"SFX"
+
+[node name="button_out_audio" type="AudioStreamPlayer2D" parent="Audio"]
+unique_name_in_owner = true
+stream = ExtResource("13_27a66")
+bus = &"SFX"
+
+[node name="censor_audio" type="AudioStreamPlayer2D" parent="Audio"]
+unique_name_in_owner = true
+stream = ExtResource("14_27a66")
+bus = &"SFX"
+
+[node name="rewind_audio" type="AudioStreamPlayer2D" parent="Audio"]
+
+[node name="censorPopupTimer" type="Timer" parent="."]
 [node name="FrameLayer" type="CanvasLayer" parent="."]
 layer = 2
 
@@ -277,8 +297,4 @@ scale = Vector2(0.197, 0.197)
 texture = ExtResource("14_27a66")
 
 [connection signal="animation_finished" from="AnimationManager" to="GameManager" method="_on_animation_manager_animation_finished"]
-[connection signal="signal_swear_end" from="cast/TalkShowGuest" to="GameManager" method="_on_talk_show_guest_signal_swear_end"]
-[connection signal="signal_swear_start" from="cast/TalkShowGuest" to="GameManager" method="_on_talk_show_guest_signal_swear_start"]
-[connection signal="signal_swear_end" from="cast/TalkShowHost" to="GameManager" method="_on_talk_show_host_signal_swear_end"]
-[connection signal="signal_swear_start" from="cast/TalkShowHost" to="GameManager" method="_on_talk_show_host_signal_swear_start"]
-[connection signal="timeout" from="censorTimeoutTimer" to="GameManager" method="_on_censor_timeout_timer_timeout"]
+[connection signal="timeout" from="censorPopupTimer" to="GameManager" method="_on_censor_popup_timer_timeout"]

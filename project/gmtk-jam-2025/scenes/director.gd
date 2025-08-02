@@ -54,6 +54,10 @@ func play_audio(audioName : String) -> bool:
 	return true
 	
 func _process(delta: float) -> void:
+	# reset progress
+	if(GameManager.isRewinding):
+		progressBar.value = 100
+	# resuming after plugpulled
 	if(GameManager.isRewinding && !resumeAfterPlug): 
 		emotion_visibility(Emotions.NORMAL)
 		director.play("default")

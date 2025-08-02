@@ -90,7 +90,7 @@ func fast_forward_toggle(toggle_on : bool):
 		animation_player.play("game")
 		
 # the function used to place swear notes
-func swear_note() -> void:
+func swear_note(duration: float, character : String) -> void:
 	pass
 	#var timeOffset = abs(notePressedTime - animation_player.current_animation_position)
 	#print(timeOffset <= lifeTime)

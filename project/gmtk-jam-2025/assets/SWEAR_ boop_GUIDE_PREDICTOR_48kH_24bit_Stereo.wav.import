@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://gjurhqmd7dee"
+path="res://.godot/imported/SWEAR_ boop_GUIDE_PREDICTOR_48kH_24bit_Stereo.wav-06a34d2decb38e61444f7872362932d5.sample"
+
+[deps]
+
+source_file="res://assets/SWEAR_ boop_GUIDE_PREDICTOR_48kH_24bit_Stereo.wav"
+dest_files=["res://.godot/imported/SWEAR_ boop_GUIDE_PREDICTOR_48kH_24bit_Stereo.wav-06a34d2decb38e61444f7872362932d5.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

@@ -8,7 +8,7 @@ var isRewinding : bool = false
 var currentNoteDuration : float = 0.0
 var notePressedTime : float = 0
 @onready var animation_player: AnimationPlayer = %AnimationManager
-@onready var censor_popup_timer: Timer = $"../censorPopupTimer"
+@onready var censor_popup_timer: Timer = %censorPopupTimer
 
 @export var rewind_button: Button
 @export var censor_button: Button

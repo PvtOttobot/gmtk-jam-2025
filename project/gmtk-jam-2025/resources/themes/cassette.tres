@@ -7,8 +7,6 @@
 [sub_resource type="AtlasTexture" id="AtlasTexture_cvc8a"]
 atlas = ExtResource("1_53rbk")
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_nqq8e"]
-
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cvc8a"]
 content_margin_left = 10.0
 content_margin_top = 10.0
@@ -26,6 +24,8 @@ corner_radius_top_right = 5
 corner_radius_bottom_right = 5
 corner_radius_bottom_left = 5
 shadow_color = Color(0.130367, 0.368276, 0.266715, 0.6)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_nqq8e"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5h83x"]
 content_margin_left = 12.0
@@ -153,8 +153,10 @@ Button/colors/icon_hover_pressed_color = Color(1, 0.521569, 0.101961, 1)
 Button/colors/icon_normal_color = Color(0.64, 0.64, 0.64, 0.380392)
 Button/colors/icon_pressed_color = Color(1, 0.52, 0.1, 1)
 Button/icons/icon = SubResource("AtlasTexture_cvc8a")
+Button/styles/disabled = SubResource("StyleBoxFlat_cvc8a")
 Button/styles/focus = SubResource("StyleBoxEmpty_nqq8e")
 Button/styles/hover = SubResource("StyleBoxFlat_cvc8a")
+Button/styles/hover_pressed = SubResource("StyleBoxFlat_5h83x")
 Button/styles/normal = SubResource("StyleBoxFlat_cvc8a")
 Button/styles/pressed = SubResource("StyleBoxFlat_5h83x")
 CheckButton/icons/checked = SubResource("AtlasTexture_l3c38")
@@ -180,5 +182,6 @@ PrimaryButton/base_type = &"Button"
 PrimaryButton/colors/icon_hover_pressed_color = Color(1, 0.172549, 0.160784, 1)
 PrimaryButton/colors/icon_pressed_color = Color(1, 0.174, 0.16, 1)
 PrimaryButton/styles/hover = SubResource("StyleBoxFlat_53rbk")
+PrimaryButton/styles/hover_pressed = SubResource("StyleBoxFlat_agvb8")
 PrimaryButton/styles/normal = SubResource("StyleBoxFlat_53rbk")
 PrimaryButton/styles/pressed = SubResource("StyleBoxFlat_agvb8")

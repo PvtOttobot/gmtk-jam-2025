@@ -160,6 +160,68 @@ tracks/7/keys = {
 "times": PackedFloat32Array(5)
 }
 tracks/7/use_blend = true
+tracks/8/type = "method"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("GameManager")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(9.5, 12.5, 17.5, 22.5, 26.5, 27.5, 29, 31, 33, 39, 42.5631, 44, 46, 53, 56, 61, 62.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"values": [{
+"args": [0.5, "guest"],
+"method": &"swear_note"
+}, {
+"args": [0.5, "guest"],
+"method": &"swear_note"
+}, {
+"args": [0.5, "host"],
+"method": &"swear_note"
+}, {
+"args": [0.5, "guest"],
+"method": &"swear_note"
+}, {
+"args": [0.25, "host"],
+"method": &"swear_note"
+}, {
+"args": [0.25, "host"],
+"method": &"swear_note"
+}, {
+"args": [0.5, "guest"],
+"method": &"swear_note"
+}, {
+"args": [0.25, "host"],
+"method": &"swear_note"
+}, {
+"args": [0.25, "host"],
+"method": &"swear_note"
+}, {
+"args": [0.5, "guest"],
+"method": &"swear_note"
+}, {
+"args": [0.5, "guest"],
+"method": &"swear_note"
+}, {
+"args": [0.5, "guest"],
+"method": &"swear_note"
+}, {
+"args": [0.5, "guest"],
+"method": &"swear_note"
+}, {
+"args": [0.5, "host"],
+"method": &"swear_note"
+}, {
+"args": [0.5, "guest"],
+"method": &"swear_note"
+}, {
+"args": [0.5, "host"],
+"method": &"swear_note"
+}, {
+"args": [0.5, "host"],
+"method": &"swear_note"
+}]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_623lg"]
 _data = {

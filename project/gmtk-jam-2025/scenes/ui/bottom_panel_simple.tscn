@@ -47,5 +47,6 @@ theme_type_variation = &"PrimaryButton"
 icon = ExtResource("4_f3vxg")
 
 [node name="FastForward_BottomPanelSimpleButton" parent="Panel/MarginContainer/HBoxContainer" instance=ExtResource("2_ppqp2")]
+visible = false
 layout_mode = 2
 icon = ExtResource("5_3xewp")

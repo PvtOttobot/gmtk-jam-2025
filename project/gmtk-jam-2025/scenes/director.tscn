@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://rxrsdqldj41j"]
+[gd_scene load_steps=18 format=3 uid="uid://rxrsdqldj41j"]
 
 [ext_resource type="Script" uid="uid://4ggem0rf8ksq" path="res://scenes/director.gd" id="2_58xbc"]
 [ext_resource type="Texture2D" uid="uid://fgcajnk2pwky" path="res://assets/characters/director/Director no shadows.PNG" id="2_dlqyr"]
@@ -6,6 +6,14 @@
 [ext_resource type="Texture2D" uid="uid://tsf311pp6r54" path="res://assets/characters/director/Director neutral.PNG" id="3_rhscl"]
 [ext_resource type="Texture2D" uid="uid://crrfoqjm0pqqv" path="res://assets/characters/director/Director negative feedback.PNG" id="4_2yy8l"]
 [ext_resource type="Texture2D" uid="uid://c7heam8e5g3e6" path="res://assets/characters/director/Director positive feedback.PNG" id="5_n4h3p"]
+[ext_resource type="AudioStream" uid="uid://dj8uuc54tfw4y" path="res://assets/characters/director/audio/Unplug_Socket_2_44.1Khz_24Bit_MONO.wav.wav" id="7_n4h3p"]
+[ext_resource type="AudioStream" uid="uid://bo36vtenkvwdm" path="res://assets/characters/director/audio/Director_Scott_02_48kH_24bit_stereo.wav" id="8_cd0v0"]
+[ext_resource type="AudioStream" uid="uid://btbmwt217hp6c" path="res://assets/characters/director/audio/Director_Scott_04_48kH_24bit_stereo.wav" id="9_uny57"]
+[ext_resource type="AudioStream" uid="uid://vph4mworfg72" path="res://assets/characters/director/audio/Director_Scott_05_48kH_24bit_stereo.wav" id="10_nwmrr"]
+[ext_resource type="AudioStream" uid="uid://d4iakg0apxq8v" path="res://assets/characters/director/audio/Human_Grumble_Happy_But_Not_Too_Loud_Or_Long_44.1khz_16Bit_MONO.wav" id="11_f2fdo"]
+[ext_resource type="AudioStream" uid="uid://cvixdir8hlt3f" path="res://assets/characters/director/audio/Director_Scott_01_48kH_24bit_stereo.wav" id="12_g1gpi"]
+[ext_resource type="AudioStream" uid="uid://bbwrh5txlfroa" path="res://assets/characters/director/audio/Negative_Grumble_441.Khz_24Bit_MONO.wav" id="13_1bnwm"]
+[ext_resource type="AudioStream" uid="uid://cngkwcaydkuum" path="res://assets/characters/director/audio/Director_Scott_03_48kH_24bit_stereo.wav" id="14_pylgn"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5gj23"]
 atlas = ExtResource("2_dlqyr")
@@ -29,6 +37,13 @@ animations = [{
 "name": &"plug",
 "speed": 5.0
 }]
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_agwiv"]
+streams_count = 4
+stream_0/stream = ExtResource("8_cd0v0")
+stream_1/stream = ExtResource("9_uny57")
+stream_2/stream = ExtResource("10_nwmrr")
+stream_3/stream = ExtResource("11_f2fdo")
 
 [node name="Director" type="Control"]
 layout_mode = 3
@@ -72,6 +87,26 @@ offset_top = 86.0
 offset_right = 455.0
 offset_bottom = 113.0
 value = 100.0
+
+[node name="Audio" type="Node2D" parent="."]
+unique_name_in_owner = true
+
+[node name="unplug_socket_audio" type="AudioStreamPlayer2D" parent="Audio"]
+stream = ExtResource("7_n4h3p")
+volume_db = 6.058
+bus = &"SFX"
+
+[node name="normal_face_audio" type="AudioStreamPlayer2D" parent="Audio"]
+stream = SubResource("AudioStreamRandomizer_agwiv")
+
+[node name="neutral_face_audio" type="AudioStreamPlayer2D" parent="Audio"]
+stream = ExtResource("12_g1gpi")
+
+[node name="negative_face_audio" type="AudioStreamPlayer2D" parent="Audio"]
+stream = ExtResource("13_1bnwm")
+
+[node name="positive_face_audio" type="AudioStreamPlayer2D" parent="Audio"]
+stream = ExtResource("14_pylgn")
 
 [connection signal="pullPlug" from="." to="." method="_on_pull_plug"]
 [connection signal="timeout" from="Director/emotions/EmotionTimer" to="." method="_on_emotion_timer_timeout"]

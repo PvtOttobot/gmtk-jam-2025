@@ -9,6 +9,7 @@ var currentEmotion = Emotions.NORMAL
 
 @onready var progressBar: ProgressBar = $ProgressBar
 var resumeAfterPlug : bool = true
+var lastAudioName : String = ""
 
 @export var GameManager : Node
 
@@ -37,15 +38,31 @@ func emotion_visibility(emotion:Emotions):
 		negative_face.visible = true
 	elif (emotion == Emotions.POSITIVE):
 		positive_face.visible = true
+		
+func play_audio(audioName : String) -> bool:
+	# dont play audio if an audio is playing
+	for sound in %Audio.get_children():
+		if (sound.playing && sound.name == audioName || lastAudioName == audioName):
+			return false
+			
+	var AudioPlayer : AudioStreamPlayer2D = %Audio.get_node(audioName)
+	if (!AudioPlayer):
+		return false
+		
+	AudioPlayer.play()
+	lastAudioName = AudioPlayer.name
+	return true
 	
 func _process(delta: float) -> void:
 	if(GameManager.isRewinding && !resumeAfterPlug): 
 		emotion_visibility(Emotions.NORMAL)
+		director.play("default")
 		resumeAfterPlug = true
 	if (GameManager.animation_player.is_playing()):
 		# if we're censoring and the host is swearing - IS GOOD! 
 		if (GameManager.isCensoring == true) && (GameManager.isSwearing == true):
 			display_emotion(Emotions.POSITIVE,0.1)
+			play_audio("positive_face_audio")
 			progressBar.value += goodReward * delta
 		
 		# if we're not censoring and the host is not swearing - IS GOOD! 
@@ -55,16 +72,18 @@ func _process(delta: float) -> void:
 		# if we're censoring and the host is not swearing - IS BAD! 
 		elif (GameManager.isCensoring == true) && (GameManager.isSwearing == false):
 			display_emotion(Emotions.NEUTRAL,0.1)
+			play_audio("neutral_face_audio")
 			progressBar.value += badPunishment * delta
 			
 		# if we're not censoring and the host is swearing - IS VERY BAD! 
 		elif (GameManager.isCensoring == false) && (GameManager.isSwearing == true):
 			display_emotion(Emotions.NEGATIVE,0.1)
+			play_audio("negative_face_audio")
 			progressBar.value += veryBadPunishment * delta
 	
-	# game end condition
-	if (progressBar.value <= 0.0):
-		pullPlug.emit()
+		# game end condition
+		if (progressBar.value <= 0.0):
+			pullPlug.emit()
 
 # timer timout to change emotion to normal after duration is over
 func _on_emotion_timer_timeout() -> void:
@@ -73,6 +92,7 @@ func _on_emotion_timer_timeout() -> void:
 func _on_pull_plug() -> void:
 	# show director angry
 	director.play("plug")
+	play_audio("unplug_socket_audio")
 	emotion_visibility(Emotions.NEGATIVE)
 	GameManager.animation_player.pause() # stop the broadcast
 	# bool to check if player rewinds and resume playing

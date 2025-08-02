@@ -1,7 +1,7 @@
 extends MainMenu
 
 @export var level_select_packed_scene: PackedScene
-@export var confirm_new_game : bool = true
+@export var confirm_new_game : bool = false
 
 var level_select_scene : Node
 var animation_state_machine : AnimationNodeStateMachinePlayback
@@ -62,8 +62,8 @@ func _show_continue_if_set() -> void:
 
 func _ready() -> void:
 	super._ready()
-	_add_level_select_if_set()
-	_show_continue_if_set()
+	#_add_level_select_if_set()
+	#_show_continue_if_set()
 	animation_state_machine = $MenuAnimationTree.get("parameters/playback")
 
 func _on_continue_game_button_pressed() -> void:

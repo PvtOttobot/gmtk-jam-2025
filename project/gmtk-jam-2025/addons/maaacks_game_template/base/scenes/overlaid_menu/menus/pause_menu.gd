@@ -56,19 +56,16 @@ func _ready() -> void:
 	_hide_main_menu_if_unset()
 
 func _on_restart_button_pressed() -> void:
-	%ConfirmRestart.popup_centered()
-	popup_open = %ConfirmRestart
+	_on_confirm_restart_confirmed()
 
 func _on_options_button_pressed() -> void:
 	open_options_menu()
 
 func _on_main_menu_button_pressed() -> void:
-	%ConfirmMainMenu.popup_centered()
-	popup_open = %ConfirmMainMenu
+	_on_confirm_main_menu_confirmed()
 
 func _on_exit_button_pressed() -> void:
-	%ConfirmExit.popup_centered()
-	popup_open = %ConfirmExit
+	_on_confirm_exit_confirmed()
 
 func _on_confirm_restart_confirmed() -> void:
 	SceneLoader.reload_current_scene()

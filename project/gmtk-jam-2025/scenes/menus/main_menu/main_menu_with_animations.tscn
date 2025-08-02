@@ -353,7 +353,7 @@ graph_offset = Vector2(-180.277, 49)
 [node name="MainMenu" instance=ExtResource("1_rr1rn")]
 script = ExtResource("2_sr523")
 level_select_packed_scene = null
-confirm_new_game = true
+confirm_new_game = false
 game_scene_path = "res://scenes/game_scene/game_ui.tscn"
 options_packed_scene = ExtResource("3_ixa71")
 credits_packed_scene = ExtResource("4_rr1rn")
@@ -384,13 +384,17 @@ text = "BLEEP"
 modulate = Color(1, 1, 1, 0)
 
 [node name="SubTitleLabel" parent="MenuContainer/SubTitleMargin/SubTitleContainer" index="0"]
-text = "Censor alien ßµ11$Ⱨ!7  in-time. Beat the loop!"
+text = "A toe-tapping talk show gone wrong...
+censor alien ßµ11$Ⱨ!7, to beat the loop!"
 
 [node name="MenuButtonsContainer" parent="MenuContainer/MenuButtonsMargin" index="0"]
 modulate = Color(1, 1, 1, 0)
 
 [node name="MenuButtonsBoxContainer" parent="MenuContainer/MenuButtonsMargin/MenuButtonsContainer" index="0"]
 lock = true
+
+[node name="NewGameButton" parent="MenuContainer/MenuButtonsMargin/MenuButtonsContainer/MenuButtonsBoxContainer" index="0"]
+text = "Start"
 
 [node name="ContinueGameButton" type="Button" parent="MenuContainer/MenuButtonsMargin/MenuButtonsContainer/MenuButtonsBoxContainer" index="1"]
 unique_name_in_owner = true

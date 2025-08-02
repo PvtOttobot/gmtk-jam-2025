@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://rxrsdqldj41j" path="res://scenes/director.tscn" id="2_ghb4r"]
 [ext_resource type="PackedScene" uid="uid://7b6ncevdvrfh" path="res://scenes/ui/bottom_panel_simple.tscn" id="3_ghb4r"]
 
-[node name="Main" type="Control"]
+[node name="Main" type="Control" node_paths=PackedStringArray("GameManager")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -13,6 +13,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_koifc")
+GameManager = NodePath("HBoxContainer/Level1/GameManager")
 
 [node name="BackgroundColor" type="ColorRect" parent="."]
 unique_name_in_owner = true

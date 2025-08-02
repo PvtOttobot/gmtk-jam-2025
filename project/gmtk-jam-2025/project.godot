@@ -10,7 +10,7 @@ config_version=5
 
 [application]
 
-config/name="Working Title"
+config/name="Bleep"
 run/main_scene="res://scenes/opening/opening_with_logo.tscn"
 config/features=PackedStringArray("4.4")
 config/icon="res://icon.png"
@@ -34,7 +34,7 @@ enabled=PackedStringArray("res://addons/maaacks_game_template/plugin.cfg")
 
 [gui]
 
-theme/custom="res://resources/themes/lore.tres"
+theme/custom="uid://b3ax5mkl4dai"
 common/drop_mouse_on_gui_input_disabled=true
 
 [input]

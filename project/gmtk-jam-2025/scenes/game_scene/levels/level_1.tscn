@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://cnpss81rdulih"]
+[gd_scene load_steps=35 format=3 uid="uid://cnpss81rdulih"]
 
 [ext_resource type="Script" uid="uid://ck7cdjnnkm4aq" path="res://scenes/game_scene/tutorial_manager.gd" id="4_bsimd"]
 [ext_resource type="Script" uid="uid://n3xoftgesrkm" path="res://scenes/game_scene/game_manager.gd" id="4_w6i3l"]
@@ -22,6 +22,8 @@
 [ext_resource type="AudioStream" uid="uid://drjd7d35dj3gs" path="res://assets/buttons/Button_Push_In_96_Khz_24Bit_MONO.wav" id="14_5hj03"]
 [ext_resource type="AudioStream" uid="uid://qseksiv1s1w7" path="res://assets/gameplay/Censor_Beep_44.1Khz_16Bit_MONO.wav" id="14_27a66"]
 [ext_resource type="AudioStream" uid="uid://c8uxfh2ffhcxt" path="res://assets/buttons/Button_Push_Out_96Khz_24Bit_MONO.wav" id="15_1wmy8"]
+[ext_resource type="Texture2D" uid="uid://cshcwav7mwyqs" path="res://assets/characters/Guest swear face.PNG" id="15_mkaae"]
+[ext_resource type="Texture2D" uid="uid://bqjatrnogncsw" path="res://assets/characters/Host swear face.PNG" id="18_k7aj6"]
 [ext_resource type="Texture2D" uid="uid://chjgl4x57nstx" path="res://assets/Tv frame.PNG" id="19_1wmy8"]
 
 [sub_resource type="Animation" id="Animation_sycfm"]
@@ -355,6 +357,12 @@ scale = Vector2(0.07, 0.07)
 sprite_frames = SubResource("SpriteFrames_hehv2")
 animation = &"swearing"
 
+[node name="face" type="Sprite2D" parent="cast/TalkShowGuest"]
+visible = false
+position = Vector2(314.286, -1142.86)
+scale = Vector2(0.79375, 0.79375)
+texture = ExtResource("15_mkaae")
+
 [node name="ChairPieceFront" type="Sprite2D" parent="cast"]
 position = Vector2(251, 550)
 scale = Vector2(0.142, 0.142)
@@ -366,6 +374,12 @@ position = Vector2(501, 381)
 scale = Vector2(0.05, 0.05)
 sprite_frames = SubResource("SpriteFrames_m77gi")
 script = ExtResource("6_pmyid")
+
+[node name="face" type="Sprite2D" parent="cast/TalkShowHost"]
+visible = false
+position = Vector2(259.999, -1160)
+scale = Vector2(1.12531, 1.12531)
+texture = ExtResource("18_k7aj6")
 
 [node name="ColorRect2" type="ColorRect" parent="cast"]
 offset_left = 663.0
@@ -397,6 +411,7 @@ bus = &"SFX"
 
 [node name="CRTLayer" type="CanvasLayer" parent="."]
 layer = 0
+visible = false
 
 [node name="CRTShader" type="ColorRect" parent="CRTLayer"]
 material = SubResource("ShaderMaterial_bsimd")
@@ -414,10 +429,6 @@ offset_right = 720.0
 offset_bottom = 720.0
 metadata/_edit_use_anchors_ = true
 
-[node name="censorPopupTimer" type="Timer" parent="."]
-unique_name_in_owner = true
-one_shot = true
-
 [node name="FrameLayer" type="CanvasLayer" parent="."]
 layer = 2
 
@@ -426,5 +437,14 @@ position = Vector2(353, 362)
 scale = Vector2(0.197, 0.197)
 texture = ExtResource("19_1wmy8")
 
+[node name="censorPopupTimer" type="Timer" parent="."]
+unique_name_in_owner = true
+one_shot = true
+
+[node name="censorDurationTimer" type="Timer" parent="."]
+unique_name_in_owner = true
+one_shot = true
+
 [connection signal="animation_finished" from="AnimationManager" to="GameManager" method="_on_animation_manager_animation_finished"]
 [connection signal="timeout" from="censorPopupTimer" to="GameManager" method="_on_censor_popup_timer_timeout"]
+[connection signal="timeout" from="censorDurationTimer" to="GameManager" method="_on_censor_duration_timer_timeout"]

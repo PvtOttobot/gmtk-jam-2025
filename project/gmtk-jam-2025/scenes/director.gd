@@ -15,10 +15,10 @@ var lastAudioName : String = ""
 
 @export var goodReward : float = 5
 @export var badPunishment : float = -25
-@export var veryBadPunishment : float = -75
 
 @export var amp  := 0.2
 @export var freq := 8.0
+@export var ThreshholdAnger : float = 70
 
 @onready var director: AnimatedSprite2D = $Director
 
@@ -34,10 +34,13 @@ func emotion_visibility(emotion:Emotions):
 	positive_face.visible = false
 	if (emotion == Emotions.NEUTRAL):
 		neutral_face.visible = true
+		play_audio("neutral_face_audio")
 	elif (emotion == Emotions.NEGATIVE):
 		negative_face.visible = true
+		play_audio("negative_face_audio")
 	elif (emotion == Emotions.POSITIVE):
 		positive_face.visible = true
+		play_audio("positive_face_audio")
 		
 func play_audio(audioName : String) -> bool:
 	# dont play audio if an audio is playing
@@ -63,28 +66,6 @@ func _process(delta: float) -> void:
 		director.play("default")
 		resumeAfterPlug = true
 	if (GameManager.animation_player.is_playing()):
-		# if we're censoring and the host is swearing - IS GOOD! 
-		if (GameManager.isCensoring == true) && (GameManager.isSwearing == true):
-			display_emotion(Emotions.POSITIVE,0.1)
-			play_audio("positive_face_audio")
-			progressBar.value += goodReward * delta
-		
-		# if we're not censoring and the host is not swearing - IS GOOD! 
-		elif (GameManager.isCensoring == false) && (GameManager.isSwearing == false):
-			progressBar.value += goodReward * delta
-			
-		# if we're censoring and the host is not swearing - IS BAD! 
-		elif (GameManager.isCensoring == true) && (GameManager.isSwearing == false):
-			display_emotion(Emotions.NEUTRAL,0.1)
-			play_audio("neutral_face_audio")
-			progressBar.value += badPunishment * delta
-			
-		# if we're not censoring and the host is swearing - IS VERY BAD! 
-		elif (GameManager.isCensoring == false) && (GameManager.isSwearing == true):
-			display_emotion(Emotions.NEGATIVE,0.1)
-			play_audio("negative_face_audio")
-			progressBar.value += veryBadPunishment * delta
-	
 		# game end condition
 		if (progressBar.value <= 0.0):
 			pullPlug.emit()
@@ -101,3 +82,16 @@ func _on_pull_plug() -> void:
 	GameManager.animation_player.pause() # stop the broadcast
 	# bool to check if player rewinds and resume playing
 	resumeAfterPlug = false
+
+func _on_game_manager_swear_note_hit() -> void:
+	progressBar.value += goodReward
+	display_emotion(Emotions.POSITIVE,0.1)
+	print("swear note hit")
+
+func _on_game_manager_swear_note_miss() -> void:
+	if (progressBar.value < ThreshholdAnger):
+		display_emotion(Emotions.NEGATIVE,0.1)
+	else:
+		display_emotion(Emotions.NEUTRAL,0.1)
+	progressBar.value += badPunishment
+	print("swear note miss")

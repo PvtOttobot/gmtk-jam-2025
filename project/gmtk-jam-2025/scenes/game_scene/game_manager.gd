@@ -1,5 +1,9 @@
 extends Node
 
+# the function used to place swear notes
+func swear_note() -> void:
+	pass
+
 var isCensoring : bool = false
 var isSwearing : bool = false
 var isForwarding : bool = false

@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://qqq6gdrfwb84"]
+[gd_scene load_steps=6 format=3 uid="uid://qqq6gdrfwb84"]
 
 [ext_resource type="Theme" uid="uid://b8r543lgkikb6" path="res://resources/themes/cassette.tres" id="1_yil70"]
 [ext_resource type="Texture2D" uid="uid://dvhn8aqi3weft" path="res://assets/ui/panel_icons_sheet_white.png" id="2_yil70"]
+[ext_resource type="Script" uid="uid://chc3p7b0seqr6" path="res://scenes/ui/bottom_panel_simple_button.gd" id="3_pxe0x"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_pxe0x"]
 atlas = ExtResource("2_yil70")
@@ -26,3 +27,9 @@ toggle_mode = true
 icon = SubResource("AtlasTexture_8hj2u")
 icon_alignment = 1
 expand_icon = true
+script = ExtResource("3_pxe0x")
+
+[connection signal="button_down" from="." to="." method="_on_button_down"]
+[connection signal="button_up" from="." to="." method="_on_button_up"]
+[connection signal="pressed" from="." to="." method="_on_pressed"]
+[connection signal="toggled" from="." to="." method="_on_toggled"]

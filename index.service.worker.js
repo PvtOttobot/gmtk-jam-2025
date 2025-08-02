@@ -4,7 +4,7 @@
 // Incrementing CACHE_VERSION will kick off the install event and force
 // previously cached resources to be updated from the network.
 /** @type {string} */
-const CACHE_VERSION = '1754158632|33590043';
+const CACHE_VERSION = '1754161430|33599185';
 /** @type {string} */
 const CACHE_PREFIX = 'BLEEP-sw-cache-';
 const CACHE_NAME = CACHE_PREFIX + CACHE_VERSION;

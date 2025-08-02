@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://dy0dpjhcbofyt"]
+[gd_scene load_steps=6 format=3 uid="uid://ox16128dmnsx"]
 
 [ext_resource type="Script" uid="uid://dwbv1a1x2w61d" path="res://scenes/game_scene/levels/main.gd" id="1_koifc"]
 [ext_resource type="PackedScene" uid="uid://cnpss81rdulih" path="res://scenes/game_scene/levels/level_1.tscn" id="1_u55s7"]
@@ -30,6 +30,7 @@ color = Color(0, 0, 0, 1)
 layout_mode = 0
 offset_right = 1274.0
 offset_bottom = 720.0
+theme_override_constants/separation = 7
 alignment = 1
 
 [node name="Level1" parent="HBoxContainer" instance=ExtResource("1_u55s7")]

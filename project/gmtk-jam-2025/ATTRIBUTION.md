@@ -5,7 +5,21 @@
 ![Maaack Plugin Icon](/assets/plugin_logo/logo.png)  
 Author: [Marek Belski and contributors](https://github.com/Maaack/Godot-Game-Template/graphs/contributors)  
 Source: [github: Godot-Game-Template](https://github.com/Maaack/Godot-Game-Template)  
-License: [MIT License](LICENSE.txt)  
+License: [MIT License](LICENSE.txt)
+
+## Programmers
+Otto Peterson
+Luca Rogers
+Cameron Early
+
+## Art
+Hella Petersen
+Joannamei Jardine
+
+## Sound
+Lunan Blue
+Scott Bond
+Gordon <SURNAME>
 
 ## Sourced
 #### Godot Engine Logo

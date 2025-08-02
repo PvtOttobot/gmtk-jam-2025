@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://dy0dpjhcbofyt"]
+[gd_scene load_steps=6 format=3 uid="uid://ox16128dmnsx"]
 
 [ext_resource type="Script" uid="uid://dwbv1a1x2w61d" path="res://scenes/game_scene/levels/main.gd" id="1_koifc"]
 [ext_resource type="PackedScene" uid="uid://cnpss81rdulih" path="res://scenes/game_scene/levels/level_1.tscn" id="1_u55s7"]
 [ext_resource type="PackedScene" uid="uid://rxrsdqldj41j" path="res://scenes/director.tscn" id="2_ghb4r"]
 [ext_resource type="PackedScene" uid="uid://7b6ncevdvrfh" path="res://scenes/ui/bottom_panel_simple.tscn" id="3_ghb4r"]
+[ext_resource type="Texture2D" uid="uid://depwj4v6khiih" path="res://assets/Right side of screen scene background.PNG" id="5_i43i6"]
 
 [node name="Main" type="Control" node_paths=PackedStringArray("GameManager")]
 layout_mode = 3
@@ -29,6 +30,7 @@ color = Color(0, 0, 0, 1)
 layout_mode = 0
 offset_right = 1274.0
 offset_bottom = 720.0
+theme_override_constants/separation = 7
 alignment = 1
 
 [node name="Level1" parent="HBoxContainer" instance=ExtResource("1_u55s7")]
@@ -72,6 +74,11 @@ offset_right = 0.0
 offset_bottom = 0.0
 grow_horizontal = 0
 grow_vertical = 0
+
+[node name="RightSideOfScreenSceneBackground" type="Sprite2D" parent="HBoxContainer/VBoxContainer"]
+position = Vector2(109, 173)
+scale = Vector2(0.230875, 0.230875)
+texture = ExtResource("5_i43i6")
 
 [connection signal="pullPlug" from="HBoxContainer/VBoxContainer/CanvasLayer/Director" to="HBoxContainer/Level1/GameManager" method="_on_director_pull_plug"]
 [connection signal="toggled" from="HBoxContainer/VBoxContainer/CanvasLayer/BottomPanelSimple/Panel/MarginContainer/HBoxContainer/Reverse_BottomPanelSimpleButton" to="HBoxContainer/Level1/GameManager" method="_on_button_toggled"]

@@ -14,7 +14,7 @@ var resumeAfterPlug : bool = true
 
 @export var goodReward : float = 5
 @export var badPunishment : float = -25
-@export var veryBadPunishment : float = -25
+@export var veryBadPunishment : float = -75
 
 @export var amp  := 0.2
 @export var freq := 8.0

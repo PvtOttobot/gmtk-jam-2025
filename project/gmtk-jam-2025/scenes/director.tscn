@@ -98,15 +98,19 @@ bus = &"SFX"
 
 [node name="normal_face_audio" type="AudioStreamPlayer2D" parent="Audio"]
 stream = SubResource("AudioStreamRandomizer_agwiv")
+bus = &"SFX"
 
 [node name="neutral_face_audio" type="AudioStreamPlayer2D" parent="Audio"]
 stream = ExtResource("12_g1gpi")
+bus = &"SFX"
 
 [node name="negative_face_audio" type="AudioStreamPlayer2D" parent="Audio"]
 stream = ExtResource("13_1bnwm")
+bus = &"SFX"
 
 [node name="positive_face_audio" type="AudioStreamPlayer2D" parent="Audio"]
 stream = ExtResource("14_pylgn")
+bus = &"SFX"
 
 [connection signal="pullPlug" from="." to="." method="_on_pull_plug"]
 [connection signal="timeout" from="Director/emotions/EmotionTimer" to="." method="_on_emotion_timer_timeout"]

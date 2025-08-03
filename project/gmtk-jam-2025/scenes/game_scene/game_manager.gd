@@ -186,7 +186,7 @@ func _on_censor_duration_timer_timeout() -> void:
 		swearNoteMiss.emit()
 	has_hit_swear_note = false
 	start_note_feedback()
-
+	
 # for touch controls on button
 func _on_reverse_bottom_panel_simple_button_pressed() -> void:
 	rewind_full_toggle(true)

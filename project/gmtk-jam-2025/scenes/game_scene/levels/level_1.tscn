@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=3 uid="uid://cnpss81rdulih"]
+[gd_scene load_steps=46 format=3 uid="uid://cnpss81rdulih"]
 
 [ext_resource type="Script" uid="uid://ck7cdjnnkm4aq" path="res://scenes/game_scene/tutorial_manager.gd" id="4_bsimd"]
 [ext_resource type="Script" uid="uid://n3xoftgesrkm" path="res://scenes/game_scene/game_manager.gd" id="4_w6i3l"]
@@ -80,6 +80,18 @@ tracks/3/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector2(0.05, 0.05)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("cast/TalkShowHost:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(501, 381)]
 }
 
 [sub_resource type="Animation" id="Animation_w6i3l"]
@@ -313,6 +325,18 @@ tracks/12/keys = {
 "update": 0,
 "values": [Vector2(0.05, 0.05), Vector2(0.05, 0.046), Vector2(0.05, 0.05), Vector2(0.05, 0.04), Vector2(0.05, 0.054), Vector2(0.05, 0.05), Vector2(0.05, 0.05), Vector2(0.05, 0.046), Vector2(0.05, 0.05), Vector2(0.05, 0.04), Vector2(0.05, 0.054), Vector2(0.05, 0.05), Vector2(0.05, 0.05), Vector2(0.05, 0.04), Vector2(0.05, 0.054), Vector2(0.05, 0.05), Vector2(0.05, 0.05), Vector2(0.05, 0.046), Vector2(0.05, 0.05), Vector2(0.05, 0.04), Vector2(0.05, 0.054), Vector2(0.05, 0.05), Vector2(0.05, 0.05), Vector2(0.05, 0.046), Vector2(0.05, 0.05), Vector2(0.05, 0.04), Vector2(0.05, 0.054), Vector2(0.05, 0.05), Vector2(0.05, 0.05), Vector2(0.05, 0.046), Vector2(0.05, 0.05), Vector2(0.05, 0.04), Vector2(0.05, 0.054), Vector2(0.05, 0.05), Vector2(0.05, 0.05), Vector2(0.05, 0.046), Vector2(0.05, 0.05), Vector2(0.05, 0.04), Vector2(0.05, 0.054), Vector2(0.05, 0.05), Vector2(0.05, 0.05), Vector2(0.05, 0.046), Vector2(0.05, 0.05), Vector2(0.05, 0.04), Vector2(0.05, 0.054), Vector2(0.05, 0.05)]
 }
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("cast/TalkShowHost:position")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(501, 381)]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_623lg"]
 _data = {
@@ -343,6 +367,98 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="Animation" id="Animation_f4212"]
+resource_name = "vibing"
+length = 0.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = false
+tracks/0/path = NodePath(".:skew")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0.07, 0.07), Vector2(0.07, 0.072), Vector2(0.07, 0.07)]
+}
+
+[sub_resource type="Animation" id="Animation_ygfl0"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:skew")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.07, 0.07)]
+}
+
+[sub_resource type="Animation" id="Animation_5buye"]
+resource_name = "speaking"
+length = 0.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:skew")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [-0.1, 0.05, -0.1]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0.07, 0.07), Vector2(0.07, 0.072), Vector2(0.07, 0.07)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ygfl0"]
+_data = {
+&"RESET": SubResource("Animation_ygfl0"),
+&"speaking": SubResource("Animation_5buye"),
+&"vibing": SubResource("Animation_f4212")
+}
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_27a66"]
 atlas = ExtResource("7_8avtb")
 region = Rect2(0, 0, 4000, 4000)
@@ -357,6 +473,126 @@ animations = [{
 "name": &"default",
 "speed": 5.0
 }]
+
+[sub_resource type="Animation" id="Animation_pghfl"]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0.05, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:scale:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0.05, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:skew")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="Animation" id="Animation_y3h4k"]
+resource_name = "vibing"
+length = 0.5
+loop_mode = 1
+step = 0.25
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = false
+tracks/0/path = NodePath(".:scale:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0.05, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:scale:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(0.05, -0.25, 0, 0.25, 0, 0.051, -0.25, 0, 0.25, 0, 0.05, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.25, 0.5)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = false
+tracks/2/path = NodePath(".:skew")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, -0.05, 0, 0, 0, 0, 0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.25, 0.5)
+}
+
+[sub_resource type="Animation" id="Animation_5xk6u"]
+resource_name = "speaking"
+length = 0.5
+loop_mode = 1
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = false
+tracks/0/path = NodePath(".:scale:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0.05, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:scale:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(0.05, -0.25, 0, 0.25, 0, 0.052, -0.25, 0, 0.25, 0, 0.05, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.25, 0.5)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:skew")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, -0.1, -0.25, 0, 0.25, 0, 0.05, 0, 0, 0.25, 0, -0.1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(-0.2, 0, 0.25, 0.5)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_pghfl"]
+_data = {
+&"RESET": SubResource("Animation_pghfl"),
+&"speaking": SubResource("Animation_5xk6u"),
+&"vibing": SubResource("Animation_y3h4k")
+}
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_bsimd"]
 shader = ExtResource("7_bsimd")
@@ -468,6 +704,12 @@ position = Vector2(314.286, -1142.86)
 scale = Vector2(0.79375, 0.79375)
 texture = ExtResource("15_mkaae")
 
+[node name="AnimationPlayer" type="AnimationPlayer" parent="cast/TalkShowGuest"]
+libraries = {
+&"": SubResource("AnimationLibrary_ygfl0")
+}
+autoplay = "vibing"
+
 [node name="ChairPieceFront" type="Sprite2D" parent="cast"]
 position = Vector2(251, 550)
 scale = Vector2(0.142, 0.142)
@@ -478,13 +720,18 @@ unique_name_in_owner = true
 position = Vector2(496, 403)
 scale = Vector2(0.05, 0.05)
 sprite_frames = SubResource("SpriteFrames_m77gi")
-script = ExtResource("6_pmyid")
 
 [node name="face" type="Sprite2D" parent="cast/TalkShowHost"]
 visible = false
 position = Vector2(259.999, -1160)
 scale = Vector2(1.12531, 1.12531)
 texture = ExtResource("18_k7aj6")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="cast/TalkShowHost"]
+libraries = {
+&"": SubResource("AnimationLibrary_pghfl")
+}
+autoplay = "vibing"
 
 [node name="ColorRect2" type="ColorRect" parent="cast"]
 offset_left = 663.0

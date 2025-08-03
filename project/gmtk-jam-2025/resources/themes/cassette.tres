@@ -1,8 +1,9 @@
-[gd_resource type="Theme" load_steps=16 format=3 uid="uid://b8r543lgkikb6"]
+[gd_resource type="Theme" load_steps=17 format=3 uid="uid://b8r543lgkikb6"]
 
 [ext_resource type="Texture2D" uid="uid://ctfl5lq83mmic" path="res://icon.png" id="1_53rbk"]
 [ext_resource type="Texture2D" uid="uid://bt4ccmeyb7yc7" path="res://assets/ui/panel_icons_sheet.png" id="1_l3c38"]
 [ext_resource type="Texture2D" uid="uid://ct6ekbegcn0ir" path="res://assets/ui/panel_icons_sheet_red.png" id="1_nqq8e"]
+[ext_resource type="Texture2D" uid="uid://cx835km3v23qe" path="res://assets/ui/vhs_texture.png" id="4_cvc8a"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_cvc8a"]
 atlas = ExtResource("1_53rbk")
@@ -91,23 +92,8 @@ corner_radius_top_right = 5
 corner_radius_bottom_right = 5
 corner_radius_bottom_left = 5
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hcsit"]
-content_margin_left = 0.0
-content_margin_top = 0.0
-content_margin_right = 0.0
-content_margin_bottom = 0.0
-bg_color = Color(0.18, 0.18, 0.18, 1)
-border_width_left = 10
-border_width_top = 10
-border_width_right = 10
-border_width_bottom = 10
-border_color = Color(0.4366, 0.74, 0.689433, 0.682353)
-border_blend = true
-corner_radius_top_left = 8
-corner_radius_top_right = 8
-corner_detail = 12
-shadow_color = Color(0.3, 0.26, 0.5, 0.647059)
-shadow_size = 8
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_5h83x"]
+texture = ExtResource("4_cvc8a")
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_53rbk"]
 content_margin_left = 10.0
@@ -177,7 +163,7 @@ MarginContainer/constants/margin_bottom = 20
 MarginContainer/constants/margin_left = 25
 MarginContainer/constants/margin_right = 25
 MarginContainer/constants/margin_top = 20
-Panel/styles/panel = SubResource("StyleBoxFlat_hcsit")
+Panel/styles/panel = SubResource("StyleBoxTexture_5h83x")
 PrimaryButton/base_type = &"Button"
 PrimaryButton/colors/icon_hover_pressed_color = Color(1, 0.172549, 0.160784, 1)
 PrimaryButton/colors/icon_pressed_color = Color(1, 0.174, 0.16, 1)

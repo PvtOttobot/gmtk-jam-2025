@@ -82,6 +82,7 @@ unique_name_in_owner = true
 one_shot = true
 
 [node name="ProgressBar" type="ProgressBar" parent="."]
+visible = false
 layout_mode = 0
 offset_left = 55.0
 offset_top = 86.0

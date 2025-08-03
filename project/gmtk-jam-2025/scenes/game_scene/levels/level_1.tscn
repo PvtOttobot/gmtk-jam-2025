@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=3 uid="uid://cnpss81rdulih"]
+[gd_scene load_steps=40 format=3 uid="uid://cnpss81rdulih"]
 
 [ext_resource type="Script" uid="uid://ck7cdjnnkm4aq" path="res://scenes/game_scene/tutorial_manager.gd" id="4_bsimd"]
 [ext_resource type="Script" uid="uid://n3xoftgesrkm" path="res://scenes/game_scene/game_manager.gd" id="4_w6i3l"]
@@ -27,7 +27,9 @@
 [ext_resource type="Texture2D" uid="uid://cshcwav7mwyqs" path="res://assets/characters/Guest swear face.PNG" id="15_mkaae"]
 [ext_resource type="Texture2D" uid="uid://bqjatrnogncsw" path="res://assets/characters/Host swear face.PNG" id="18_k7aj6"]
 [ext_resource type="Texture2D" uid="uid://chjgl4x57nstx" path="res://assets/Tv frame.PNG" id="19_1wmy8"]
+[ext_resource type="AudioStream" uid="uid://d2luuxkdgb7v2" path="res://assets/gameplay/DING_Correct_Sensor_Cheese_96Khz_24Bit_MONO.wav" id="25_5xk6u"]
 [ext_resource type="Texture2D" uid="uid://d3y5lj5xkiv7n" path="res://assets/ui/kenney_board-game-icons/PNG/Double (128px)/arrow_counterclockwise.png" id="25_y3h4k"]
+[ext_resource type="AudioStream" uid="uid://dqxy4edlpubit" path="res://assets/gameplay/Vinyl_Scratch_44.1Khz_16Bit_MONO.wav" id="26_f4212"]
 
 [sub_resource type="Animation" id="Animation_sycfm"]
 length = 0.001
@@ -512,6 +514,16 @@ unique_name_in_owner = true
 stream = ExtResource("14_27a66")
 bus = &"SFX"
 
+[node name="correct_note_audio" type="AudioStreamPlayer2D" parent="Audio"]
+unique_name_in_owner = true
+stream = ExtResource("25_5xk6u")
+bus = &"SFX"
+
+[node name="incorrect_note_audio" type="AudioStreamPlayer2D" parent="Audio"]
+unique_name_in_owner = true
+stream = ExtResource("26_f4212")
+bus = &"SFX"
+
 [node name="CRTLayer" type="CanvasLayer" parent="."]
 layer = 0
 visible = false
@@ -573,6 +585,16 @@ one_shot = true
 
 [node name="Timer" type="Timer" parent="."]
 unique_name_in_owner = true
+
+[node name="noteFeedbackTimer" type="Timer" parent="."]
+unique_name_in_owner = true
+wait_time = 0.125
+one_shot = true
+
+[node name="directorFeedbackTimer" type="Timer" parent="."]
+unique_name_in_owner = true
+wait_time = 0.25
+one_shot = true
 
 [connection signal="animation_finished" from="AnimationManager" to="GameManager" method="_on_animation_manager_animation_finished"]
 [connection signal="timeout" from="CRTLayer/CRTPopupTimer" to="GameManager" method="_on_crt_popup_timer_timeout"]

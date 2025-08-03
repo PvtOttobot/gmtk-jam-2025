@@ -795,7 +795,6 @@ bus = &"SFX"
 
 [node name="CRTLayer" type="CanvasLayer" parent="."]
 layer = 0
-visible = false
 
 [node name="CRTShader" type="ColorRect" parent="CRTLayer"]
 material = SubResource("ShaderMaterial_bsimd")
@@ -809,12 +808,12 @@ visible = false
 position = Vector2(359.07, 247.24)
 
 [node name="Label" type="Label" parent="CRTLayer/screenShutOffPopup"]
-offset_left = -160.0
+offset_left = -103.705
 offset_top = 2.0
-offset_right = 273.0
+offset_right = 254.62
 offset_bottom = 136.0
 theme_override_font_sizes/font_size = 76
-text = "REWIND"
+text = "Loop?"
 
 [node name="Sprite2D" type="Sprite2D" parent="CRTLayer/screenShutOffPopup"]
 modulate = Color(0.494118, 0.945098, 0.701961, 1)

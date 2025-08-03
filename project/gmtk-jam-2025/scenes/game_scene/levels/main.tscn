@@ -96,7 +96,7 @@ rotation = 0.122173
 scale = Vector2(0.139995, 0.139995)
 texture = ExtResource("6_vajyk")
 
-[connection signal="censorNoSwear" from="HBoxContainer/Level1/GameManager" to="HBoxContainer/VBoxContainer/CanvasLayer/Director" method="_on_game_manager_swear_note_miss"]
+[connection signal="censorNoSwear" from="HBoxContainer/Level1/GameManager" to="HBoxContainer/VBoxContainer/CanvasLayer/Director" method="_on_game_manager_censor_no_swear"]
 [connection signal="swearNoteHit" from="HBoxContainer/Level1/GameManager" to="HBoxContainer/VBoxContainer/CanvasLayer/Director" method="_on_game_manager_swear_note_hit"]
 [connection signal="swearNoteMiss" from="HBoxContainer/Level1/GameManager" to="HBoxContainer/VBoxContainer/CanvasLayer/Director" method="_on_game_manager_swear_note_miss"]
 [connection signal="timeout" from="HBoxContainer/Level1/noteFeedbackTimer" to="HBoxContainer/Level1/GameManager" method="_on_note_feedback_timer_timeout"]

@@ -18,7 +18,7 @@ var current_talk_show_face : Sprite2D
 var has_hit_swear_note : bool = false
 var lastCensorTime : float = INF #for checking unrestricted isCensor
 var ristrictedLastCensorTime: float = 0.0 # for checking censorTime right before swear note
-@export var censor_forgivness : float = 10
+@export var censor_forgivness : float = 20
 
 @export var staticShader: ColorRect
 
@@ -103,6 +103,7 @@ func rewind_full_toggle(toggle_on : bool):
 		AudioServer.set_bus_solo(AudioServer.get_bus_index("Rewind"), false)
 		
 		isRewinding = false
+		%screenShutOffPopup.visible = false
 		rewind_button.button_pressed = false
 		staticShader.visible = false
 		animation_player.play("game")
@@ -144,7 +145,7 @@ func swear_note(duration: float, character : String) -> void:
 	if(isRewinding):
 		return
 	
-	ristrictedLastCensorTime = lastCensorTime
+	ristrictedLastCensorTime = animation_player.get_current_animation_position() - lastCensorTime
 	%censorDurationTimer.wait_time = duration
 	%censorDurationTimer.start()
 	isSwearing = true
@@ -178,9 +179,10 @@ func _on_censor_duration_timer_timeout() -> void:
 	isSwearing = false
 	# censor button before hit check
 	print("LastCensorTrue : ", ristrictedLastCensorTime <= censor_forgivness)
-	print(lastCensorTime)
-	if(ristrictedLastCensorTime <= censor_forgivness):
+	print(ristrictedLastCensorTime)
+	if(ristrictedLastCensorTime > censor_forgivness):
 		has_hit_swear_note = true
+		
 	if (has_hit_swear_note):
 		swearNoteHit.emit()
 	else:
@@ -209,12 +211,12 @@ func animate_tv_off():
 func animate_tv_on():
 	var tween := get_tree().create_tween()
 	var track := tween.tween_property(crt_shader,"shader_parameter/power", 0.0 ,0.5)
+	%screenShutOffPopup.visible = false
 	track.set_trans(Tween.TRANS_CUBIC)
 	track.set_ease(Tween.EASE_IN_OUT)
-	%screenShutOffPopup.visible = false
 
 func _on_crt_popup_timer_timeout() -> void:
-	%screenShutOffPopup.visible = !%screenShutOffPopup.visible
+	%screenShutOffPopup.visible = true
 
 func _on_note_feedback_timer_timeout() -> void:
 	print("signal note : ", has_hit_swear_note)

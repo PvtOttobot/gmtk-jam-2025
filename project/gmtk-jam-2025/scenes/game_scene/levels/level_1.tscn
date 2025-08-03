@@ -1,4 +1,4 @@
-[gd_scene load_steps=46 format=3 uid="uid://cnpss81rdulih"]
+[gd_scene load_steps=48 format=3 uid="uid://cnpss81rdulih"]
 
 [ext_resource type="Script" uid="uid://ck7cdjnnkm4aq" path="res://scenes/game_scene/tutorial_manager.gd" id="4_bsimd"]
 [ext_resource type="Script" uid="uid://n3xoftgesrkm" path="res://scenes/game_scene/game_manager.gd" id="4_w6i3l"]
@@ -84,14 +84,26 @@ tracks/3/keys = {
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("cast/TalkShowHost:position")
+tracks/4/path = NodePath("cast/TalkShowHost/HostPlayer:current_animation")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(501, 381)]
+"update": 1,
+"values": ["vibing"]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("cast/TalkShowGuest/GuestPlayer:current_animation")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["vibing"]
 }
 
 [sub_resource type="Animation" id="Animation_w6i3l"]
@@ -316,26 +328,26 @@ tracks/11/keys = {
 tracks/12/type = "value"
 tracks/12/imported = false
 tracks/12/enabled = true
-tracks/12/path = NodePath("cast/TalkShowHost:scale")
+tracks/12/path = NodePath("cast/TalkShowHost/HostPlayer:current_animation")
 tracks/12/interp = 1
 tracks/12/loop_wrap = true
 tracks/12/keys = {
-"times": PackedFloat32Array(16.5, 16.75, 17, 17.25, 17.5, 17.75, 25.5, 25.75, 26, 26.25, 26.5, 26.75, 27, 27.25, 27.5, 27.75, 30, 30.25, 30.5, 30.75, 31, 31.25, 32, 32.25, 32.5, 32.75, 33, 33.25, 52, 52.25, 52.5, 52.75, 53, 53.25, 60, 60.25, 60.5, 60.75, 61, 61.25, 61.5, 61.75, 62, 62.25, 62.5, 62.75),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
-"update": 0,
-"values": [Vector2(0.05, 0.05), Vector2(0.05, 0.046), Vector2(0.05, 0.05), Vector2(0.05, 0.04), Vector2(0.05, 0.054), Vector2(0.05, 0.05), Vector2(0.05, 0.05), Vector2(0.05, 0.046), Vector2(0.05, 0.05), Vector2(0.05, 0.04), Vector2(0.05, 0.054), Vector2(0.05, 0.05), Vector2(0.05, 0.05), Vector2(0.05, 0.04), Vector2(0.05, 0.054), Vector2(0.05, 0.05), Vector2(0.05, 0.05), Vector2(0.05, 0.046), Vector2(0.05, 0.05), Vector2(0.05, 0.04), Vector2(0.05, 0.054), Vector2(0.05, 0.05), Vector2(0.05, 0.05), Vector2(0.05, 0.046), Vector2(0.05, 0.05), Vector2(0.05, 0.04), Vector2(0.05, 0.054), Vector2(0.05, 0.05), Vector2(0.05, 0.05), Vector2(0.05, 0.046), Vector2(0.05, 0.05), Vector2(0.05, 0.04), Vector2(0.05, 0.054), Vector2(0.05, 0.05), Vector2(0.05, 0.05), Vector2(0.05, 0.046), Vector2(0.05, 0.05), Vector2(0.05, 0.04), Vector2(0.05, 0.054), Vector2(0.05, 0.05), Vector2(0.05, 0.05), Vector2(0.05, 0.046), Vector2(0.05, 0.05), Vector2(0.05, 0.04), Vector2(0.05, 0.054), Vector2(0.05, 0.05)]
+"times": PackedFloat32Array(0, 5, 5.5, 9.25, 15.75, 20.25, 23.5, 27.75),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1.18921),
+"update": 1,
+"values": [&"[stop]", &"vibing", &"speaking", &"vibing", &"speaking", &"vibing", &"speaking", &"vibing"]
 }
-tracks/12/type = "value"
-tracks/12/imported = false
-tracks/12/enabled = true
-tracks/12/path = NodePath("cast/TalkShowHost:position")
-tracks/12/interp = 1
-tracks/12/loop_wrap = true
-tracks/12/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(501, 381)]
+tracks/13/type = "value"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("cast/TalkShowGuest/GuestPlayer:current_animation")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = {
+"times": PackedFloat32Array(0, 5, 10, 15, 21, 23, 28.75),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [&"[stop]", &"vibing", &"speaking", &"vibing", &"speaking", &"vibing", &"speaking"]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_623lg"]
@@ -366,35 +378,6 @@ animations = [{
 "name": &"swearing",
 "speed": 5.0
 }]
-
-[sub_resource type="Animation" id="Animation_f4212"]
-resource_name = "vibing"
-length = 0.5
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = false
-tracks/0/path = NodePath(".:skew")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:scale")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.25, 0.5),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector2(0.07, 0.07), Vector2(0.07, 0.072), Vector2(0.07, 0.07)]
-}
 
 [sub_resource type="Animation" id="Animation_ygfl0"]
 length = 0.001
@@ -437,7 +420,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.25, 0.5),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [-0.1, 0.05, -0.1]
+"values": [-0.0349066, 0.0349066, -0.0349066]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -449,7 +432,36 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0, 0.25, 0.5),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Vector2(0.07, 0.07), Vector2(0.07, 0.072), Vector2(0.07, 0.07)]
+"values": [Vector2(0.065, 0.07), Vector2(0.065, 0.065), Vector2(0.065, 0.07)]
+}
+
+[sub_resource type="Animation" id="Animation_f4212"]
+resource_name = "vibing"
+length = 0.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = false
+tracks/0/path = NodePath(".:skew")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0.065, 0.068), Vector2(0.065, 0.065), Vector2(0.065, 0.068)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ygfl0"]
@@ -510,45 +522,6 @@ tracks/2/keys = {
 "times": PackedFloat32Array(0)
 }
 
-[sub_resource type="Animation" id="Animation_y3h4k"]
-resource_name = "vibing"
-length = 0.5
-loop_mode = 1
-step = 0.25
-tracks/0/type = "bezier"
-tracks/0/imported = false
-tracks/0/enabled = false
-tracks/0/path = NodePath(".:scale:x")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(0.05, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0)
-}
-tracks/1/type = "bezier"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:scale:y")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"handle_modes": PackedInt32Array(0, 0, 0),
-"points": PackedFloat32Array(0.05, -0.25, 0, 0.25, 0, 0.051, -0.25, 0, 0.25, 0, 0.05, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0, 0.25, 0.5)
-}
-tracks/2/type = "bezier"
-tracks/2/imported = false
-tracks/2/enabled = false
-tracks/2/path = NodePath(".:skew")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"handle_modes": PackedInt32Array(0, 0, 0),
-"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, -0.05, 0, 0, 0, 0, 0, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0, 0.25, 0.5)
-}
-
 [sub_resource type="Animation" id="Animation_5xk6u"]
 resource_name = "speaking"
 length = 0.5
@@ -572,7 +545,7 @@ tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "handle_modes": PackedInt32Array(0, 0, 0),
-"points": PackedFloat32Array(0.05, -0.25, 0, 0.25, 0, 0.052, -0.25, 0, 0.25, 0, 0.05, -0.25, 0, 0.25, 0),
+"points": PackedFloat32Array(0.048, -0.25, 0, 0.25, 0, 0.046, -0.25, 0, 0.25, 0, 0.048, -0.25, 0, 0.25, 0),
 "times": PackedFloat32Array(0, 0.25, 0.5)
 }
 tracks/2/type = "bezier"
@@ -585,6 +558,57 @@ tracks/2/keys = {
 "handle_modes": PackedInt32Array(0, 0, 0, 0),
 "points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, -0.1, -0.25, 0, 0.25, 0, 0.05, 0, 0, 0.25, 0, -0.1, -0.25, 0, 0.25, 0),
 "times": PackedFloat32Array(-0.2, 0, 0.25, 0.5)
+}
+
+[sub_resource type="Animation" id="Animation_y3h4k"]
+resource_name = "vibing"
+length = 0.5
+loop_mode = 1
+step = 0.25
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = false
+tracks/0/path = NodePath(".:scale:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0.05, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:scale:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(2, 2, 2),
+"points": PackedFloat32Array(0.048, 0, 0, 0, 0, 0.045, 0, 0, 0, 0, 0.048, 0, 0, 0, 0),
+"times": PackedFloat32Array(0, 0.25, 0.5)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:skew")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(1, 1, 1),
+"points": PackedFloat32Array(-0.0349066, 0, 0, 0, 0, 0.0349066, 0, 0, 0, 0, -0.0349066, 0, 0, 0, 0),
+"times": PackedFloat32Array(0, 0.25, 0.5)
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".:scale:y")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"update": 1,
+"values": []
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_pghfl"]
@@ -704,11 +728,10 @@ position = Vector2(314.286, -1142.86)
 scale = Vector2(0.79375, 0.79375)
 texture = ExtResource("15_mkaae")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="cast/TalkShowGuest"]
+[node name="GuestPlayer" type="AnimationPlayer" parent="cast/TalkShowGuest"]
 libraries = {
 &"": SubResource("AnimationLibrary_ygfl0")
 }
-autoplay = "vibing"
 
 [node name="ChairPieceFront" type="Sprite2D" parent="cast"]
 position = Vector2(251, 550)
@@ -717,7 +740,7 @@ texture = ExtResource("12_5hj03")
 
 [node name="TalkShowHost" type="AnimatedSprite2D" parent="cast"]
 unique_name_in_owner = true
-position = Vector2(496, 403)
+position = Vector2(495, 396)
 scale = Vector2(0.05, 0.05)
 sprite_frames = SubResource("SpriteFrames_m77gi")
 
@@ -727,11 +750,10 @@ position = Vector2(259.999, -1160)
 scale = Vector2(1.12531, 1.12531)
 texture = ExtResource("18_k7aj6")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="cast/TalkShowHost"]
+[node name="HostPlayer" type="AnimationPlayer" parent="cast/TalkShowHost"]
 libraries = {
 &"": SubResource("AnimationLibrary_pghfl")
 }
-autoplay = "vibing"
 
 [node name="ColorRect2" type="ColorRect" parent="cast"]
 offset_left = 663.0

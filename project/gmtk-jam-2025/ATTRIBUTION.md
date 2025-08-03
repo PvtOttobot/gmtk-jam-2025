@@ -1,5 +1,29 @@
 # Attribution
-## Collaborators
+
+## The Team
+
+### Dev
+Otto Petersen
+Luca Rogers
+Cameron Early
+
+### Art
+Hella Petersen
+Joannamei Jardine
+Rachel Smillie
+
+### Sound
+Lunan Blue
+Scott Bond
+Gordon Baptie
+
+## Tools & Assets
+
+### Godot
+![Godot Engine Logo](/assets/godot_engine_logo/logo_vertical_color_dark.png)  
+Author: [Juan Linietsky, Ariel Manzur, and contributors](https://godotengine.org/contact)  
+Source: [godotengine.org](https://godotengine.org/)  
+License: [MIT License](https://github.com/godotengine/godot/blob/master/LICENSE.txt)  
 
 ### Godot Game Template
 ![Maaack Plugin Icon](/assets/plugin_logo/logo.png)  
@@ -7,45 +31,12 @@ Author: [Marek Belski and contributors](https://github.com/Maaack/Godot-Game-Tem
 Source: [github: Godot-Game-Template](https://github.com/Maaack/Godot-Game-Template)  
 License: [MIT License](LICENSE.txt)
 
-## Programmers
-Otto Peterson
-Luca Rogers
-Cameron Early
+### [GDNative Ropesim](https://github.com/mphe/GDNative-Ropesim)
 
-## Art
-Hella Petersen
-Joannamei Jardine
+### [Godot CI](https://github.com/abarichello/godot-ci/issues)
 
-## Sound
-Lunan Blue
-Scott Bond
-Gordon <SURNAME>
+### Kenny Assets
+[Cursor](https://kenney.nl/assets/cursor-pack)
+[Button icons](https://kenney.nl/assets/board-game-icons)
 
-## Sourced
-#### Godot Engine Logo
-Author: Andrea Calabró  
-Source: [godotengine.org : press](https://godotengine.org/press/)  
-License: [CC BY 4.0 International](https://github.com/godotengine/godot/blob/master/LOGO_LICENSE.txt) 
-
-#### Git Logo
-Author: [Jason Long](https://bsky.app/profile/jasonlong.me)  
-Source: [git-scm.com : logos](https://git-scm.com/downloads/logos)  
-License: [CC BY 3.0](https://creativecommons.org/licenses/by/3.0/) 
-
-## Tools
-#### Godot
-![Godot Engine Logo](/assets/godot_engine_logo/logo_vertical_color_dark.png)  
-Author: [Juan Linietsky, Ariel Manzur, and contributors](https://godotengine.org/contact)  
-Source: [godotengine.org](https://godotengine.org/)  
-License: [MIT License](https://github.com/godotengine/godot/blob/master/LICENSE.txt)  
-
-#### Visual Studio Code
-Author: [Microsoft](https://opensource.microsoft.com/)  
-Source: [github: vscode](https://github.com/microsoft/vscode)  
-License: [MIT License](https://github.com/microsoft/vscode/blob/main/LICENSE.txt)
-
-#### Git
-![Git Logo](/assets/git_logo/Git-Logo-2Color.png)  
-Author: [Linus Torvalds](https://github.com/torvalds)  
-Source: [git-scm.com](https://git-scm.com/downloads)  
-License: [GNU General Public License version 2](https://opensource.org/licenses/GPL-2.0)
+No AI generation was used to create this project's assets

@@ -807,7 +807,6 @@ texture = ExtResource("12_5hj03")
 [node name="TalkShowHost" type="AnimatedSprite2D" parent="cast"]
 unique_name_in_owner = true
 position = Vector2(495, 396)
-rotation = 0.0288796
 scale = Vector2(0.05, 0.05)
 sprite_frames = SubResource("SpriteFrames_m77gi")
 

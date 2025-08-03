@@ -226,18 +226,6 @@ tracks/8/keys = {
 "method": &"swear_note"
 }]
 }
-tracks/9/type = "value"
-tracks/9/imported = false
-tracks/9/enabled = true
-tracks/9/path = NodePath("CRTLayer/CRTShader:material")
-tracks/9/interp = 1
-tracks/9/loop_wrap = true
-tracks/9/keys = {
-"times": PackedFloat32Array(),
-"transitions": PackedFloat32Array(),
-"update": 1,
-"values": []
-}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_623lg"]
 _data = {

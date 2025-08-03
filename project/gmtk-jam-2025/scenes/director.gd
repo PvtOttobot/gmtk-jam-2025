@@ -72,6 +72,7 @@ func _process(delta: float) -> void:
 
 # timer timout to change emotion to normal after duration is over
 func _on_emotion_timer_timeout() -> void:
+	lastAudioName = ""
 	emotion_visibility(Emotions.NORMAL)
 
 func _on_pull_plug() -> void:

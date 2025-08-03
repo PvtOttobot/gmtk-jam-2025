@@ -225,6 +225,18 @@ tracks/8/keys = {
 "method": &"swear_note"
 }]
 }
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("CRTLayer/CRTShader:material")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"update": 1,
+"values": []
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_623lg"]
 _data = {
@@ -280,6 +292,7 @@ shader_parameter/flicker_speed = 30.0
 shader_parameter/flicker_intensity = 0.025
 shader_parameter/color_offset = 1.5
 shader_parameter/blur = 0.15
+shader_parameter/power = 0.0
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_pmyid"]
 shader = ExtResource("6_sycfm")
@@ -309,10 +322,11 @@ unique_name_in_owner = true
 script = ExtResource("4_bsimd")
 tutorial_scenes = Array[PackedScene]([ExtResource("5_fmabn")])
 
-[node name="GameManager" type="Node" parent="." node_paths=PackedStringArray("staticShader", "rewind_audio")]
+[node name="GameManager" type="Node" parent="." node_paths=PackedStringArray("staticShader", "crtShader", "rewind_audio")]
 unique_name_in_owner = true
 script = ExtResource("4_w6i3l")
 staticShader = NodePath("../RewindLayer/RewindShader")
+crtShader = NodePath("../CRTLayer/CRTShader")
 rewind_audio = NodePath("../AnimationManager/RewindManager")
 
 [node name="AnimationManager" type="AnimationPlayer" parent="."]
@@ -424,7 +438,6 @@ bus = &"SFX"
 
 [node name="CRTLayer" type="CanvasLayer" parent="."]
 layer = 0
-visible = false
 
 [node name="CRTShader" type="ColorRect" parent="CRTLayer"]
 material = SubResource("ShaderMaterial_bsimd")

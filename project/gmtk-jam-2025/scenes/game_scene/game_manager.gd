@@ -22,6 +22,10 @@ var ristrictedLastCensorTime: float = 0.0 # for checking censorTime right before
 
 @export var staticShader: ColorRect
 
+@export var crtShader: ColorRect
+var crt_shader: ShaderMaterial
+
+
 @export var lifeTime : float = 2
 @export var rewindSpeed : float = -20
 @export var forwardSpeed : float = 2
@@ -35,6 +39,9 @@ signal censorNoSwear
 
 func _ready() -> void:
 	censor_popup_timer.wait_time = censor_button_length
+	crt_shader = (crtShader.material as ShaderMaterial).duplicate()
+	crtShader.material = crt_shader
+
 
 func _process(delta: float) -> void:
 	# swearing logic
@@ -69,6 +76,8 @@ func _unhandled_input(event: InputEvent) -> void:
 # rewind toggle logic
 func rewind_full_toggle(toggle_on : bool):
 	if(toggle_on):
+		
+		animate_tv_on()
 		
 		AudioServer.set_bus_solo(AudioServer.get_bus_index("Rewind"), true)
 
@@ -151,7 +160,7 @@ func animationEnd():
 func _on_director_pull_plug() -> void:
 	disable_fast_forward = true
 	#### in here implement tv shut off sound and pause
-	pass # Replace with function body.
+	animate_tv_off()
 
 # all button sound effects
 func _on_button_toggled(toggled_on: bool) -> void:
@@ -177,3 +186,16 @@ func _on_censor_duration_timer_timeout() -> void:
 		swearNoteMiss.emit()
 	has_hit_swear_note = false
 	start_note_feedback()
+	
+
+func animate_tv_off():
+	var tween := get_tree().create_tween()
+	var track := tween.tween_property(crt_shader,"shader_parameter/power", 1.0 ,0.5)
+	track.set_trans(Tween.TRANS_CUBIC)
+	track.set_ease(Tween.EASE_IN_OUT)
+	
+func animate_tv_on():
+	var tween := get_tree().create_tween()
+	var track := tween.tween_property(crt_shader,"shader_parameter/power", 0.0 ,0.5)
+	track.set_trans(Tween.TRANS_CUBIC)
+	track.set_ease(Tween.EASE_IN_OUT)

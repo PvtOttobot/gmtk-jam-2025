@@ -140,10 +140,12 @@ func swear_note(duration: float, character : String) -> void:
 	if(isRewinding):
 		return
 	
-	%censorDurationTimer.wait_time = duration*2
-	%censorDurationTimer.start()
+	#%censorDurationTimer.wait_time = duration*2
 	isSwearing = true
 
+func start_censor_duration_timer():
+	%censorDurationTimer.start()
+	
 # game won state
 func animationEnd():
 	print("GAME END")

@@ -234,56 +234,107 @@ tracks/8/path = NodePath("GameManager")
 tracks/8/interp = 1
 tracks/8/loop_wrap = true
 tracks/8/keys = {
-"times": PackedFloat32Array(9.5, 12.5, 17.5, 22.5, 26.5, 27.5, 29, 31, 33, 39, 43, 44, 46, 53, 56, 61, 62.5, 65),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"times": PackedFloat32Array(9, 9.5, 12, 12.5, 17, 17.5, 22, 22.5, 26, 26.5, 27, 27.5, 28.5, 29, 30.5, 31, 32.5, 33, 38.5, 39, 42.5, 43, 43.5, 44, 45.5, 46, 52.5, 53, 55.5, 56, 60.5, 61, 62, 62.5, 65),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "values": [{
-"args": [0.5, "guest"],
-"method": &"swear_note"
+"args": [],
+"method": &"start_censor_duration_timer"
 }, {
 "args": [0.5, "guest"],
 "method": &"swear_note"
+}, {
+"args": [],
+"method": &"start_censor_duration_timer"
+}, {
+"args": [0.5, "guest"],
+"method": &"swear_note"
+}, {
+"args": [],
+"method": &"start_censor_duration_timer"
 }, {
 "args": [0.5, "host"],
 "method": &"swear_note"
 }, {
+"args": [],
+"method": &"start_censor_duration_timer"
+}, {
 "args": [0.5, "guest"],
 "method": &"swear_note"
+}, {
+"args": [],
+"method": &"start_censor_duration_timer"
 }, {
 "args": [0.25, "host"],
 "method": &"swear_note"
 }, {
-"args": [0.25, "host"],
-"method": &"swear_note"
-}, {
-"args": [0.5, "guest"],
-"method": &"swear_note"
+"args": [],
+"method": &"start_censor_duration_timer"
 }, {
 "args": [0.25, "host"],
 "method": &"swear_note"
 }, {
+"args": [],
+"method": &"start_censor_duration_timer"
+}, {
+"args": [0.5, "guest"],
+"method": &"swear_note"
+}, {
+"args": [],
+"method": &"start_censor_duration_timer"
+}, {
 "args": [0.25, "host"],
 "method": &"swear_note"
 }, {
-"args": [0.5, "guest"],
+"args": [],
+"method": &"start_censor_duration_timer"
+}, {
+"args": [0.25, "host"],
 "method": &"swear_note"
+}, {
+"args": [],
+"method": &"start_censor_duration_timer"
 }, {
 "args": [0.5, "guest"],
 "method": &"swear_note"
 }, {
-"args": [0.5, "guest"],
-"method": &"swear_note"
+"args": [],
+"method": &"start_censor_duration_timer"
 }, {
 "args": [0.5, "guest"],
 "method": &"swear_note"
+}, {
+"args": [],
+"method": &"start_censor_duration_timer"
+}, {
+"args": [0.5, "guest"],
+"method": &"swear_note"
+}, {
+"args": [],
+"method": &"start_censor_duration_timer"
+}, {
+"args": [0.5, "guest"],
+"method": &"swear_note"
+}, {
+"args": [],
+"method": &"start_censor_duration_timer"
 }, {
 "args": [0.5, "host"],
 "method": &"swear_note"
 }, {
+"args": [],
+"method": &"start_censor_duration_timer"
+}, {
 "args": [0.5, "guest"],
 "method": &"swear_note"
 }, {
+"args": [],
+"method": &"start_censor_duration_timer"
+}, {
 "args": [0.5, "host"],
 "method": &"swear_note"
+}, {
+"args": [],
+"method": &"start_censor_duration_timer"
 }, {
 "args": [0.5, "host"],
 "method": &"swear_note"

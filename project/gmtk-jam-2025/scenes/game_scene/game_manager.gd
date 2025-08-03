@@ -41,7 +41,7 @@ func _ready() -> void:
 	crtShader.material = crt_shader
 
 
-func _process(delta: float) -> void:
+func _delta_process() -> void:
 	# swearing logic
 	if(isCensoring):
 		lastCensorTime = animation_player.current_animation_position
@@ -56,7 +56,7 @@ func _process(delta: float) -> void:
 	if(animation_player.current_animation_position <= 0 && isRewinding):
 		rewind_full_toggle(false)
 
-func _unhandled_input(event: InputEvent) -> void:
+func _event_unhandled_input() -> void:
 	# censor notes input logic
 	if(!disable_censor):
 		if Input.is_action_just_pressed("censor"):

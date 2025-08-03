@@ -56,7 +56,7 @@ func play_audio(audioName : String) -> bool:
 	lastAudioName = AudioPlayer.name
 	return true
 	
-func _process(delta: float) -> void:
+func _delta_process() -> void:
 	# reset progress
 	if(GameManager.isRewinding):
 		progressBar.value = 100

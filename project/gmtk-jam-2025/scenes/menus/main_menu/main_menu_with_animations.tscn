@@ -384,8 +384,7 @@ text = "BLEEP"
 modulate = Color(1, 1, 1, 0)
 
 [node name="SubTitleLabel" parent="MenuContainer/SubTitleMargin/SubTitleContainer" index="0"]
-text = "A toe-tapping talk show gone wrong...
-censor alien ßµ11$#!7 to beat the loop!"
+text = "A toe-tapping talk show gone wrong... censor alien obscenities to beat the loop!​"
 
 [node name="MenuButtonsContainer" parent="MenuContainer/MenuButtonsMargin" index="0"]
 modulate = Color(1, 1, 1, 0)

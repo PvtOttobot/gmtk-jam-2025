@@ -299,10 +299,10 @@ tracks/9/path = NodePath("cast/TalkShowGuest:scale")
 tracks/9/interp = 1
 tracks/9/loop_wrap = true
 tracks/9/keys = {
-"times": PackedFloat32Array(8.5, 8.75, 9, 9.25, 9.5, 9.75, 11.5, 11.75, 12, 12.25, 12.5, 12.75, 21.5, 21.75, 22, 22.25, 22.5, 22.75, 28, 28.25, 28.5, 28.75, 29, 29.25, 38, 38.25, 38.5, 38.75, 39, 39.25, 42, 42.25, 42.5, 42.75, 43, 43.25, 43.5, 43.75, 44, 44.25, 45, 45.25, 45.5, 45.75, 46, 46.25, 55, 55.25, 55.5, 55.75, 56, 56.25),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"times": PackedFloat32Array(11.5, 11.75, 12, 12.25, 12.5, 12.75, 21.5, 21.75, 22, 22.25, 22.5, 22.75, 28, 28.25, 28.5, 28.75, 29, 29.25, 38, 38.25, 38.5, 38.75, 39, 39.25, 42, 42.25, 42.5, 42.75, 43, 43.25, 43.5, 43.75, 44, 44.25, 45, 45.25, 45.5, 45.75, 46, 46.25, 55, 55.25, 55.5, 55.75, 56, 56.25),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 0,
-"values": [Vector2(0.07, 0.07), Vector2(0.07, 0.065), Vector2(0.07, 0.07), Vector2(0.07, 0.05625), Vector2(0.07, 0.075), Vector2(0.07, 0.07), Vector2(0.07, 0.07), Vector2(0.07, 0.065), Vector2(0.07, 0.07), Vector2(0.07, 0.05625), Vector2(0.07, 0.075), Vector2(0.07, 0.07), Vector2(0.07, 0.07), Vector2(0.07, 0.065), Vector2(0.07, 0.07), Vector2(0.07, 0.05625), Vector2(0.07, 0.075), Vector2(0.07, 0.07), Vector2(0.07, 0.07), Vector2(0.07, 0.065), Vector2(0.07, 0.07), Vector2(0.07, 0.05625), Vector2(0.07, 0.075), Vector2(0.07, 0.07), Vector2(0.07, 0.07), Vector2(0.07, 0.065), Vector2(0.07, 0.07), Vector2(0.07, 0.05625), Vector2(0.07, 0.075), Vector2(0.07, 0.07), Vector2(0.07, 0.07), Vector2(0.07, 0.065), Vector2(0.07, 0.07), Vector2(0.07, 0.05625), Vector2(0.07, 0.07), Vector2(0.07, 0.065), Vector2(0.07, 0.07), Vector2(0.07, 0.05625), Vector2(0.07, 0.075), Vector2(0.07, 0.07), Vector2(0.07, 0.07), Vector2(0.07, 0.065), Vector2(0.07, 0.07), Vector2(0.07, 0.05625), Vector2(0.07, 0.075), Vector2(0.07, 0.07), Vector2(0.07, 0.07), Vector2(0.07, 0.065), Vector2(0.07, 0.07), Vector2(0.07, 0.05625), Vector2(0.07, 0.075), Vector2(0.07, 0.07)]
+"values": [Vector2(0.07, 0.07), Vector2(0.07, 0.065), Vector2(0.07, 0.07), Vector2(0.07, 0.05625), Vector2(0.07, 0.075), Vector2(0.07, 0.07), Vector2(0.07, 0.07), Vector2(0.07, 0.065), Vector2(0.07, 0.07), Vector2(0.07, 0.05625), Vector2(0.07, 0.075), Vector2(0.07, 0.07), Vector2(0.07, 0.07), Vector2(0.07, 0.065), Vector2(0.07, 0.07), Vector2(0.07, 0.05625), Vector2(0.07, 0.075), Vector2(0.07, 0.07), Vector2(0.07, 0.07), Vector2(0.07, 0.065), Vector2(0.07, 0.07), Vector2(0.07, 0.05625), Vector2(0.07, 0.075), Vector2(0.07, 0.07), Vector2(0.07, 0.07), Vector2(0.07, 0.065), Vector2(0.07, 0.07), Vector2(0.07, 0.05625), Vector2(0.07, 0.07), Vector2(0.07, 0.065), Vector2(0.07, 0.07), Vector2(0.07, 0.05625), Vector2(0.07, 0.075), Vector2(0.07, 0.07), Vector2(0.07, 0.07), Vector2(0.07, 0.065), Vector2(0.07, 0.07), Vector2(0.07, 0.05625), Vector2(0.07, 0.075), Vector2(0.07, 0.07), Vector2(0.07, 0.07), Vector2(0.07, 0.065), Vector2(0.07, 0.07), Vector2(0.07, 0.05625), Vector2(0.07, 0.075), Vector2(0.07, 0.07)]
 }
 tracks/10/type = "value"
 tracks/10/imported = false
@@ -335,10 +335,10 @@ tracks/12/path = NodePath("cast/TalkShowHost/HostPlayer:current_animation")
 tracks/12/interp = 1
 tracks/12/loop_wrap = true
 tracks/12/keys = {
-"times": PackedFloat32Array(0, 5, 5.5, 8.5, 15.75, 20.25, 23.5, 27, 30.5, 37.5, 47.5, 53, 60.5, 62.75),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1.18921, 1, 1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0, 5, 9.25, 15.25, 16.5, 17.75, 20, 23.25, 25.454, 27.75, 30, 37.5, 47.5, 51.75, 53.25, 59.9476, 62.75),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1.18921, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [&"[stop]", &"vibing", &"speaking", &"vibing", &"speaking", &"vibing", &"speaking", &"vibing", &"speaking", &"vibing", &"speaking", &"vibing", &"speaking", &"vibing"]
+"values": [&"[stop]", &"speaking", &"vibing", &"speaking", &"[stop]", &"speaking", &"vibing", &"speaking", &"[stop]", &"vibing", &"[stop]", &"vibing", &"speaking", &"[stop]", &"vibing", &"[stop]", &"vibing"]
 }
 tracks/13/type = "value"
 tracks/13/imported = false
@@ -347,10 +347,22 @@ tracks/13/path = NodePath("cast/TalkShowGuest/GuestPlayer:current_animation")
 tracks/13/interp = 1
 tracks/13/loop_wrap = true
 tracks/13/keys = {
-"times": PackedFloat32Array(0, 5, 9.25, 15, 21, 23, 28, 30, 37.5, 46.75, 53.75, 59.25, 63.5, 65),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0, 5, 8.5, 9.75, 11.4856, 12.75, 14.75, 19.75, 21.5, 22.75, 27.8333, 29.25, 37.5, 38, 39.25, 41.8447, 46.25, 53.25, 54.8021, 56.25, 59.5, 63.25, 65),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [&"[stop]", &"vibing", &"speaking", &"vibing", &"speaking", &"vibing", &"speaking", &"vibing", &"speaking", &"vibing", &"speaking", &"vibing", &"speaking", &"vibing"]
+"values": [&"[stop]", &"vibing", &"[stop]", &"speaking", &"[stop]", &"speaking", &"vibing", &"speaking", &"[stop]", &"vibing", &"[stop]", &"vibing", &"speaking", &"[stop]", &"speaking", &"[stop]", &"vibing", &"speaking", &"[stop]", &"speaking", &"vibing", &"speaking", &"vibing"]
+}
+tracks/14/type = "value"
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/path = NodePath("cast/TalkShowHost:scale")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/keys = {
+"times": PackedFloat32Array(16.4781, 16.7281, 16.9781, 17.2281, 17.4781, 17.7281, 25.4781, 25.7281, 25.9781, 26.2281, 26.4781, 26.7281, 26.9781, 27.2281, 27.4781, 27.7281, 29.9781, 30.2281, 30.4781, 30.7281, 30.9781, 31.2281, 31.9781, 32.2281, 32.4781, 32.7281, 32.9781, 33.2281, 51.9781, 52.2281, 52.4781, 52.7281, 52.9781, 53.2281, 59.9781, 60.2281, 60.4781, 60.7281, 60.9781, 61.2281, 61.4781, 61.7281, 61.9781, 62.2281, 62.4781, 62.7281),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0.05, 0.05), Vector2(0.05, 0.046), Vector2(0.05, 0.05), Vector2(0.05, 0.04), Vector2(0.05, 0.054), Vector2(0.05, 0.05), Vector2(0.05, 0.05), Vector2(0.05, 0.046), Vector2(0.05, 0.05), Vector2(0.05, 0.04), Vector2(0.05, 0.054), Vector2(0.05, 0.05), Vector2(0.05, 0.05), Vector2(0.05, 0.04), Vector2(0.05, 0.054), Vector2(0.05, 0.05), Vector2(0.05, 0.05), Vector2(0.05, 0.046), Vector2(0.05, 0.05), Vector2(0.05, 0.04), Vector2(0.05, 0.054), Vector2(0.05, 0.05), Vector2(0.05, 0.05), Vector2(0.05, 0.046), Vector2(0.05, 0.05), Vector2(0.05, 0.04), Vector2(0.05, 0.054), Vector2(0.05, 0.05), Vector2(0.05, 0.05), Vector2(0.05, 0.046), Vector2(0.05, 0.05), Vector2(0.05, 0.04), Vector2(0.05, 0.054), Vector2(0.05, 0.05), Vector2(0.05, 0.05), Vector2(0.05, 0.046), Vector2(0.05, 0.05), Vector2(0.05, 0.04), Vector2(0.05, 0.054), Vector2(0.05, 0.05), Vector2(0.05, 0.05), Vector2(0.05, 0.046), Vector2(0.05, 0.05), Vector2(0.05, 0.04), Vector2(0.05, 0.054), Vector2(0.05, 0.05)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_623lg"]
@@ -744,6 +756,7 @@ texture = ExtResource("12_5hj03")
 [node name="TalkShowHost" type="AnimatedSprite2D" parent="cast"]
 unique_name_in_owner = true
 position = Vector2(495, 396)
+rotation = 0.0288796
 scale = Vector2(0.05, 0.05)
 sprite_frames = SubResource("SpriteFrames_m77gi")
 

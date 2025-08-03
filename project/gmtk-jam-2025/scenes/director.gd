@@ -24,9 +24,11 @@ var lastAudioName : String = ""
 
 signal pullPlug
 
-func display_emotion(emotion:Emotions,duration:float):
+func display_emotion(emotion:Emotions,duration:float = 0):
 	emotion_visibility(emotion)
-	%EmotionTimer.wait_time = duration #emotion timeout
+	if(duration > 0):
+		%EmotionTimer.wait_time = duration #emotion timeout
+		%EmotionTimer.start()
 
 func emotion_visibility(emotion:Emotions):
 	currentEmotion = emotion
@@ -35,10 +37,13 @@ func emotion_visibility(emotion:Emotions):
 	positive_face.visible = false
 	if (emotion == Emotions.NEUTRAL):
 		neutral_face.visible = true
+		play_audio("neutral_face_audio")
 	elif (emotion == Emotions.NEGATIVE):
 		negative_face.visible = true
+		play_audio("negative_face_audio")
 	elif (emotion == Emotions.POSITIVE):
 		positive_face.visible = true
+		play_audio("positive_face_audio")
 		
 func play_audio(audioName : String) -> bool:
 	# dont play audio if an audio is playing
@@ -60,7 +65,7 @@ func _process(delta: float) -> void:
 		progressBar.value = 100
 	# resuming after plugpulled
 	if(GameManager.isRewinding && !resumeAfterPlug): 
-		emotion_visibility(Emotions.NORMAL)
+		display_emotion(Emotions.NORMAL)
 		director.play("default")
 		resumeAfterPlug = true
 	if (GameManager.animation_player.is_playing()):
@@ -70,37 +75,38 @@ func _process(delta: float) -> void:
 
 # timer timout to change emotion to normal after duration is over
 func _on_emotion_timer_timeout() -> void:
+	print("emotion reset")
 	lastAudioName = ""
-	emotion_visibility(Emotions.NORMAL)
+	display_emotion(Emotions.NORMAL)
 
 func _on_pull_plug() -> void:
 	# show director angry
 	director.play("plug")
 	play_audio("unplug_socket_audio")
-	emotion_visibility(Emotions.NEGATIVE)
+	display_emotion(Emotions.NEGATIVE,0.125)
 	GameManager.animation_player.pause() # stop the broadcast
 	# bool to check if player rewinds and resume playing
 	resumeAfterPlug = false
 
 func _on_game_manager_swear_note_hit() -> void:
 	progressBar.value += goodReward
-	display_emotion(Emotions.POSITIVE,0.1)
 	print("swear note hit")
 
 func _on_game_manager_swear_note_miss() -> void:
-	if (progressBar.value < ThreshholdAnger):
-		display_emotion(Emotions.NEGATIVE,0.1)
-	else:
-		display_emotion(Emotions.NEUTRAL,0.1)
 	progressBar.value += badPunishment
+	if (progressBar.value < ThreshholdAnger):
+		display_emotion(Emotions.NEGATIVE,1)
+	else:
+		display_emotion(Emotions.NEUTRAL,1)
 	print("swear note miss")
 
 
 func _on_director_feedback_timer_timeout() -> void:
+	if(!GameManager.has_hit_swear_note):
+		if (progressBar.value < ThreshholdAnger):
+			display_emotion(Emotions.NEGATIVE,1)
+		else:
+			display_emotion(Emotions.NEUTRAL,1)
+	else:
+		display_emotion(Emotions.POSITIVE, 1)
 	GameManager.has_hit_swear_note = false
-	if (currentEmotion == Emotions.NEUTRAL):
-		play_audio("neutral_face_audio")
-	elif (currentEmotion == Emotions.NEGATIVE):
-		play_audio("negative_face_audio")
-	elif (currentEmotion == Emotions.POSITIVE):
-		play_audio("positive_face_audio")

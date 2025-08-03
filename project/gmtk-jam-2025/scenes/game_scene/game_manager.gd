@@ -18,7 +18,7 @@ var current_talk_show_face : Sprite2D
 var has_hit_swear_note : bool = false
 var lastCensorTime : float = INF #for checking unrestricted isCensor
 var ristrictedLastCensorTime: float = 0.0 # for checking censorTime right before swear note
-@export var censor_forgivness : float = 0.5
+@export var censor_forgivness : float = 10
 
 @export var staticShader: ColorRect
 
@@ -106,6 +106,8 @@ func rewind_full_toggle(toggle_on : bool):
 		rewind_button.button_pressed = false
 		staticShader.visible = false
 		animation_player.play("game")
+		%TalkShowGuest.get_child(0).visible = false
+		%TalkShowHost.get_child(0).visible = false
 		
 # censor toggle logic
 func censor_toggle(toggle_on : bool):
@@ -132,19 +134,19 @@ func fast_forward_toggle(toggle_on : bool):
 		
 # the function used to place swear notes
 func swear_note(duration: float, character : String) -> void:
-	if(isRewinding):
-		return
 	# get character face
 	if(character == "host"):
 		current_talk_show_face = %TalkShowHost.get_child(0)
 	elif(character == "guest"):
 		current_talk_show_face = %TalkShowGuest.get_child(0)
+	# face logic 
+	current_talk_show_face.visible = true
+	if(isRewinding):
+		return
 	
 	ristrictedLastCensorTime = lastCensorTime
 	%censorDurationTimer.wait_time = duration
 	%censorDurationTimer.start()
-	# face logic 
-	current_talk_show_face.visible = true
 	isSwearing = true
 
 # game won state
@@ -175,6 +177,8 @@ func _on_censor_duration_timer_timeout() -> void:
 	current_talk_show_face.visible = false
 	isSwearing = false
 	# censor button before hit check
+	print("LastCensorTrue : ", ristrictedLastCensorTime <= censor_forgivness)
+	print(lastCensorTime)
 	if(ristrictedLastCensorTime <= censor_forgivness):
 		has_hit_swear_note = true
 	if (has_hit_swear_note):

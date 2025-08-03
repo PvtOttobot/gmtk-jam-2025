@@ -16,7 +16,7 @@ var disable_censor: bool = false
 @export var censor_button_length : float = 0.25
 var current_talk_show_face : Sprite2D
 var has_hit_swear_note : bool = false
-var lastCensorTime : float = 0.0 #for checking unrestricted isCensor
+var lastCensorTime : float = INF #for checking unrestricted isCensor
 var ristrictedLastCensorTime: float = 0.0 # for checking censorTime right before swear note
 @export var censor_forgivness : float = 0.5
 
@@ -25,9 +25,6 @@ var ristrictedLastCensorTime: float = 0.0 # for checking censorTime right before
 @export var crtShader: ColorRect
 var crt_shader: ShaderMaterial
 
-
-@export var lifeTime : float = 2
-@export var rewindSpeed : float = -20
 @export var forwardSpeed : float = 2
 
 @export var rewind_audio: AudioStreamPlayer
@@ -159,7 +156,6 @@ func animationEnd():
 # director fail state
 func _on_director_pull_plug() -> void:
 	disable_fast_forward = true
-	#### in here implement tv shut off sound and pause
 	animate_tv_off()
 
 # all button sound effects

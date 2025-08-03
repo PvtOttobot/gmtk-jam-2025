@@ -13,8 +13,9 @@ var lastAudioName : String = ""
 
 @export var GameManager : Node
 
-@export var goodReward : float = 5
+@export var goodReward : float = 25
 @export var badPunishment : float = -25
+var override_emotion : bool = false
 
 @export var amp  := 0.2
 @export var freq := 8.0
@@ -38,12 +39,15 @@ func emotion_visibility(emotion:Emotions):
 	if (emotion == Emotions.NEUTRAL):
 		neutral_face.visible = true
 		play_audio("neutral_face_audio")
+		progressBar.value += badPunishment
 	elif (emotion == Emotions.NEGATIVE):
 		negative_face.visible = true
 		play_audio("negative_face_audio")
+		progressBar.value += badPunishment
 	elif (emotion == Emotions.POSITIVE):
 		positive_face.visible = true
 		play_audio("positive_face_audio")
+		progressBar.value += goodReward
 		
 func play_audio(audioName : String) -> bool:
 	# dont play audio if an audio is playing
@@ -75,7 +79,6 @@ func _process(delta: float) -> void:
 
 # timer timout to change emotion to normal after duration is over
 func _on_emotion_timer_timeout() -> void:
-	print("emotion reset")
 	lastAudioName = ""
 	display_emotion(Emotions.NORMAL)
 
@@ -89,15 +92,9 @@ func _on_pull_plug() -> void:
 	resumeAfterPlug = false
 
 func _on_game_manager_swear_note_hit() -> void:
-	progressBar.value += goodReward
 	print("swear note hit")
 
 func _on_game_manager_swear_note_miss() -> void:
-	progressBar.value += badPunishment
-	if (progressBar.value < ThreshholdAnger):
-		display_emotion(Emotions.NEGATIVE,1)
-	else:
-		display_emotion(Emotions.NEUTRAL,1)
 	print("swear note miss")
 
 
@@ -110,3 +107,14 @@ func _on_director_feedback_timer_timeout() -> void:
 	else:
 		display_emotion(Emotions.POSITIVE, 1)
 	GameManager.has_hit_swear_note = false
+	override_emotion = false
+
+
+func _on_game_manager_censor_no_swear() -> void:
+	print("censoring when no swear")
+	if(override_emotion):
+		if (progressBar.value < ThreshholdAnger):
+			display_emotion(Emotions.NEGATIVE,1)
+		else:
+			display_emotion(Emotions.NEUTRAL,1)
+	override_emotion = true

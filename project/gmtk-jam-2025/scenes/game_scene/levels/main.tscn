@@ -87,8 +87,11 @@ texture = ExtResource("5_i43i6")
 [connection signal="swearNoteHit" from="HBoxContainer/Level1/GameManager" to="HBoxContainer/VBoxContainer/CanvasLayer/Director" method="_on_game_manager_swear_note_hit"]
 [connection signal="swearNoteMiss" from="HBoxContainer/Level1/GameManager" to="HBoxContainer/VBoxContainer/CanvasLayer/Director" method="_on_game_manager_swear_note_miss"]
 [connection signal="pullPlug" from="HBoxContainer/VBoxContainer/CanvasLayer/Director" to="HBoxContainer/Level1/GameManager" method="_on_director_pull_plug"]
+[connection signal="pressed" from="HBoxContainer/VBoxContainer/CanvasLayer/BottomPanelSimple/Panel/MarginContainer/HBoxContainer/Reverse_BottomPanelSimpleButton" to="HBoxContainer/Level1/GameManager" method="_on_reverse_bottom_panel_simple_button_pressed"]
 [connection signal="toggled" from="HBoxContainer/VBoxContainer/CanvasLayer/BottomPanelSimple/Panel/MarginContainer/HBoxContainer/Reverse_BottomPanelSimpleButton" to="HBoxContainer/Level1/GameManager" method="_on_rewind_button_toggled"]
+[connection signal="pressed" from="HBoxContainer/VBoxContainer/CanvasLayer/BottomPanelSimple/Panel/MarginContainer/HBoxContainer/Censor_BottomPanelSimpleButton" to="HBoxContainer/Level1/GameManager" method="_on_censor_bottom_panel_simple_button_pressed"]
 [connection signal="toggled" from="HBoxContainer/VBoxContainer/CanvasLayer/BottomPanelSimple/Panel/MarginContainer/HBoxContainer/Censor_BottomPanelSimpleButton" to="HBoxContainer/Level1/GameManager" method="_on_censor_button_toggled"]
+[connection signal="pressed" from="HBoxContainer/VBoxContainer/CanvasLayer/BottomPanelSimple/Panel/MarginContainer/HBoxContainer/FastForward_BottomPanelSimpleButton" to="HBoxContainer/Level1/GameManager" method="_on_fast_forward_bottom_panel_simple_button_pressed"]
 [connection signal="toggled" from="HBoxContainer/VBoxContainer/CanvasLayer/BottomPanelSimple/Panel/MarginContainer/HBoxContainer/FastForward_BottomPanelSimpleButton" to="HBoxContainer/Level1/GameManager" method="_on_fast_forward_button_toggled"]
 
 [editable path="HBoxContainer/Level1"]

@@ -7,9 +7,9 @@
 [ext_resource type="Texture2D" uid="uid://depwj4v6khiih" path="res://assets/Right side of screen scene background.PNG" id="5_i43i6"]
 [ext_resource type="Texture2D" uid="uid://cqbx8gpy07yek" path="res://Cord.PNG" id="6_vajyk"]
 [ext_resource type="Texture2D" uid="uid://c3vmlhqm3cyo1" path="res://assets/ui/BLEEP LOGO.png" id="7_hxl7j"]
-[ext_resource type="Script" uid="uid://brklaoabvl73l" path="res://addons/ropesim/RopeAnchor.gd" id="8_pn866"]
-[ext_resource type="Script" uid="uid://b2shq2gjd4fvt" path="res://addons/ropesim/Rope.gd" id="8_yobe1"]
-[ext_resource type="Script" uid="uid://dfppmnngy2wx4" path="res://addons/ropesim/RopeRendererLine2D.gd" id="10_si225"]
+[ext_resource type="Script" path="res://addons/ropesim/RopeAnchor.gd" id="8_pn866"]
+[ext_resource type="Script" path="res://addons/ropesim/Rope.gd" id="8_yobe1"]
+[ext_resource type="Script" path="res://addons/ropesim/RopeRendererLine2D.gd" id="10_si225"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_si225"]
 frequency = 0.0003
@@ -117,7 +117,7 @@ script = ExtResource("8_yobe1")
 num_segments = 15
 rope_length = 40.0
 wind = SubResource("RopeWindParameters_tgxox")
-metadata/_custom_type_script = "uid://b2shq2gjd4fvt"
+render_line = false
 
 [node name="RopeRendererLine2D" type="Line2D" parent="RopeLeft"]
 points = PackedVector2Array(-6.10352e-05, 0.10009, -0.0175781, 4.94533, -0.0354614, 9.71264, -0.0541382, 14.373, -0.0737305, 18.9042, -0.0945435, 23.29, -0.116394, 27.519, -0.139404, 31.5834, -0.163635, 35.4783, -0.188965, 39.2007, -0.21521, 42.7485, -0.242493, 46.1209, -0.270325, 49.3171, -0.298889, 52.3368, -0.32782, 55.1799, -0.356873, 57.8465)
@@ -125,13 +125,11 @@ width = 5.0
 default_color = Color(0.52, 0.52, 0.52, 1)
 gradient = SubResource("Gradient_si225")
 script = ExtResource("10_si225")
-metadata/_custom_type_script = "uid://dfppmnngy2wx4"
 
 [node name="RopeAnchor" type="Marker2D" parent="RopeLeft"]
 position = Vector2(-0.356873, 57.8465)
 script = ExtResource("8_pn866")
 rope_path = NodePath("..")
-metadata/_custom_type_script = "uid://brklaoabvl73l"
 
 [node name="Sprite2D" type="Sprite2D" parent="RopeLeft/RopeAnchor"]
 position = Vector2(3.99951, 51.2494)

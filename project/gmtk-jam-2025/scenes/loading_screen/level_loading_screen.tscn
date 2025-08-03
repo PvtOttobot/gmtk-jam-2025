@@ -5,7 +5,6 @@
 
 [node name="LevelLoadingScreen" instance=ExtResource("1_b4fsf")]
 script = ExtResource("2_akme8")
-_in_progress = "Loading Level..."
 _in_progress_waiting = "Still Loading Level..."
 _in_progress_still_waiting = "Still Loading Level... (%d seconds)"
 _complete = "Loading Level Complete!"

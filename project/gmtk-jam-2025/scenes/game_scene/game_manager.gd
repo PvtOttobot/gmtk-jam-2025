@@ -202,9 +202,14 @@ func animate_tv_off():
 	var track := tween.tween_property(crt_shader,"shader_parameter/power", 1.0 ,0.5)
 	track.set_trans(Tween.TRANS_CUBIC)
 	track.set_ease(Tween.EASE_IN_OUT)
+	%CRTPopupTimer.start()
 	
 func animate_tv_on():
 	var tween := get_tree().create_tween()
 	var track := tween.tween_property(crt_shader,"shader_parameter/power", 0.0 ,0.5)
 	track.set_trans(Tween.TRANS_CUBIC)
 	track.set_ease(Tween.EASE_IN_OUT)
+	%screenShutOffPopup.visible = false
+
+func _on_crt_popup_timer_timeout() -> void:
+	%screenShutOffPopup.visible = !%screenShutOffPopup.visible

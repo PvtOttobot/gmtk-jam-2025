@@ -47,9 +47,6 @@ fast_forward_button = NodePath("../../VBoxContainer/CanvasLayer/BottomPanelSimpl
 [node name="TalkShowBackground" parent="HBoxContainer/Level1/cast" index="0"]
 position = Vector2(370, 334)
 
-[node name="TalkShowGuest" parent="HBoxContainer/Level1/cast" index="2"]
-script = null
-
 [node name="TalkShowHost" parent="HBoxContainer/Level1/cast" index="4"]
 script = null
 

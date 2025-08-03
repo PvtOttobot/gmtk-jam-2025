@@ -146,9 +146,6 @@ func swear_note(duration: float, character : String) -> void:
 	# face logic 
 	current_talk_show_face.visible = true
 	isSwearing = true
-	
-func start_note_feedback() -> void:
-	pass
 
 # game won state
 func animationEnd():
@@ -184,8 +181,9 @@ func _on_censor_duration_timer_timeout() -> void:
 		swearNoteHit.emit()
 	else:
 		swearNoteMiss.emit()
-	has_hit_swear_note = false
-	start_note_feedback()
+		has_hit_swear_note = false
+	%noteFeedbackTimer.start()
+	%directorFeedbackTimer.start()
 	
 # for touch controls on button
 func _on_reverse_bottom_panel_simple_button_pressed() -> void:
@@ -213,3 +211,10 @@ func animate_tv_on():
 
 func _on_crt_popup_timer_timeout() -> void:
 	%screenShutOffPopup.visible = !%screenShutOffPopup.visible
+
+func _on_note_feedback_timer_timeout() -> void:
+	print("signal note : ", has_hit_swear_note)
+	if(has_hit_swear_note):
+		%correct_note_audio.play()
+	else:
+		%incorrect_note_audio.play()

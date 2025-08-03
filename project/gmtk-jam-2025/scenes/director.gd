@@ -29,18 +29,16 @@ func display_emotion(emotion:Emotions,duration:float):
 	%EmotionTimer.wait_time = duration #emotion timeout
 
 func emotion_visibility(emotion:Emotions):
+	currentEmotion = emotion
 	neutral_face.visible = false
 	negative_face.visible = false
 	positive_face.visible = false
 	if (emotion == Emotions.NEUTRAL):
 		neutral_face.visible = true
-		play_audio("neutral_face_audio")
 	elif (emotion == Emotions.NEGATIVE):
 		negative_face.visible = true
-		play_audio("negative_face_audio")
 	elif (emotion == Emotions.POSITIVE):
 		positive_face.visible = true
-		play_audio("positive_face_audio")
 		
 func play_audio(audioName : String) -> bool:
 	# dont play audio if an audio is playing
@@ -96,3 +94,13 @@ func _on_game_manager_swear_note_miss() -> void:
 		display_emotion(Emotions.NEUTRAL,0.1)
 	progressBar.value += badPunishment
 	print("swear note miss")
+
+
+func _on_director_feedback_timer_timeout() -> void:
+	GameManager.has_hit_swear_note = false
+	if (currentEmotion == Emotions.NEUTRAL):
+		play_audio("neutral_face_audio")
+	elif (currentEmotion == Emotions.NEGATIVE):
+		play_audio("negative_face_audio")
+	elif (currentEmotion == Emotions.POSITIVE):
+		play_audio("positive_face_audio")

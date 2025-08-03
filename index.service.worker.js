@@ -4,7 +4,7 @@
 // Incrementing CACHE_VERSION will kick off the install event and force
 // previously cached resources to be updated from the network.
 /** @type {string} */
-const CACHE_VERSION = '1754225842|42137084';
+const CACHE_VERSION = '1754226995|41057635';
 /** @type {string} */
 const CACHE_PREFIX = 'BLEEP-sw-cache-';
 const CACHE_NAME = CACHE_PREFIX + CACHE_VERSION;
@@ -17,7 +17,7 @@ const ENSURE_CROSSORIGIN_ISOLATION_HEADERS = true;
 const CACHED_FILES = ["index.html","index.js","index.offline.html","index.icon.png","index.apple-touch-icon.png","index.worker.js","index.audio.worklet.js"];
 // Files that we might not want the user to preload, and will only be cached on first load.
 /** @type {string[]} */
-const CACHABLE_FILES = ["index.wasm","index.pck"];
+const CACHABLE_FILES = ["index.wasm","index.pck","index.side.wasm","libropesim.web.template_release.wasm32.wasm"];
 const FULL_CACHE = CACHED_FILES.concat(CACHABLE_FILES);
 
 self.addEventListener('install', (event) => {

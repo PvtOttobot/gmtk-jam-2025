@@ -26,6 +26,8 @@ var ristrictedLastCensorTime: float = 0.0 # for checking censorTime right before
 @export var rewindSpeed : float = -20
 @export var forwardSpeed : float = 2
 
+@export var rewind_audio: AudioStreamPlayer
+
 signal showEnd
 signal swearNoteHit
 signal swearNoteMiss
@@ -67,6 +69,10 @@ func _unhandled_input(event: InputEvent) -> void:
 # rewind toggle logic
 func rewind_full_toggle(toggle_on : bool):
 	if(toggle_on):
+		
+		AudioServer.set_bus_solo(AudioServer.get_bus_index("Rewind"), true)
+
+		rewind_audio.play()
 		# reset censor & fast-forward
 		censor_toggle(false)
 		fast_forward_toggle(false)
@@ -75,11 +81,19 @@ func rewind_full_toggle(toggle_on : bool):
 		isRewinding = true
 		rewind_button.button_pressed = true
 		staticShader.visible = true
-		animation_player.play("game",-1,rewindSpeed,true)
+		
+		var pos = animation_player.current_animation_position
+		var rewind_time = 3.0
+		var speed = -(pos / rewind_time)
+		animation_player.play("game", -1, speed, true)
+		
 		%TalkShowGuest.get_child(0).visible = false
 		%TalkShowHost.get_child(0).visible = false
 		%censorDurationTimer.stop()
 	else:
+		
+		AudioServer.set_bus_solo(AudioServer.get_bus_index("Rewind"), false)
+		
 		isRewinding = false
 		rewind_button.button_pressed = false
 		staticShader.visible = false

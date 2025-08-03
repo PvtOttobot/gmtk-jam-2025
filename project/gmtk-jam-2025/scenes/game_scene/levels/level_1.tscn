@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://cnpss81rdulih"]
+[gd_scene load_steps=36 format=3 uid="uid://cnpss81rdulih"]
 
 [ext_resource type="Script" uid="uid://ck7cdjnnkm4aq" path="res://scenes/game_scene/tutorial_manager.gd" id="4_bsimd"]
 [ext_resource type="Script" uid="uid://n3xoftgesrkm" path="res://scenes/game_scene/game_manager.gd" id="4_w6i3l"]
@@ -17,6 +17,7 @@
 [ext_resource type="AudioStream" uid="uid://dkhshq61mikpj" path="res://assets/INTERVIEEEEE_48kH_24bit_Stereo.wav" id="10_k7aj6"]
 [ext_resource type="AudioStream" uid="uid://cltj47qa82rgq" path="res://assets/SWEAR_SOUNDS_48kH_24bit_Stereo.wav" id="11_d43mn"]
 [ext_resource type="Texture2D" uid="uid://v653yvu2fe4x" path="res://assets/characters/director/Chair piece front.PNG" id="12_5hj03"]
+[ext_resource type="AudioStream" uid="uid://b2mew0xssfa77" path="res://addons/maaacks_game_template/extras/scripts/3_sec_Strange_rewind_48kh_24bit_stereo.wav" id="12_k7aj6"]
 [ext_resource type="Texture2D" uid="uid://bpf0rl8fcmvn8" path="res://Talk show background.PNG" id="13_hehv2"]
 [ext_resource type="Texture2D" uid="uid://dj8vtvap21uv" path="res://assets/characters/director/Desk.PNG" id="14_1wmy8"]
 [ext_resource type="AudioStream" uid="uid://drjd7d35dj3gs" path="res://assets/buttons/Button_Push_In_96_Khz_24Bit_MONO.wav" id="14_5hj03"]
@@ -308,10 +309,11 @@ unique_name_in_owner = true
 script = ExtResource("4_bsimd")
 tutorial_scenes = Array[PackedScene]([ExtResource("5_fmabn")])
 
-[node name="GameManager" type="Node" parent="." node_paths=PackedStringArray("staticShader")]
+[node name="GameManager" type="Node" parent="." node_paths=PackedStringArray("staticShader", "rewind_audio")]
 unique_name_in_owner = true
 script = ExtResource("4_w6i3l")
 staticShader = NodePath("../RewindLayer/RewindShader")
+rewind_audio = NodePath("../AnimationManager/RewindManager")
 
 [node name="AnimationManager" type="AnimationPlayer" parent="."]
 unique_name_in_owner = true
@@ -321,22 +323,33 @@ libraries = {
 autoplay = "game"
 
 [node name="SFXManager" type="AudioStreamPlayer" parent="AnimationManager"]
-bus = &"SFX"
+bus = &"Music"
 
 [node name="MusicManager" type="AudioStreamPlayer" parent="AnimationManager"]
+bus = &"Music"
 
 [node name="AmbienceManager" type="AudioStreamPlayer" parent="AnimationManager"]
 volume_db = -80.0
+bus = &"Music"
 
 [node name="GuestDialogueManager" type="AudioStreamPlayer" parent="AnimationManager"]
+bus = &"Music"
 
 [node name="HostDialogueManager" type="AudioStreamPlayer" parent="AnimationManager"]
+bus = &"Music"
 
 [node name="PredictorManager" type="AudioStreamPlayer" parent="AnimationManager"]
+bus = &"Music"
 
 [node name="DrumsManager" type="AudioStreamPlayer" parent="AnimationManager"]
+bus = &"Music"
 
 [node name="SwearManager" type="AudioStreamPlayer" parent="AnimationManager"]
+bus = &"Music"
+
+[node name="RewindManager" type="AudioStreamPlayer" parent="AnimationManager"]
+stream = ExtResource("12_k7aj6")
+bus = &"Rewind"
 
 [node name="cast" type="Node2D" parent="."]
 

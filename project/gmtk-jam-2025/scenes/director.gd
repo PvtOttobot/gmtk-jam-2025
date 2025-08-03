@@ -106,15 +106,12 @@ func _on_director_feedback_timer_timeout() -> void:
 			display_emotion(Emotions.NEUTRAL,1)
 	else:
 		display_emotion(Emotions.POSITIVE, 1)
-	GameManager.has_hit_swear_note = false
-	override_emotion = false
+	GameManager.has_hit_swear_note = false #reset censor condition since last in feedback
 
 
 func _on_game_manager_censor_no_swear() -> void:
 	print("censoring when no swear")
-	if(override_emotion):
-		if (progressBar.value < ThreshholdAnger):
-			display_emotion(Emotions.NEGATIVE,1)
-		else:
-			display_emotion(Emotions.NEUTRAL,1)
-	override_emotion = true
+	if (progressBar.value < ThreshholdAnger):
+		display_emotion(Emotions.NEGATIVE,1)
+	else:
+		display_emotion(Emotions.NEUTRAL,1)

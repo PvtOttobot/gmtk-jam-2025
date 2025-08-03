@@ -16,8 +16,6 @@ var disable_censor: bool = false
 @export var censor_button_length : float = 0.25
 var current_talk_show_face : Sprite2D
 var has_hit_swear_note : bool = false
-var lastCensorTime : float = INF #for checking unrestricted isCensor
-var ristrictedLastCensorTime: float = 0.0 # for checking censorTime right before swear note
 @export var censor_forgivness : float = 20
 
 @export var staticShader: ColorRect
@@ -40,12 +38,9 @@ func _ready() -> void:
 	crt_shader = (crtShader.material as ShaderMaterial).duplicate()
 	crtShader.material = crt_shader
 
-
 func _process(delta: float) -> void:
 	# swearing logic
-	if(isCensoring):
-		lastCensorTime = animation_player.current_animation_position
-	if(isSwearing && isCensoring && !has_hit_swear_note):
+	if(isSwearing && isCensoring && !has_hit_swear_note && !%censorDurationTimer.is_stopped()):
 		has_hit_swear_note = true
 	# censor without swear
 	if(isCensoring && !isSwearing):
@@ -132,7 +127,7 @@ func fast_forward_toggle(toggle_on : bool):
 		isForwarding = false
 		fast_forward_button.button_pressed = false
 		animation_player.play("game")
-		
+
 # the function used to place swear notes
 func swear_note(duration: float, character : String) -> void:
 	# get character face
@@ -145,8 +140,7 @@ func swear_note(duration: float, character : String) -> void:
 	if(isRewinding):
 		return
 	
-	ristrictedLastCensorTime = animation_player.get_current_animation_position() - lastCensorTime
-	%censorDurationTimer.wait_time = duration
+	%censorDurationTimer.wait_time = duration*2
 	%censorDurationTimer.start()
 	isSwearing = true
 
@@ -161,7 +155,6 @@ func _on_director_pull_plug() -> void:
 	animate_tv_off()
 	lose_audio.play()
 	
-
 # all button sound effects
 func _on_button_toggled(toggled_on: bool) -> void:
 	if(toggled_on):
@@ -177,12 +170,7 @@ func _on_censor_popup_timer_timeout() -> void:
 func _on_censor_duration_timer_timeout() -> void:
 	current_talk_show_face.visible = false
 	isSwearing = false
-	# censor button before hit check
-	print("LastCensorTrue : ", ristrictedLastCensorTime <= censor_forgivness)
-	print(ristrictedLastCensorTime)
-	if(ristrictedLastCensorTime > censor_forgivness):
-		has_hit_swear_note = true
-		
+	
 	if (has_hit_swear_note):
 		swearNoteHit.emit()
 	else:

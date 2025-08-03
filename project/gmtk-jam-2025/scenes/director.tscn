@@ -79,6 +79,7 @@ texture = ExtResource("5_n4h3p")
 
 [node name="EmotionTimer" type="Timer" parent="Director/emotions"]
 unique_name_in_owner = true
+one_shot = true
 
 [node name="ProgressBar" type="ProgressBar" parent="."]
 layout_mode = 0

@@ -28,6 +28,7 @@ var crt_shader: ShaderMaterial
 @export var forwardSpeed : float = 2
 
 @export var rewind_audio: AudioStreamPlayer
+@onready var lose_audio: AudioStreamPlayer = $"../LoseAudio"
 
 signal showEnd
 signal swearNoteHit
@@ -73,6 +74,7 @@ func _unhandled_input(event: InputEvent) -> void:
 # rewind toggle logic
 func rewind_full_toggle(toggle_on : bool):
 	if(toggle_on):
+		lose_audio.stop()
 		
 		animate_tv_on()
 		
@@ -157,6 +159,8 @@ func animationEnd():
 func _on_director_pull_plug() -> void:
 	disable_fast_forward = true
 	animate_tv_off()
+	lose_audio.play()
+	
 
 # all button sound effects
 func _on_button_toggled(toggled_on: bool) -> void:

@@ -1,9 +1,10 @@
-[gd_scene load_steps=36 format=3 uid="uid://cnpss81rdulih"]
+[gd_scene load_steps=37 format=3 uid="uid://cnpss81rdulih"]
 
 [ext_resource type="Script" uid="uid://ck7cdjnnkm4aq" path="res://scenes/game_scene/tutorial_manager.gd" id="4_bsimd"]
 [ext_resource type="Script" uid="uid://n3xoftgesrkm" path="res://scenes/game_scene/game_manager.gd" id="4_w6i3l"]
 [ext_resource type="Texture2D" uid="uid://dr8wjljwtcpjm" path="res://assets/Celebrity guest with hands.PNG" id="5_85t3v"]
 [ext_resource type="PackedScene" uid="uid://b8vsxuuyong8g" path="res://scenes/game_scene/tutorials/tutorial_1.tscn" id="5_fmabn"]
+[ext_resource type="AudioStream" uid="uid://b6g0bp1y6vb3y" path="res://assets/gameplay/MUSIC_08_YOU_DIED_LOSER_48kH_24bit_Stereo.wav" id="5_vrqsl"]
 [ext_resource type="AudioStream" uid="uid://ba1a8loxkylue" path="res://assets/INTERVIER_48kH_24bit_Stereo.wav" id="5_yx5hq"]
 [ext_resource type="AudioStream" uid="uid://dk7ql8vx4aku2" path="res://assets/Audiance_Murmur_48Khz_24Bit_MONO.wav" id="6_5hj03"]
 [ext_resource type="Script" uid="uid://cjbqlir3qtkwv" path="res://scenes/game_scene/levels/level.gd" id="6_pmyid"]
@@ -329,6 +330,9 @@ staticShader = NodePath("../RewindLayer/RewindShader")
 crtShader = NodePath("../CRTLayer/CRTShader")
 rewind_audio = NodePath("../AnimationManager/RewindManager")
 
+[node name="LoseAudio" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_vrqsl")
+
 [node name="AnimationManager" type="AnimationPlayer" parent="."]
 unique_name_in_owner = true
 libraries = {
@@ -363,7 +367,6 @@ bus = &"Music"
 
 [node name="RewindManager" type="AudioStreamPlayer" parent="AnimationManager"]
 stream = ExtResource("12_k7aj6")
-bus = &"Rewind"
 
 [node name="cast" type="Node2D" parent="."]
 
@@ -471,6 +474,10 @@ one_shot = true
 unique_name_in_owner = true
 one_shot = true
 
+[node name="Timer" type="Timer" parent="."]
+unique_name_in_owner = true
+
 [connection signal="animation_finished" from="AnimationManager" to="GameManager" method="_on_animation_manager_animation_finished"]
 [connection signal="timeout" from="censorPopupTimer" to="GameManager" method="_on_censor_popup_timer_timeout"]
 [connection signal="timeout" from="censorDurationTimer" to="GameManager" method="_on_censor_duration_timer_timeout"]
+[connection signal="timeout" from="Timer" to="GameManager" method="_on_timer_timeout"]

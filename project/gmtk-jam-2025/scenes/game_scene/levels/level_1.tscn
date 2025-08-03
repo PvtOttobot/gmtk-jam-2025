@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=3 uid="uid://cnpss81rdulih"]
+[gd_scene load_steps=38 format=3 uid="uid://cnpss81rdulih"]
 
 [ext_resource type="Script" uid="uid://ck7cdjnnkm4aq" path="res://scenes/game_scene/tutorial_manager.gd" id="4_bsimd"]
 [ext_resource type="Script" uid="uid://n3xoftgesrkm" path="res://scenes/game_scene/game_manager.gd" id="4_w6i3l"]
@@ -27,6 +27,7 @@
 [ext_resource type="Texture2D" uid="uid://cshcwav7mwyqs" path="res://assets/characters/Guest swear face.PNG" id="15_mkaae"]
 [ext_resource type="Texture2D" uid="uid://bqjatrnogncsw" path="res://assets/characters/Host swear face.PNG" id="18_k7aj6"]
 [ext_resource type="Texture2D" uid="uid://chjgl4x57nstx" path="res://assets/Tv frame.PNG" id="19_1wmy8"]
+[ext_resource type="Texture2D" uid="uid://d3y5lj5xkiv7n" path="res://assets/ui/kenney_board-game-icons/PNG/Double (128px)/arrow_counterclockwise.png" id="25_y3h4k"]
 
 [sub_resource type="Animation" id="Animation_sycfm"]
 length = 0.001
@@ -448,6 +449,29 @@ custom_minimum_size = Vector2(720, 720)
 offset_right = 720.0
 offset_bottom = 720.0
 
+[node name="screenShutOffPopup" type="Node2D" parent="CRTLayer"]
+unique_name_in_owner = true
+visible = false
+position = Vector2(359.07, 247.24)
+
+[node name="Label" type="Label" parent="CRTLayer/screenShutOffPopup"]
+offset_left = -160.0
+offset_top = 2.0
+offset_right = 273.0
+offset_bottom = 136.0
+theme_override_font_sizes/font_size = 76
+text = "REWIND"
+
+[node name="Sprite2D" type="Sprite2D" parent="CRTLayer/screenShutOffPopup"]
+modulate = Color(0.494118, 0.945098, 0.701961, 1)
+position = Vector2(-22, 188)
+scale = Vector2(1.45313, 1.45313)
+texture = ExtResource("25_y3h4k")
+
+[node name="CRTPopupTimer" type="Timer" parent="CRTLayer"]
+unique_name_in_owner = true
+one_shot = true
+
 [node name="RewindLayer" type="CanvasLayer" parent="."]
 layer = 0
 
@@ -478,6 +502,7 @@ one_shot = true
 unique_name_in_owner = true
 
 [connection signal="animation_finished" from="AnimationManager" to="GameManager" method="_on_animation_manager_animation_finished"]
+[connection signal="timeout" from="CRTLayer/CRTPopupTimer" to="GameManager" method="_on_crt_popup_timer_timeout"]
 [connection signal="timeout" from="censorPopupTimer" to="GameManager" method="_on_censor_popup_timer_timeout"]
 [connection signal="timeout" from="censorDurationTimer" to="GameManager" method="_on_censor_duration_timer_timeout"]
 [connection signal="timeout" from="Timer" to="GameManager" method="_on_timer_timeout"]
